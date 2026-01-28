@@ -1,0 +1,932 @@
+/* Root variables */
+:root {
+    /* Document measurements */
+    --paper-width: 8.5in;
+    --paper-margin: 1in;
+
+    /* Typography */
+    --base-font-size: 12pt;
+    --paper-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    /* Colors */
+    --text-color: #333333;
+    --background-color: #ffffff;
+
+    /* Effects */
+    --hover-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --hover-bg: rgba(255, 255, 255, 0.1);
+    --popup-z-index: 9999;
+}
+
+/* Base styles */
+body {
+    font-family: var(--paper-font);
+    font-size: var(--base-font-size);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- UNIFY CURSOR STYLES --- */
+/* Forces the "Hand" cursor on all interactive elements */
+a,
+button,
+.video-trigger,              /* The images that open videos */
+.zoomable-image,             /* Images inside popups */
+.close-popup,                /* The 'X' buttons */
+.methods-section-link,       /* The transparent overlay links */
+.fluorescent-reporter-section-link,
+.F3A-container img,          /* Specific interactive images in Fig 3 */
+.F3B-container img,
+.F3C-container img {
+    cursor: pointer !important;
+}
+
+/* Scientific paper layout */
+.scientific-paper {
+    max-width: var(--paper-width);
+    margin: 0 auto;
+    padding: var(--paper-margin);
+    overflow: visible;
+}
+
+/* Title section styles */
+.title-header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 0;
+}
+
+.title {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.title-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* General link styles */
+a {
+    text-decoration: none;
+}
+
+/* Reference links (italic, not bold) */
+.introduction a[href^="#ref"],
+.results a[href^="#ref"],
+.discussion a[href^="#ref"],
+.materials-and-methods a[href^="#ref"] {
+    font-style: italic;
+    font-weight: normal; /* Not bold */
+}
+
+/* Hover effect for reference links */
+.introduction a[href^="#ref"]:hover,
+.results a[href^="#ref"]:hover,
+.discussion a[href^="#ref"]:hover,
+.materials-and-methods a[href^="#ref"]:hover {
+    color: #d01c8b !important;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold; /* Keep normal weight */
+}
+
+/* Figure and section links (bold) */
+.results-text a {
+    font-weight: bold;
+}
+
+/* Hover effect for figure/section links */
+.results-text a:hover {
+    color: #d01c8b !important;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+/* Author links */
+.authors a:hover {
+    color: #d01c8b !important;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Corresponding author links */
+.corresponding-author a:hover {
+    color: #276419 !important;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Affiliations links */
+.affiliations a:hover {
+    color: #d01c8b !important;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+/* Research figures */
+.results-section {
+    /* width: 100%; */
+    max-width: var(--paper-width);
+    margin: 2em auto;
+    padding: 0;
+    overflow: visible;
+    position: relative;
+}
+
+.results-text p {
+    margin-bottom: 1.2em;
+}
+
+/* Links within results text */
+.results-text a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.results-text a:hover {
+  color: #d01c8b !important;
+
+    text-decoration: underline;
+    font-style: italic;
+
+}
+
+.methods-section-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 10;
+    border-radius: 15px;
+}
+
+.methods-section-link:hover {
+    background-color: rgba(208,28,139,0.1);
+    cursor: pointer;
+    border-radius: 15px;
+}
+.fluorescent-reporter-section-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 10;
+    border-radius: 15px;
+}
+
+.fluorescent-reporter-section-link:hover {
+    background-color: rgba(77,172,38,0.1);
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
+/********* FIGURE 1 STYLES ************/
+.F1-container > div {
+    width: 100%; /* Ensure grid items take full width of grid */
+}
+
+.F1B-container,
+.F1C-container,
+.F1D-container,
+.F1F-container,
+{
+    position: relative;
+}
+
+/* Fix for Figure 1 Click-to-Zoom cursors */
+.F1B-container img,
+.F1C-container img,
+.F1F-container img {
+    cursor: pointer !important;
+}
+
+.F1-container {
+    position: relative;
+    max-width: var(--paper-width); /* Ensure it doesn't exceed the page width */
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Ensure images within the container do not exceed the container width */
+.F1-container img {
+    max-width: 100%; /* Ensure images scale down to fit */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Grid layout adjustments */
+.F1-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 columns */
+    grid-template-rows: auto auto auto; /* 3 rows */
+    gap: 10px; /* Gap between grid items */
+    width: 100%; /* Ensure it matches the container width */
+    max-width: 100%; /* Prevent overflow */
+}
+.F1A-container {
+    position: relative;
+}
+
+.F1A-container img {
+    width: 98%;  /* Scale image to 90% of container width */
+    margin: 2% auto;  /* Center the image and add vertical margin */
+    display: block;  /* Ensure margins work with block display */
+}
+
+
+.F1D-container {
+    position: relative;
+}
+
+.F1D-container img {
+    width: 98%;  /* Scale image to 90% of container width */
+    margin: 2% auto;  /* Center the image and add vertical margin */
+    display: block;  /* Ensure margins work with block display */
+}
+
+/* Panel A spans full width */
+#F1A {
+    grid-column: span 3;
+}
+
+/* Panels B, C, D in first content row */
+#F1B, #F1C, #F1D {
+    grid-row: 2;
+}
+
+/* Panels E, F, G in second content row */
+#F1E, #F1F, #F1G {
+    grid-row: 3;
+}
+
+/* --- Unique Styling for Figure 1H Iframe --- */
+
+.F1H-interactive-frame {
+    width: 100%;
+    
+    /* RESPONSIVE HEIGHT */
+    height: 40vh;       /* Takes up 40% of the screen height (half of a typical view) */
+    min-height: 350px;  /* Safety net: stops it from getting too short on mobile */
+    
+    border: none;
+    border-radius: 4px;
+    display: block;
+    background-color: #ffffff;
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure the parent container spans the full grid width (as before) */
+#F1H {
+    grid-column: span 3;
+    /* Flex column ensures the caption stays above the iframe */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Contains the iframe cleanly */
+}
+
+/* Force the plot container to have height */
+#plot-1H {
+    min-height: 300px;
+    width: 100%;
+    display: block;
+}
+
+/********* FIGURE 2 STYLES ************/
+
+/* --- Outer Container (Breaks out of text margins) --- */
+.F2-container {
+    width: 120%;        
+    margin-left: -10%;  
+    margin-right: -10%; 
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Space between Row A, Row B, Row C */
+    margin-bottom: 3em;
+}
+
+/* --- The Row Wrapper --- */
+.F2-pair-container {
+    display: grid;
+    width: 100%;
+    
+    /* CHANGE 1: Align items to the top (start) instead of center */
+    align-items: start; 
+    
+    grid-template-columns: 1fr; 
+    gap: 15px;
+}
+
+/* --- DESKTOP LAYOUT --- */
+@media (min-width: 768px) {
+    .F2-pair-container {
+        grid-template-columns: 1.5fr 1fr; 
+        column-gap: 15px;
+    }
+}
+
+/* --- Plot Containers (Right Side) --- */
+.F2-growth-plot {
+    width: 100%;
+    height: 300px; 
+    min-height: 300px;
+    position: relative;
+    
+    /* CHANGE 2: Push the plot down to clear the text header height */
+    /* Adjust this value (e.g., 40px, 50px) until it lines up perfectly */
+    margin-top: 25px; 
+}
+
+
+/* --- Image Containers (Left Side) --- */
+.F2A-container,
+.F2B-container,
+.F2C-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Force images to fill their 2/3rds column */
+.F2A-container img,
+.F2B-container img,
+.F2C-container img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Prevent them from getting excessively tall */
+    object-fit: contain;
+    display: block;
+}
+
+/* --- Plot Containers (Right Side) --- */
+/* .F2-growth-plot {
+    width: 100%;
+    /* Match height to image roughly, or let it adapt */
+    height: 300px; 
+    min-height: 300px;
+    position: relative;
+} */
+
+/* Remove top margin from plots when using horizontal captions */
+.F2-growth-plot {
+    margin-top: 0 !important;
+}
+
+/* --- Figure 2D (Bottom Boxplot) --- */
+.F2D-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.F2D-container .vertical-caption-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.F2D-container .caption {
+    font-weight: bold;
+    font-size: 26px;
+    margin-right: 10px;
+}
+
+.F2D-container .vertical-line {
+    width: 3px;
+    background-color: black;
+    height: 100%;
+}
+
+/* Switch F2D to full width for horizontal mode */
+.F2D-boxplot {
+    width: 100% !important;
+    margin-left: 0 !important;
+    min-height: 350px;
+
+}
+
+/********* FIGURE 3 STYLES ************/
+.F3-container {
+  width: 150%;  /* Match F2 container width */
+  margin-left: -25%;  /* Match F2 container margin */
+  margin-right: -25%;  /* Match F2 container margin */
+  align-items: center;
+}
+
+/* Set the F3-grid to have a fixed width of 120% */
+.F3-grid {
+  display: grid;
+  grid-template-columns: 33fr 25fr 42.5fr;
+  grid-auto-rows: auto; /* Let height adjust automatically */
+  grid-gap: 10px;
+  width: 100%; /* Match your requirement */
+
+}
+
+/* Image containers - make them match the plots */
+.F3A-container, .F3B-container, .F3C-container {
+  width: 100%;  /* Ensure full width */
+    height: auto; /* Allow natural height */
+  padding-right: 10px;
+}
+
+/* Images inside containers */
+.F3A-container img, .F3B-container img, .F3C-container img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+/* Plot containers - keep consistent height */
+.F3-plot {
+  width: 100%;  /* Ensure full width */
+  height: auto; /* Allow natural height */
+  min-width: 0; /* Prevent overflow */
+}
+
+/* Make the vertical image fill the height of its grid area */
+.F3-vertical-image {
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  position: relative;
+  display: flex;
+  align-items: left; /* Stretch to fill available space */
+  justify-content: center;
+  height: 100%; /* Fill the entire grid area height */
+}
+
+.F3-vertical-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Maintain aspect ratio while filling space */
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.F3D-container {
+  position: relative; /* Create positioning context */
+  max-height: 100%;
+  grid-column: 1 / span 3;
+  overflow: visible;
+}
+
+.F3D-container .F3-boxplot {
+  margin-left: 40px; /* Make space for caption + line */
+  width: calc(100% - 40px); /* Adjust width to account for margin */
+}
+
+/* Add this to your CSS */
+#plot-3D {
+    margin-left: 40px !important;
+    margin-right: 0px !important;
+
+    margin-top: 100px !important;
+    margin-bottom: 0px !important;
+}
+
+
+/* Sankey container at the bottom */
+.F3EF-container {
+  grid-column: 1 / span 3;
+}
+
+/* Sankey container styling */
+.sankey-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Reduce gap for better fit */
+  width: 100%;  /* Ensure full width */
+  height: auto; /* Allow natural height */
+}
+
+/* Wrapper for each sankey plot and its caption */
+.sankey-wrapper {
+  flex: 1;
+  position: relative;
+  min-width: 0; /* Prevents overflow */
+}
+
+/* Sankey plot styling */
+.sankey-plot {
+  width: 100%;
+  height: auto;
+  margin-left: 30px; /* Slightly smaller margin */
+}
+
+/* Caption container position */
+.sankey-wrapper .vertical-caption-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+/* Caption styling */
+.sankey-wrapper .vertical-caption-container .caption {
+  font-weight: bold;
+  font-size: 26px;
+  margin-right: 10px;
+}
+
+/* Vertical line styling */
+.sankey-wrapper .vertical-line {
+  width: 3px;
+  height: 100%;
+  background-color: black;
+  margin-top: 8px;
+}
+
+/********* FIGURE 4 STYLES ************/
+.F4-container {
+  width: 130%;  /* Keep your current width */
+  margin-left: auto;
+  margin-right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1600px;
+  overflow: visible;
+}
+
+
+
+
+/* Improve container alignment */
+.F4A-container,
+.F4B-container,
+.F4C-container,
+.F4D-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  position: relative;
+}
+
+/* Ensure content is centered properly */
+.F4A-container img,
+.F4C-container img,
+.F4D-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: 40px; /* Space for caption */
+  width: calc(100% - 40px);
+}
+
+/* Center the plot properly */
+.F4B-container .F4-plot {
+  width: calc(100% - 40px);
+  margin-left: 40px;
+  min-height: 500px;
+
+}
+
+.F4-plot {
+  width: 100%;
+  height: 100% !important; /* Match the iframe height */
+  position: relative;
+  /* overflow: hidden; */
+}
+
+#plot-4B {
+  width: calc(100% - 40px) !important;
+  height: 100% !important;
+  min-height: 500px !important;
+  margin-left: 40px !important;
+}
+
+/* Make sure Plotly elements respect container size */
+.F4-plot .js-plotly-plot,
+.F4-plot .plot-container,
+.F4-plot .svg-container {
+  max-width: 100% !important;
+  height: 100% !important;
+}
+
+.F4A-container .vertical-caption-container,
+.F4B-container .vertical-caption-container,
+.F4C-container .vertical-caption-container,
+.F4D-container .vertical-caption-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 40px; /* Constrain width */
+  overflow: visible;
+}
+
+.F4-container .vertical-caption-container .caption {
+  font-weight: bold;
+  font-size: 26px;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+.F4-container .vertical-line {
+  width: 3px;
+  height: 100%;
+  background-color: black;
+  margin-top: 0;
+}
+
+/* Create proper margin for content in Figure 4 containers */
+.F4A-container img,
+.F4C-container img,
+.F4D-container img,
+.F4B-container .F4-plot {
+  margin-left: 40px; /* Consistent margin to accommodate caption */
+  width: calc(100% - 40px); /* Adjust width to maintain container bounds */
+}
+
+/* Fix container positioning issues */
+.F4A-container,
+.F4B-container,
+.F4C-container,
+.F4D-container {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+/********* CAPTION STYLES ************/
+.horizontal-caption-container {
+    display: flex;
+    flex-direction: column; /* Stack caption and line vertically */
+    align-items: flex-start; /* Align items to the left */
+    margin-bottom: 10px; /* Space between the line and the plot */
+}
+
+.horizontal-caption-container .caption {
+    font-weight: bold;
+    font-size: 26px;
+    margin-bottom: 2px; /* Space between the caption and the line */
+}
+
+.horizontal-line {
+    width: 100%; /* Make the line extend the full width of the container */
+    height: 3px; /* Thickness of the line */
+    background-color: black; /* Color of the line */
+}
+
+.vertical-caption-container {
+    position: absolute; /* Take out of normal flow */
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.vertical-caption-container .caption {
+    font-weight: bold;
+    font-size: 26px;
+    margin-right: 10px;
+}
+
+.vertical-line {
+    width: 3px;
+    height: 100%; /* Match the container height */
+    background-color: black;
+    margin-top: 0px;
+}
+
+
+/* css/styles.css */
+
+/* =========================================
+   GENERIC POP UP STYLES (Flexbox Centering)
+   ========================================= */
+
+/* 1. Base Popup Container */
+.image-popup, 
+.video-popup {
+    /* Hidden by default; JS will set this to 'flex' */
+    display: none; 
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* This centers the content perfectly without 'transform' side effects */
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+/* 2. The Close Button (Pinned to Viewport Corner) */
+.close-popup {
+    position: fixed; /* Stick to the browser window */
+    top: 20px;       /* Push slightly up */
+    right: 20px;     /* Push slightly right (into the corner) */
+    
+    color: #ffffff;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 0.8;
+    
+    cursor: pointer !important;
+    z-index: 10005; 
+    pointer-events: auto; 
+    
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.close-popup:hover {
+    color: #d01c8b; 
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* 3. Content Wrapper */
+.popup-content,
+.video-container {
+    /* No absolute positioning needed - Flexbox parent handles centering */
+    position: relative; 
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: 90vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background: transparent;
+    pointer-events: none; /* Let clicks pass through to background */
+}
+
+/* 4. Media Elements */
+.zoomable-image,
+.popup-video {
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    
+    pointer-events: auto; /* Re-enable clicks */
+    transform-origin: center center; 
+}
+
+.hover-preview-wrapper {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: sans-serif;
+    white-space: nowrap;
+}
+
+/* --- Special Styling for Figure 2D/4B Hover Tooltip --- */
+/* This targets ONLY the interactive plot hover video, nothing else */
+#video-tooltip {
+    /* Keep width the same (250px) but double the height */
+    width: 250px !important;
+    height: 500px !important;
+
+    /* Ensure placement logic remains solid */
+    position: fixed;
+    z-index: 10000; /* Stays on top of everything */
+    
+    /* Styling to match your theme */
+    background: black;
+    border: 2px solid white;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    
+    /* Functional properties */
+    overflow: hidden;
+    pointer-events: none; /* Ignore mouse clicks so it doesn't block the plot */
+}
+
+/* Ensure the video fills this new tall container */
+#video-tooltip video {
+    width: 100%;
+    height: 100%;
+    /* 'cover' fills the tall box (cropping sides). 
+       Change to 'contain' if you want to see the whole video with black bars. */
+    object-fit: cover; 
+}
+
+
+/* --- SCALE BAR & CONTAINER STYLES (Updated) --- */
+
+/* 1. The Container (Target of the Zoom) */
+.zoomable-image-container {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+    transform-origin: center center;
+    pointer-events: auto;
+    cursor: grab;
+    
+    /* UPDATED: Reduced size to 80% so it feels less "close up" initially */
+    max-width: 40vw;
+    max-height: 40vh;
+}
+
+/* 2. The Image inside */
+.zoomable-image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* 3. The Scale Bar Wrapper */
+.scale-bar {
+    position: absolute;
+    /* Positioned in bottom right corner of the IMAGE */
+    bottom: -140px; 
+    right: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align text to the right edge of the bar */
+    pointer-events: none;
+    z-index: 10;
+    
+    /* Add a slight drop shadow filter to the whole group for contrast */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+}
+
+/* Add to bottom of css/styles.css */
+
+/* Standard Scale Bar (For Fig 1B - Single Tile) */
+.scale-line {
+    width: 123.23px; /* Represents 50µm on a 323µm image */
+    height: 6px;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 2px;
+}
+
+/* Mosaic Scale Bar (For Fig 1C & 1F - 3x3 Grid) */
+.scale-line-mosaic {
+    width: 44px;    /* Represents 50µm on a 904µm image */
+    height: 6px;    /* Keep thickness consistent */
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 2px;
+}
+
+/* 5. The Text Label (Bolder & Larger) */
+.scale-text {
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;       /* Larger font */
+    font-weight: 900;      /* Extra Bold / Black */
+    line-height: 1;
+    text-transform: lowercase; /* Optional: keeps 'µm' looking clean */
+}
