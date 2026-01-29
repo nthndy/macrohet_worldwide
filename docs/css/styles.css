@@ -828,8 +828,8 @@ a {
 /* This targets ONLY the interactive plot hover video, nothing else */
 #video-tooltip {
     /* Keep width the same (250px) but double the height */
-    width: 250px !important;
-    height: 500px !important;
+    width: 500px !important;
+    height: 250px !important;
 
     /* Ensure placement logic remains solid */
     position: fixed;
