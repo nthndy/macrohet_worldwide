@@ -6,8 +6,7 @@
 
     /* Typography */
     --base-font-size: 12pt;
-    --paper-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+    --paper-font: "Helvetica Neue", Helvetica, "Nimbus Sans", Arial, sans-serif;
     /* Colors */
     --text-color: #333333;
     --background-color: #ffffff;
@@ -16,6 +15,11 @@
     --hover-shadow: 0 2px 10px rgba(0,0,0,0.1);
     --hover-bg: rgba(255, 255, 255, 0.1);
     --popup-z-index: 9999;
+}
+
+/* Enable the "swish" smooth scroll globally */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Base styles */
@@ -53,24 +57,294 @@ button,
 }
 
 /* Title section styles */
-.title-header {
+/* Container forces a square aspect ratio */
+.title-container {
     position: relative;
     width: 100%;
-    height: auto;
+    aspect-ratio: 1 / 1; 
+    margin-bottom: 3rem;
     overflow: hidden;
-    margin: 0;
-}
-
-.title {
-    position: relative;
-    width: 100%;
-    height: auto;
+    border-radius: 24px;
+    /* Set background to transparent or white to avoid a black 'ghost' border */
+    background-color: transparent; 
 }
 
 .title-image {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 100%;
+    /* display: block is the key to removing the tiny line at the bottom */
+    display: block; 
+    /* Use 'cover' to ensure it fills the square perfectly without borders */
+    object-ratio: cover;
+    border-radius: 24px;
+    border: none; /* Explicitly remove any browser-default borders */
+    outline: none;
+}
+
+/* If you must use 'contain' to see the very edges, 
+   set the background to white to match the page */
+.title-image-alt {
+    object-fit: contain;
+    background-color: #ffffff; 
+}
+
+/* Adjusting the overlay to sit within the square bounds */
+.overlay {
+    position: absolute;
+    top: 45%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Slightly wider to better fit the square frame */
+    max-height: 60%;
+    max-width: 800px;
+    
+    background: rgba(255, 255, 255, 0.12); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* The Keynote Title Styling with Fluid Typography */
+.title-heading {
+    color: #ffffff;
+    font-family: "Helvetica", "Nimbus Sans", sans-serif;
+    
+    /* clamp(minimum, preferred, maximum) */
+    /* This ensures text is never smaller than 1.5rem and never larger than 3rem */
+    font-size: clamp(1.5rem, 5vw, 3rem); 
+    
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Small Subtitle/Abstract Hook with Fluid Scaling */
+.title-heading::after {
+    content: "Interactive Research Manuscript";
+    display: block;
+    
+    /* Scales between 0.8rem and 1.2rem */
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    color: #a6d96a;
+    -webkit-text-fill-color: initial;
+}
+
+/* Ensure the overlay handles the space correctly */
+.overlay {
+    position: absolute;
+    top: 45%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%; /* Increased slightly for better mobile padding */
+    max-height: 80%; /* Increased to prevent clipping of the frosted box itself */
+    max-width: 800px;
+    
+    background: rgba(255, 255, 255, 0.12); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    padding: clamp(1rem, 3vw, 2.5rem); /* Fluid padding inside the glass box */
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden; /* Keeps the fluid content contained */
+}
+
+/* Ensure the link doesn't add unwanted underlines or colors to your title */
+.title-link {
+    text-decoration: none;
+    display: block;
+    cursor: pointer !important; /* Forces the "Hand" cursor */
+}
+
+/* Optional: Subtle Apple-style hover effect */
+.title-link:hover .title-image {
+    transform: scale(1.02); /* Slight zoom on hover */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Sleek, easing transition */
+}
+
+.title-link:hover .overlay {
+    background: rgba(255, 255, 255, 0.18); /* Slight brighten on hover */
+    transition: background 0.3s ease;
+}
+
+/* Author links */
+
+.authors {
+    display: flex;
+    font-weight: bold;
+    font-size: 1.25rem;     /* Slightly smaller for hierarchy */
+    flex-wrap: wrap;       /* Allows names to wrap to next line if needed */
+    justify-content: center; /* Centers the whole block of names */
+    gap: 2px;             /* Even spacing between names */
+    width: 100%;
+    margin: 0px auto;
+    line-height: 1.1;
+    text-align: center;
+}
+
+/* Corresponding author container */
+.corresponding-author {
+    display: flex;          /* Enables flexbox for centering */
+    justify-content: center; /* Centers the content horizontally */
+    width: 100%;            /* Ensures it spans the full paper width */
+    margin-top: 10px;       /* Adds space below the author names */
+    text-align: center;     /* Fallback for older browsers */
+}
+
+/* Corresponding author links (Hover state) */
+.corresponding-author a:hover {
+    color: #276419 !important;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Ensure the container is normal (non-italicised) */
+.corresponding-author address {
+    font-size: 1rem;     /* Slightly smaller for hierarchy */
+    font-style: normal;
+    font-family: var(--paper-font); /* Inherits your unified Helvetica stack */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1px;
+}
+
+/* Make only the email link italicised */
+.corresponding-author address a {
+    font-style: italic;
+    color: var(--text-color); /* Matches your document's base color */
+    text-decoration: none;
+    padding-left: 4px;
+}
+
+/* Hover effect for the email */
+.corresponding-author address a:hover {
+    color: #276419 !important;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Affiliations container */
+.affiliations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 0.5rem;
+    gap: 0.1rem;
+}
+
+/* Address text properties */
+.affiliations address {
+    font-size: 0.8rem;
+    max-width: 80%;
+    line-height: 1.1;
+    font-style: normal;
+}
+
+/* Unified hover and JavaScript-active states */
+.affiliations a:hover,
+.affiliations a.active-affiliation {
+    color: #d01c8b !important;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Author names (Base state) */
+.author-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #000000; 
+    text-decoration: none;
+    outline: none;
+}
+
+/* Author names (Hover state) */
+.author-dropdown:hover {
+    color: #276419;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Dropdown container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 140px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+    border: 1px solid #d1d1ca;
+    border-radius: 4px;
+    text-align: left;
+    top: 100%;
+    left: 0;
+}
+
+/* Reveal dropdown on click/focus */
+.author-dropdown:focus .dropdown-content,
+.author-dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+/* Dropdown links (Base state) - Resets inheritance from parent hover */
+.dropdown-content a {
+    color: #333333;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Nimbus Sans', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* Dropdown links (Hover state) */
+.dropdown-content a:hover {
+    background-color: #f1b6da;
+    color: #000000;
+}
+
+/* -- SPLIT HOVER COLOURS FOR AUTHORS AND SUPERSCRIPTS -- */
+
+/* 1. Base state for the superscript links */
+.author-dropdown a[href^="#aff"] {
+    color: inherit;            /* Starts black, blending with the name */
+    text-decoration: none;     /* Prevents standard link underlines */
+}
+
+/* 2. When the main author block is hovered: 
+      The name turns green (via your existing rule), 
+      BUT we force the superscript links to turn magenta */
+.author-dropdown:hover a[href^="#aff"] {
+    color: #d01c8b !important; /* Overrides the green inherited from the name */
+    font-style: normal;        /* Keeps the number upright while the name goes italic */
+    display: inline-block;     /* Prevents the name's underline from striking through the number */
+}
+
+/* 3. When hovering explicitly over the superscript number itself */
+.author-dropdown a[href^="#aff"]:hover {
+    font-weight: 900;
+    transform: scale(1.15);    /* Adds a subtle 'pop' so you know it's a separate button */
+    transition: transform 0.2s ease;
 }
 
 /* General link styles */
@@ -98,6 +372,76 @@ a {
     font-weight: bold; /* Keep normal weight */
 }
 
+
+/* --- GLASSMORPHISM SECTION HEADINGS --- */
+
+.glass-heading {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 1;
+    text-align: center; 
+    width: 100%;             /* Fits exactly within your text column */
+    margin: 3rem auto 2rem auto; /* Centers the box itself, with top/bottom spacing */
+    box-sizing: border-box;  /* Ensures padding doesn't push it off-center */
+}
+
+/* The blurred image background */
+.glass-heading::before {
+    content: "";
+    position: absolute;
+    top: -40px; 
+    left: -40px; 
+    right: -40px; 
+    bottom: -40px;
+    background-image: url('/images/landing_img.png');
+    background-position: center; /* Ensures the central region is captured */
+    background-size: cover;
+    filter: blur(12px) brightness(1); /* Frosted and darkened */
+    z-index: -1;
+}
+
+/* Adding the glass sheen over the top */
+.glass-heading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Subheading Style (H3) */
+section h3 {
+    position: relative;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-align: left;
+    
+    /* Left anchor line using the palette green */
+    border-left: 4px solid #a6d96a; 
+    
+    /* Subtle fade-out background using the same green, heavily transparent */
+    background: linear-gradient(90deg, rgba(166, 217, 106, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 0 8px 8px 0; 
+}
+
 /* Figure and section links (bold) */
 .results-text a {
     font-weight: bold;
@@ -110,29 +454,6 @@ a {
     font-style: italic;
 }
 
-/* Author links */
-.authors a:hover {
-    color: #d01c8b !important;
-    text-decoration: underline;
-    font-style: italic;
-    font-weight: bold;
-}
-
-/* Corresponding author links */
-.corresponding-author a:hover {
-    color: #276419 !important;
-    text-decoration: underline;
-    font-style: italic;
-    font-weight: bold;
-}
-
-/* Affiliations links */
-.affiliations a:hover {
-    color: #d01c8b !important;
-    text-decoration: underline;
-    font-style: italic;
-    font-weight: bold;
-}
 
 
 /* Research figures */
@@ -828,8 +1149,10 @@ a {
 /* This targets ONLY the interactive plot hover video, nothing else */
 #video-tooltip {
     /* Keep width the same (250px) but double the height */
-    width: 500px !important;
-    height: 250px !important;
+    width: 750px !important;
+    height: auto !important;     /* Let height adjust automatically */
+    aspect-ratio: 1696 / 750;    /* Precision ratio derived from your file */
+    object-fit: cover;
 
     /* Ensure placement logic remains solid */
     position: fixed;
