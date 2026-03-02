@@ -731,30 +731,306 @@ section h3 {
   object-fit: contain;
 }
 
+/********* SUPPLEMENTARY FIGURE S1 STYLES ************/
+
+.S1-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px;
+    width: 100% !important;
+    align-items: start;
+}
+
+/* Force A, B, C, and D to span both columns */
+.S1A-container,
+.S1B-container,
+.S1C-container,
+.S1D-container {
+    grid-column: 1 / -1 !important;
+    width: 100%;
+    height: auto;
+}
+
+/* Explicitly place E, F, G, H in their respective 2-column rows */
+.S1E-container { grid-column: 1 !important; }
+.S1F-container { grid-column: 2 !important; }
+.S1G-container { grid-column: 1 !important; }
+.S1H-container { grid-column: 2 !important; }
+
+/* Keep containers constrained */
+.S1-container > div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-width: 0 !important;
+}
+
+/* Image constraints */
+.S1-container img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/********* SUPPLEMENTARY FIGURE S2 STYLES ************/
+
+.S2-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* Single column layout */
+    gap: 40px; /* Slightly larger gap for clear separation between large vertical panels */
+    width: 100% !important;
+    align-items: start;
+}
+
+/* Container constraints */
+.S2A-container,
+.S2B-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-width: 0 !important;
+}
+
+/* Image constraints */
+.S2-container img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/********* SUPPLEMENTARY FIGURE S3 STYLES ************/
+.S3-container {
+    display: block !important; /* No grid needed for a single element */
+    width: 100% !important;
+    position: relative;
+    margin-bottom: 40px; /* Space before S4 */
+}
+
+/* Image constraints */
+.S3-container img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/********* SUPPLEMENTARY FIGURE S4 STYLES ************/
+
+.S4-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* Single column vertical stack */
+    gap: 40px; 
+    width: 100% !important;
+    align-items: start;
+    margin-bottom: 40px;
+}
+
+/* Container constraints */
+.S4A-container,
+.S4B-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-width: 0 !important;
+}
+
+/* Image constraints */
+.S4-container img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/********* SUPPLEMENTARY FIGURE S3 STYLES ************/
+.S5-container {
+    display: block !important; /* No grid needed for a single element */
+    width: 100% !important;
+    position: relative;
+    margin-bottom: 40px; /* Space before S4 */
+}
+
+/* Image constraints */
+.S5-container img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/********* SUPPLEMENTARY FIGURE S6 STYLES ************/
+
+.S6-container {
+    display: grid !important;
+    grid-template-columns: 2.5fr 1fr !important; /* Forces the 75% / 25% split for B and C */
+    gap: 20px;
+    width: 100% !important;
+    align-items: start; /* Prevents vertical stretching distortion between asymmetric columns */
+    margin-bottom: 40px;
+}
+
+/* Force A to span across the top of both columns */
+.S6A-container {
+    grid-column: 1 / -1 !important;
+    width: 100%;
+    height: auto;
+}
+
+/* Explicit placement for B and C in the second row */
+.S6B-container {
+    grid-column: 1 !important;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    min-width: 0 !important;
+}
+
+.S6C-container {
+    grid-column: 2 !important;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    min-width: 0 !important;
+}
+
+/* Constrain images to respect the grid boundaries */
+.S6-container img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/********* SUPPLEMENTARY FIGURE S7 STYLES ************/
+
+.S7-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* Single column vertical stack */
+    gap: 40px; 
+    width: 100% !important;
+    align-items: start;
+    margin-bottom: 40px;
+}
+
+/* Container constraints for all 5 panels */
+.S7A-container,
+.S7B-container,
+.S7C-container,
+.S7D-container,
+.S7E-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-width: 0 !important;
+}
+
+/* Image constraints */
+.S7-container img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/********* SUPPLEMENTARY FIGURE S8 STYLES ************/
+
+.S8-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* 3-column layout */
+    gap: 20px;
+    width: 100% !important;
+    align-items: start;
+    margin-bottom: 40px;
+}
+
+/* Force A and B to span across all 3 columns */
+.S8A-container,
+.S8B-container {
+    grid-column: 1 / -1 !important;
+    width: 100%;
+    height: auto;
+}
+
+/* C through H automatically flow into the 3 columns */
+.S8C-container,
+.S8D-container,
+.S8E-container,
+.S8F-container,
+.S8G-container,
+.S8H-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-width: 0 !important;
+}
+
+/* Image constraints */
+.S8-container img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 2px;
+}
 
 /********* CAPTION STYLES ************/
 .horizontal-caption-container {
     display: flex;
     flex-direction: column; /* Stack caption and line vertically */
     align-items: flex-start; /* Align items to the left */
-    margin-bottom: 10px; /* Space between the line and the plot */
+    margin-bottom: 15px; /* Space between the line and the plot */
 }
 
 .horizontal-caption-container .caption {
     font-weight: bold;
-    font-size: 26px;
-    margin-bottom: 2px; /* Space between the caption and the line */
+    font-size: 18px;
+    margin-bottom: 5px; /* Space between the caption and the line */
 }
 
 .horizontal-line {
     width: 100%; /* Make the line extend the full width of the container */
-    height: 3px; /* Thickness of the line */
+    height: 1px; /* Thickness of the line */
     background-color: black; /* Color of the line */
 }
 
+/* Specific override for Figure 1A tight cropping */
+#F1A .horizontal-caption-container {
+    margin-bottom: 30px; /* Adjust this value until the line clears the image content */
+}
+
+/* 
 .vertical-caption-container {
     position: absolute; /* Take out of normal flow */
-    top: 0;
+    /* top: 0;
     left: 0;
     height: 100%;
     z-index: 2;
@@ -772,10 +1048,10 @@ section h3 {
 .vertical-line {
     width: 3px;
     height: 100%; /* Match the container height */
-    background-color: black;
+    /* background-color: black;
     margin-top: 0px;
 }
-
+ */
 
 /* css/styles.css */
 
@@ -978,51 +1254,102 @@ section h3 {
     line-height: 1;
     text-transform: lowercase; /* Optional: keeps 'µm' looking clean */
 }
+/********* SUPPLEMENTARY TABLES & TOOLTIP STYLES ************/
 
-/* --- SUPPLEMENTARY TABLE TOOLTIP --- */
+/* Shared Typography */
+.supplementary-tables-container, 
+#table-tooltip {
+    font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+}
+
+/* Static Container (Keynote Aesthetic) */
+.table-placeholder {
+    overflow-x: auto;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    border: 1px solid #d1d1ca;
+    background-color: #fff;
+}
+
+/* Tooltip Container */
 #table-tooltip {
     position: fixed;
     display: none;
     z-index: 10001;
     background: white;
     border: 1px solid #d1d1ca;
-    padding: 12px;
+    padding: 16px;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     pointer-events: none;
-    max-width: 500px;
-    font-family: var(--paper-font);
+    max-width: 600px; /* Slightly widened to prevent data wrapping */
 }
 
-#table-tooltip table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 0.85rem;
-}
-
-#table-tooltip th {
-    text-align: left;
-    border-bottom: 2px solid #333;
-    padding: 8px;
-    color: #333;
-    font-weight: 900;
-}
-
-#table-tooltip td {
-    padding: 6px 8px;
-    border-bottom: 1px solid #efefef;
-    color: #555;
-}
-
-#table-tooltip tr:last-child td {
-    border-bottom: none;
-}
-
+/* Tooltip Specific Title */
 #table-tooltip .table-title {
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #d01c8b; /* Using your accent color */
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #d02c91; 
     display: block;
+    font-size: 14px;
+}
+
+/* Shared Table Core Styles */
+.supplementary-table, 
+#table-tooltip table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap; /* Keeps data concise and aligned */
+}
+
+/* Shared Headers */
+.supplementary-table th, 
+#table-tooltip th {
+    background-color: #fbfbfb;
+    color: #222;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-bottom: 2px solid #978897; 
+}
+
+/* Shared Data Cells */
+.supplementary-table td, 
+#table-tooltip td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #d1d1ca;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+/* Clean Bottom Edges */
+.supplementary-table tbody tr:last-of-type td,
+#table-tooltip tr:last-child td {
+    border-bottom: none; 
+}
+
+/* Static Hover State (Tooltip relies on pointer-events: none, so hover will not trigger there) */
+.supplementary-table tbody tr:hover {
+    background-color: #fcfcfc; 
+}
+
+/* Section Headers & Captions (Static specific) */
+.supplementary-tables-container h3 {
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.supplementary-tables-container figcaption {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 50px; 
+    padding: 0 5px;
 }
 
 /********* BACK-MATTER STYLES ************/

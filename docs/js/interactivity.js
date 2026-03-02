@@ -32,8 +32,8 @@ function setupGlobalEscapeKey() {
 // 1. CONFIGURATION
 // ===========================================
 const PLOT_CONFIG = [
-    { id: 'plot-1H', jsonPath: 'figures/data/F1H_plot_data.json', type: 'image-hover' },
-    { id: 'plot-2A', jsonPath: 'figures/data/F2A_plot_data.json', type: 'image-hover' },
+    { id: 'plot-1H', jsonPath: 'figures/dynamic/F1H_plot_data.json', type: 'image-hover' },
+    { id: 'plot-2A', jsonPath: 'figures/dynamic/F2A_plot_data.json', type: 'image-hover' },
     { id: 'plot-2B', jsonPath: 'figures/data/F2B_plot_data.json', type: 'image-hover' },
     { id: 'plot-2C', jsonPath: 'figures/data/F2C_plot_data.json', type: 'image-hover' },
     { id: 'plot-2D', jsonPath: 'figures/data/dt_plot_data.json', type: 'video-hover' }
