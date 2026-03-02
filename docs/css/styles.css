@@ -14,7 +14,6 @@
     /* Effects */
     --hover-shadow: 0 2px 10px rgba(0,0,0,0.1);
     --hover-bg: rgba(255, 255, 255, 0.1);
-    --popup-z-index: 9999;
 }
 
 /* Enable the "swish" smooth scroll globally */
@@ -56,6 +55,12 @@ button,
     overflow: visible;
 }
 
+/* Justify all main manuscript text */
+.scientific-paper p {
+    text-align: left;
+    hyphens: auto;
+}
+
 /* Title section styles */
 /* Container forces a square aspect ratio */
 .title-container {
@@ -73,40 +78,12 @@ button,
     width: 100%;
     height: 100%;
     /* display: block is the key to removing the tiny line at the bottom */
-    display: block; 
+    display: block;
     /* Use 'cover' to ensure it fills the square perfectly without borders */
-    object-ratio: cover;
+    object-fit: cover;
     border-radius: 24px;
     border: none; /* Explicitly remove any browser-default borders */
     outline: none;
-}
-
-/* If you must use 'contain' to see the very edges, 
-   set the background to white to match the page */
-.title-image-alt {
-    object-fit: contain;
-    background-color: #ffffff; 
-}
-
-/* Adjusting the overlay to sit within the square bounds */
-.overlay {
-    position: absolute;
-    top: 45%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%; /* Slightly wider to better fit the square frame */
-    max-height: 60%;
-    max-width: 800px;
-    
-    background: rgba(255, 255, 255, 0.12); 
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    
-    padding: 2rem;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-align: center;
 }
 
 /* The Keynote Title Styling with Fluid Typography */
@@ -350,13 +327,14 @@ button,
 /* General link styles */
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 /* Reference links (italic, not bold) */
 .introduction a[href^="#ref"],
 .results a[href^="#ref"],
-.discussion a[href^="#ref"],
-.materials-and-methods a[href^="#ref"] {
+.discussion-section a[href^="#ref"],
+.methods-section a[href^="#ref"] {
     font-style: italic;
     font-weight: normal; /* Not bold */
 }
@@ -364,8 +342,8 @@ a {
 /* Hover effect for reference links */
 .introduction a[href^="#ref"]:hover,
 .results a[href^="#ref"]:hover,
-.discussion a[href^="#ref"]:hover,
-.materials-and-methods a[href^="#ref"]:hover {
+.discussion-section a[href^="#ref"]:hover,
+.methods-section a[href^="#ref"]:hover {
     color: #d01c8b !important;
     text-decoration: underline;
     font-style: italic;
@@ -389,7 +367,7 @@ a {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     z-index: 1;
-    text-align: center; 
+    text-align: left; 
     width: 100%;             /* Fits exactly within your text column */
     margin: 3rem auto 2rem auto; /* Centers the box itself, with top/bottom spacing */
     box-sizing: border-box;  /* Ensures padding doesn't push it off-center */
@@ -440,18 +418,6 @@ section h3 {
     /* Subtle fade-out background using the same green, heavily transparent */
     background: linear-gradient(90deg, rgba(166, 217, 106, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
     border-radius: 0 8px 8px 0; 
-}
-
-/* Figure and section links (bold) */
-.results-text a {
-    font-weight: bold;
-}
-
-/* Hover effect for figure/section links */
-.results-text a:hover {
-    color: #d01c8b !important;
-    text-decoration: underline;
-    font-style: italic;
 }
 
 
@@ -519,107 +485,85 @@ section h3 {
 
 
 /********* FIGURE 1 STYLES ************/
-.F1-container > div {
-    width: 100%; /* Ensure grid items take full width of grid */
+
+/* Main grid: 3 columns, 4 rows (A spans top, 3x3 image grid, H spans bottom) */
+.F1-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto auto;
+    gap: 10px;
+    width: 100%;
+    max-width: var(--paper-width);
+    margin: 0 auto;
 }
 
+/* All images scale to fit their cell */
+.F1-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Row 1: Panel A spans full width */
+#F1A {
+    grid-column: 1 / -1;
+    grid-row: 1;
+}
+
+/* Row 2: Panels B, C, D — one per column */
+#F1B { grid-column: 1; grid-row: 2; }
+#F1C { grid-column: 2; grid-row: 2; }
+#F1D { grid-column: 3; grid-row: 2; }
+
+/* Row 3: Panels E, F, G — one per column */
+#F1E { grid-column: 1; grid-row: 3; }
+#F1F { grid-column: 2; grid-row: 3; }
+#F1G { grid-column: 3; grid-row: 3; }
+
+/* Row 4: Panel H (interactive plot) spans full width */
+#F1H {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Panels with click-to-zoom or overlay links need relative positioning */
+.F1A-container,
 .F1B-container,
 .F1C-container,
 .F1D-container,
-.F1F-container,
-{
+.F1F-container {
     position: relative;
 }
 
-/* Fix for Figure 1 Click-to-Zoom cursors */
+/* Panels with images that need slight inset for visual breathing room */
+.F1A-container img,
+.F1D-container img {
+    width: 98%;
+    margin: 2% auto;
+}
+
+/* Click-to-zoom cursors */
 .F1B-container img,
 .F1C-container img,
 .F1F-container img {
     cursor: pointer !important;
 }
 
-.F1-container {
-    position: relative;
-    max-width: var(--paper-width); /* Ensure it doesn't exceed the page width */
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden; /* Prevent overflow */
-}
-
-/* Ensure images within the container do not exceed the container width */
-.F1-container img {
-    max-width: 100%; /* Ensure images scale down to fit */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* Grid layout adjustments */
-.F1-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 4 columns */
-    grid-template-rows: auto auto auto; /* 3 rows */
-    gap: 10px; /* Gap between grid items */
-    width: 100%; /* Ensure it matches the container width */
-    max-width: 100%; /* Prevent overflow */
-}
-.F1A-container {
-    position: relative;
-}
-
-.F1A-container img {
-    width: 98%;  /* Scale image to 90% of container width */
-    margin: 2% auto;  /* Center the image and add vertical margin */
-    display: block;  /* Ensure margins work with block display */
-}
-
-
-.F1D-container {
-    position: relative;
-}
-
-.F1D-container img {
-    width: 98%;  /* Scale image to 90% of container width */
-    margin: 2% auto;  /* Center the image and add vertical margin */
-    display: block;  /* Ensure margins work with block display */
-}
-
-/* Panel A spans full width */
-#F1A {
-    grid-column: span 3;
-}
-
-/* Panels B, C, D in first content row */
-#F1B, #F1C, #F1D {
-    grid-row: 2;
-}
-
-/* Panels E, F, G in second content row */
-#F1E, #F1F, #F1G {
-    grid-row: 3;
-}
-
-/* --- Unique Styling for Figure 1H Iframe --- */
-
-.F1H-interactive-frame {
-    width: 100%;
-    
-    /* RESPONSIVE HEIGHT */
-    height: 40vh;       /* Takes up 40% of the screen height (half of a typical view) */
-    min-height: 350px;  /* Safety net: stops it from getting too short on mobile */
-    
-    border: none;
-    border-radius: 4px;
-    display: block;
-    background-color: #ffffff;
-    transition: opacity 0.3s ease;
-}
-
-/* Ensure the parent container spans the full grid width (as before) */
-#F1H {
-    grid-column: span 3;
-    /* Flex column ensures the caption stays above the iframe */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Contains the iframe cleanly */
+/* Crop top 10% off panel images to remove baked-in labels */
+#F1A img,
+#F1B > img,
+#F1C > img,
+#F1D img,
+#F1E > img,
+#F1F > img,
+#F1G > img {
+    object-fit: cover;
+    object-position: bottom;
+    aspect-ratio: attr(width) / calc(attr(height) * 0.9); /* fallback below */
+    margin-top: -5%;
+    clip-path: inset(1% 0 0 0);
 }
 
 /* Force the plot container to have height */
@@ -631,14 +575,12 @@ section h3 {
 
 /********* FIGURE 2 STYLES ************/
 
-/* --- Outer Container (Breaks out of text margins) --- */
+/* --- Outer Container (Matches text width) --- */
 .F2-container {
-    width: 120%;        
-    margin-left: -10%;  
-    margin-right: -10%; 
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0px; /* Space between Row A, Row B, Row C */
+    gap: 0px;
     margin-bottom: 3em;
 }
 
@@ -646,10 +588,7 @@ section h3 {
 .F2-pair-container {
     display: grid;
     width: 100%;
-    
-    /* CHANGE 1: Align items to the top (start) instead of center */
-    align-items: start; 
-    
+    align-items: center;
     grid-template-columns: 1fr; 
     gap: 15px;
 }
@@ -657,7 +596,7 @@ section h3 {
 /* --- DESKTOP LAYOUT --- */
 @media (min-width: 768px) {
     .F2-pair-container {
-        grid-template-columns: 1.5fr 1fr; 
+        grid-template-columns: 1.75fr 1.25fr; 
         column-gap: 15px;
     }
 }
@@ -668,10 +607,7 @@ section h3 {
     height: 300px; 
     min-height: 300px;
     position: relative;
-    
-    /* CHANGE 2: Push the plot down to clear the text header height */
-    /* Adjust this value (e.g., 40px, 50px) until it lines up perfectly */
-    margin-top: 25px; 
+    margin-top: 0;
 }
 
 
@@ -696,19 +632,6 @@ section h3 {
     display: block;
 }
 
-/* --- Plot Containers (Right Side) --- */
-/* .F2-growth-plot {
-    width: 100%;
-    /* Match height to image roughly, or let it adapt */
-    height: 300px; 
-    min-height: 300px;
-    position: relative;
-} */
-
-/* Remove top margin from plots when using horizontal captions */
-.F2-growth-plot {
-    margin-top: 0 !important;
-}
 
 /* --- Figure 2D (Bottom Boxplot) --- */
 .F2D-container {
@@ -739,272 +662,75 @@ section h3 {
     height: 100%;
 }
 
-/* Switch F2D to full width for horizontal mode */
 .F2D-boxplot {
-    width: 100% !important;
-    margin-left: 0 !important;
+    width: calc(100% + 40px) !important;
+    margin-left: -20px !important;
     min-height: 350px;
-
+    overflow: visible;
 }
 
 /********* FIGURE 3 STYLES ************/
+
+/* Figure 3 Main Grid Container */
 .F3-container {
-  width: 150%;  /* Match F2 container width */
-  margin-left: -25%;  /* Match F2 container margin */
-  margin-right: -25%;  /* Match F2 container margin */
-  align-items: center;
-}
-
-/* Set the F3-grid to have a fixed width of 120% */
-.F3-grid {
   display: grid;
-  grid-template-columns: 33fr 25fr 42.5fr;
-  grid-auto-rows: auto; /* Let height adjust automatically */
-  grid-gap: 10px;
-  width: 100%; /* Match your requirement */
-
+  grid-template-columns: 1.5fr 1fr; /* Allocates more space to C, less to D */
+  gap: 20px;
+  width: 100%;
+  align-items: stretch; /* Forces C and D to match height */
 }
 
-/* Image containers - make them match the plots */
-.F3A-container, .F3B-container, .F3C-container {
-  width: 100%;  /* Ensure full width */
-    height: auto; /* Allow natural height */
-  padding-right: 10px;
+/* Full-width rows for A and B */
+.F3A-container, 
+.F3B-container {
+  grid-column: 1 / -1; /* Spans across all columns */
+  width: 100%;
+  height: auto;
 }
 
-/* Images inside containers */
-.F3A-container img, .F3B-container img, .F3C-container img {
+/* Shared row containers for C and D */
+.F3C-container, 
+.F3D-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-width: 0; /* Prevents flexbox overflow */
+}
+
+/* Universal Image Styling for F3 */
+.F3-container img {
+  width: 100%;
   height: 100%;
-  width: auto;
   max-width: 100%;
-  object-fit: contain;
+  object-fit: contain; /* Prevents distortion whilst stretching */
   cursor: pointer;
   border-radius: 2px;
 }
 
-/* Plot containers - keep consistent height */
-.F3-plot {
-  width: 100%;  /* Ensure full width */
-  height: auto; /* Allow natural height */
-  min-width: 0; /* Prevent overflow */
+#F4.F4-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 20px;
+  width: 100% !important;
 }
 
-/* Make the vertical image fill the height of its grid area */
-.F3-vertical-image {
-  grid-column: 3;
-  grid-row: 1 / span 3;
-  position: relative;
-  display: flex;
-  align-items: left; /* Stretch to fill available space */
-  justify-content: center;
-  height: 100%; /* Fill the entire grid area height */
+#F4A.F4A-container {
+  grid-column: 1 / -1 !important;
 }
 
-.F3-vertical-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Maintain aspect ratio while filling space */
-  overflow: hidden;
-  border-radius: 5px;
+#F4 .image-popup {
+  display: none; /* Ensure popups are not artificially widening the grid */
 }
 
-.F3D-container {
-  position: relative; /* Create positioning context */
-  max-height: 100%;
-  grid-column: 1 / span 3;
-  overflow: visible;
-}
-
-.F3D-container .F3-boxplot {
-  margin-left: 40px; /* Make space for caption + line */
-  width: calc(100% - 40px); /* Adjust width to account for margin */
-}
-
-/* Add this to your CSS */
-#plot-3D {
-    margin-left: 40px !important;
-    margin-right: 0px !important;
-
-    margin-top: 100px !important;
-    margin-bottom: 0px !important;
-}
-
-
-/* Sankey container at the bottom */
-.F3EF-container {
-  grid-column: 1 / span 3;
-}
-
-/* Sankey container styling */
-.sankey-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px; /* Reduce gap for better fit */
-  width: 100%;  /* Ensure full width */
-  height: auto; /* Allow natural height */
-}
-
-/* Wrapper for each sankey plot and its caption */
-.sankey-wrapper {
-  flex: 1;
-  position: relative;
-  min-width: 0; /* Prevents overflow */
-}
-
-/* Sankey plot styling */
-.sankey-plot {
-  width: 100%;
-  height: auto;
-  margin-left: 30px; /* Slightly smaller margin */
-}
-
-/* Caption container position */
-.sankey-wrapper .vertical-caption-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  z-index: 2;
-}
-
-/* Caption styling */
-.sankey-wrapper .vertical-caption-container .caption {
-  font-weight: bold;
-  font-size: 26px;
-  margin-right: 10px;
-}
-
-/* Vertical line styling */
-.sankey-wrapper .vertical-line {
-  width: 3px;
-  height: 100%;
-  background-color: black;
-  margin-top: 8px;
-}
-
-/********* FIGURE 4 STYLES ************/
-.F4-container {
-  width: 130%;  /* Keep your current width */
-  margin-left: auto;
-  margin-right: auto;
-  left: 50%;
-  transform: translateX(-50%);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1600px;
-  overflow: visible;
-}
-
-
-
-
-/* Improve container alignment */
-.F4A-container,
-.F4B-container,
-.F4C-container,
-.F4D-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-  position: relative;
-}
-
-/* Ensure content is centered properly */
-.F4A-container img,
-.F4C-container img,
-.F4D-container img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-left: 40px; /* Space for caption */
-  width: calc(100% - 40px);
-}
-
-/* Center the plot properly */
-.F4B-container .F4-plot {
-  width: calc(100% - 40px);
-  margin-left: 40px;
-  min-height: 500px;
-
-}
-
-.F4-plot {
-  width: 100%;
-  height: 100% !important; /* Match the iframe height */
-  position: relative;
-  /* overflow: hidden; */
-}
-
-#plot-4B {
-  width: calc(100% - 40px) !important;
-  height: 100% !important;
-  min-height: 500px !important;
-  margin-left: 40px !important;
-}
-
-/* Make sure Plotly elements respect container size */
-.F4-plot .js-plotly-plot,
-.F4-plot .plot-container,
-.F4-plot .svg-container {
+.F4-container img {
+  width: 100% !important;
   max-width: 100% !important;
-  height: 100% !important;
+  height: auto !important;
+  object-fit: contain;
 }
 
-.F4A-container .vertical-caption-container,
-.F4B-container .vertical-caption-container,
-.F4C-container .vertical-caption-container,
-.F4D-container .vertical-caption-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  z-index: 2;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  max-width: 40px; /* Constrain width */
-  overflow: visible;
-}
-
-.F4-container .vertical-caption-container .caption {
-  font-weight: bold;
-  font-size: 26px;
-  margin-right: 10px;
-  line-height: 1;
-}
-
-.F4-container .vertical-line {
-  width: 3px;
-  height: 100%;
-  background-color: black;
-  margin-top: 0;
-}
-
-/* Create proper margin for content in Figure 4 containers */
-.F4A-container img,
-.F4C-container img,
-.F4D-container img,
-.F4B-container .F4-plot {
-  margin-left: 40px; /* Consistent margin to accommodate caption */
-  width: calc(100% - 40px); /* Adjust width to maintain container bounds */
-}
-
-/* Fix container positioning issues */
-.F4A-container,
-.F4B-container,
-.F4C-container,
-.F4D-container {
-  position: relative;
-  width: 100%;
-  overflow: visible;
-}
 
 /********* CAPTION STYLES ************/
 .horizontal-caption-container {
@@ -1224,7 +950,6 @@ section h3 {
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
 }
 
-/* Add to bottom of css/styles.css */
 
 /* Standard Scale Bar (For Fig 1B - Single Tile) */
 .scale-line {
@@ -1252,4 +977,72 @@ section h3 {
     font-weight: 900;      /* Extra Bold / Black */
     line-height: 1;
     text-transform: lowercase; /* Optional: keeps 'µm' looking clean */
+}
+
+/* --- SUPPLEMENTARY TABLE TOOLTIP --- */
+#table-tooltip {
+    position: fixed;
+    display: none;
+    z-index: 10001;
+    background: white;
+    border: 1px solid #d1d1ca;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    pointer-events: none;
+    max-width: 500px;
+    font-family: var(--paper-font);
+}
+
+#table-tooltip table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.85rem;
+}
+
+#table-tooltip th {
+    text-align: left;
+    border-bottom: 2px solid #333;
+    padding: 8px;
+    color: #333;
+    font-weight: 900;
+}
+
+#table-tooltip td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #efefef;
+    color: #555;
+}
+
+#table-tooltip tr:last-child td {
+    border-bottom: none;
+}
+
+#table-tooltip .table-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #d01c8b; /* Using your accent color */
+    display: block;
+}
+
+/********* BACK-MATTER STYLES ************/
+.back-matter-content {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #555;
+}
+
+.back-matter-content .acknowledgements,
+.back-matter-content .author-contributions,
+.back-matter-content .competing-interests {
+    margin-bottom: 1.5rem;
+}
+
+.back-matter-content .data-availability {
+    margin-bottom: 3rem;
+}
+
+.back-matter-content .data-link {
+    color: #d01c8b;
+    text-decoration: underline;
 }

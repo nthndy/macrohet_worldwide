@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     initializeStaticMedia();
     initializePlots();
-    setupGlobalEscapeKey(); // <--- NEW: Activate the Escape key
+    setupGlobalEscapeKey();
+    initializeHoverSystem();
 });
 
 // ===========================================
@@ -35,21 +36,15 @@ const PLOT_CONFIG = [
     { id: 'plot-2A', jsonPath: 'figures/data/F2A_plot_data.json', type: 'image-hover' },
     { id: 'plot-2B', jsonPath: 'figures/data/F2B_plot_data.json', type: 'image-hover' },
     { id: 'plot-2C', jsonPath: 'figures/data/F2C_plot_data.json', type: 'image-hover' },
-    { id: 'plot-2D', jsonPath: 'figures/data/dt_plot_data.json', type: 'video-hover' },
-    { id: 'plot-3A', jsonPath: 'figures/data/F3A_plot_data.json', container: 'F3A', type: 'none' },
-    { id: 'plot-3B', jsonPath: 'figures/data/F3B_plot_data.json', container: 'F3B', type: 'none' },
-    { id: 'plot-3C', jsonPath: 'figures/data/F3C_plot_data.json', container: 'F3C' },
-    { id: 'plot-3D', jsonPath: 'figures/data/F3D_plot_data.json', container: 'F3D', type: 'video-hover-labels' },
-    { id: 'plot-3E', jsonPath: 'figures/data/F3E_plot_data.json', type: 'sankey' },
-    { id: 'plot-3F', jsonPath: 'figures/data/F3F_plot_data.json', type: 'sankey' },
-    { id: 'plot-4B', jsonPath: 'figures/data/F4B_plot_data.json', container: 'F4B', type: 'video-hover' }
+    { id: 'plot-2D', jsonPath: 'figures/data/dt_plot_data.json', type: 'video-hover' }
 ];
 
 // ===========================================
 // 2. PLOT LOADING SYSTEM
 // ===========================================
 function initializePlots() {
-    createSharedPlotPopup();
+    const loadedPlots = [];
+
     PLOT_CONFIG.forEach(config => {
         const container = document.getElementById(config.id);
         if (!container) return;
@@ -75,12 +70,20 @@ function initializePlots() {
                 return Plotly.newPlot(config.id, data.data, layout, { responsive: true, displayModeBar: false });
             })
             .then((plotDiv) => {
+                loadedPlots.push(plotDiv);
                 if (config.type === 'image-hover') setupImageHoverForPlot(plotDiv);
                 if (config.type === 'video-hover') setupVideoHoverForPlot(plotDiv);
-                if (config.type === 'video-hover-labels') { setupVideoHoverForPlot(plotDiv); addF3DLabels(); }
-                window.addEventListener('resize', () => Plotly.Plots.resize(plotDiv));
             })
             .catch(err => console.error(`Failed to load ${config.id}:`, err));
+    });
+
+    // Single debounced resize handler for all plots
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            loadedPlots.forEach(plot => Plotly.Plots.resize(plot));
+        }, 150);
     });
 }
 
@@ -88,10 +91,12 @@ function initializePlots() {
 // 3. MEDIA POPUPS (UPDATED FOR FLEXBOX)
 // ===========================================
 function initializeStaticMedia() {
-    setupImagePopup(document.querySelectorAll('.F1B-container, .F1C-container, .F1F-container, .F2A-container, .F2B-container, .F2C-container, .F3A-container, .F3B-container, .F3C-container'));
+    setupImagePopup(document.querySelectorAll('.F1B-container, .F1C-container, .F1F-container'));
     setupVideoPopup(document.querySelectorAll('.video-trigger')); 
     setupStaticHoverPreviews();
 }
+
+
 
 // Updated Image Popup Logic (Targeting the Container)
 function setupImagePopup(containers) {
@@ -172,15 +177,6 @@ function setupVideoPopup(elements) {
 // ===========================================
 // 4. SHARED PLOT TOOLTIPS
 // ===========================================
-function createSharedPlotPopup() {
-    if (document.getElementById('shared-plot-popup')) return;
-    const popup = document.createElement('div');
-    popup.id = 'shared-plot-popup';
-    popup.style.cssText = `display: none; position: fixed; z-index: 9999; background: white; border: 2px solid #333; border-radius: 4px; padding: 5px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); pointer-events: none; width: 300px;`;
-    popup.innerHTML = `<img id="popup-img-content" style="width:100%; display:none;"><video id="popup-video-content" style="width:100%; display:none;" autoplay loop muted playsinline></video>`;
-    document.body.appendChild(popup);
-}
-
 function setupImageHoverForPlot(plotDiv) {
     let tooltip = document.getElementById('hover-tooltip');
     if (!tooltip) {
@@ -238,6 +234,12 @@ function updateTooltipPosition(el, mouseX, mouseY) {
 }
 
 function setupStaticHoverPreviews() {
+    // Create a single reusable tooltip element instead of one per hover
+    const tooltip = document.createElement('div');
+    tooltip.className = 'hover-preview-wrapper';
+    tooltip.style.display = 'none';
+    document.body.appendChild(tooltip);
+
     const containers = document.querySelectorAll(`.F1-container > div, .F2A-container, .F2B-container, .F2C-container, .F3A-container, .F3B-container, .F3C-container`);
     containers.forEach(container => {
         if (container.classList.contains('F2-growth-plot') || container.classList.contains('interactive-plot-container') || container.id.includes('plot')) return;
@@ -245,34 +247,106 @@ function setupStaticHoverPreviews() {
         const video = container.querySelector('video');
         if(!img && !video) return;
 
+        const move = (evt) => { tooltip.style.left = (evt.clientX + 15) + 'px'; tooltip.style.top = (evt.clientY + 15) + 'px'; };
+
         container.addEventListener('mouseenter', (e) => {
             if(document.querySelector('.image-popup[style*="flex"]') || document.querySelector('.video-popup[style*="flex"]')) return;
-            const tooltip = document.createElement('div');
-            tooltip.className = 'hover-preview-wrapper';
-            tooltip.style.cssText = `position: fixed; z-index: 9999; pointer-events: none; background: rgba(0,0,0,0.8); color: white; padding: 5px; border-radius: 4px; font-size: 12px; font-family: sans-serif;`;
             let label = "Click to zoom";
             if (container.classList.contains('F2') || container.classList.contains('F3') || video) label = "Click to play video";
             if (container.classList.contains('F1A-container') || container.id === 'F1A') label = "Jump to Methods";
             if (container.classList.contains('F1D-container') || container.id === 'F1D') label = "Jump to Fluorescent Reporter";
-            tooltip.innerHTML = label;
-            document.body.appendChild(tooltip);
-            const move = (evt) => { tooltip.style.left = (evt.clientX + 15) + 'px'; tooltip.style.top = (evt.clientY + 15) + 'px'; };
+            tooltip.textContent = label;
+            tooltip.style.display = 'block';
             move(e);
             container.addEventListener('mousemove', move);
-            container.addEventListener('mouseleave', () => { tooltip.remove(); container.removeEventListener('mousemove', move); }, {once: true});
+        });
+
+        container.addEventListener('mouseleave', () => {
+            tooltip.style.display = 'none';
+            container.removeEventListener('mousemove', move);
         });
     });
 }
 
-function addF3DLabels() {
-    const plotDiv = document.getElementById('plot-3D');
-    if (!plotDiv) return;
-    const container = plotDiv.parentElement;
-    container.style.position = 'relative'; 
-    if(!container.querySelector('div[style*="transform: translateX(-50%)"]')) {
-        const overlay = document.createElement('div');
-        overlay.style.cssText = `position: absolute; top: 10px; left: 50%; transform: translateX(-50%); pointer-events: none; text-align: center; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 4px;`;
-        overlay.innerHTML = `<div style="display:flex; gap:20px; font-family:sans-serif; font-size:12px;"><div><span style="color:#a6d96a">■</span> Fast</div><div><span style="color:#d1d1ca">■</span> Normal</div><div><span style="color:#d02c91">■</span> Slow</div></div>`;
-        container.appendChild(overlay);
+
+// ===========================================
+// 5 & 6. UNIFIED HOVER SYSTEM (Affiliations & Tables)
+// ===========================================
+
+const SUPPLEMENTARY_DATA = {
+    "TS1": {
+        title: "Table S1: Growth Heterogeneity Metrics",
+        headers: ["Metric", "Mtb WT", "Mtb ΔRD1"],
+        rows: [["Median DT (h)", "25.2", "42.1"], ["CV", "0.45", "0.58"], ["N (cells)", "245", "83"]]
+    },
+    "TS2": {
+        title: "Table S2: Fisher's Exact Test Results",
+        headers: ["Comparison", "p-value", "Sig."],
+        rows: [["WT vs ΔRD1", "> 0.99", "ns"], ["WT vs RIF EC99", "< 0.0001", "****"]]
     }
+};
+
+function initializeHoverSystem() {
+    // Create the Tooltip Element if it doesn't exist (styled via CSS #table-tooltip rules)
+    if (!document.getElementById('table-tooltip')) {
+        const tt = document.createElement('div');
+        tt.id = 'table-tooltip';
+        document.body.appendChild(tt);
+    }
+
+    const tableTooltip = document.getElementById('table-tooltip');
+    const allLinks = document.querySelectorAll('a');
+
+    allLinks.forEach(link => {
+        const href = link.getAttribute('href') || "";
+
+        // --- TABLE HOVERS ---
+        if (href.startsWith('#TS')) {
+            link.addEventListener('mouseenter', (e) => {
+                const id = href.replace('#', '');
+                const data = SUPPLEMENTARY_DATA[id];
+                if (!data) return;
+
+                let html = `<span class="table-title">${data.title}</span>`;
+                html += `<table><thead><tr>`;
+                data.headers.forEach(h => html += `<th>${h}</th>`);
+                html += `</tr></thead><tbody>`;
+                data.rows.forEach(row => {
+                    html += `<tr>`;
+                    row.forEach(cell => html += `<td>${cell}</td>`);
+                    html += `</tr>`;
+                });
+                html += `</tbody></table>`;
+
+                tableTooltip.innerHTML = html;
+                tableTooltip.style.display = 'block';
+            });
+
+            link.addEventListener('mouseleave', () => tableTooltip.style.display = 'none');
+            link.addEventListener('mousemove', (e) => {
+                tableTooltip.style.left = (e.clientX + 15) + 'px';
+                tableTooltip.style.top = (e.clientY + 15) + 'px';
+            });
+        }
+
+        // --- AFFILIATION HOVERS ---
+        if (href.startsWith('#aff')) {
+            link.addEventListener('mouseenter', () => {
+                const target = document.getElementById(href.replace('#', ''));
+                if (target) {
+                    target.style.setProperty('color', '#d01c8b', 'important');
+                    target.style.setProperty('font-weight', 'bold', 'important');
+                    target.classList.add('active-affiliation');
+                }
+            });
+            link.addEventListener('mouseleave', () => {
+                const target = document.getElementById(href.replace('#', ''));
+                if (target) {
+                    target.style.color = '';
+                    target.style.fontWeight = '';
+                    target.classList.remove('active-affiliation');
+                }
+            });
+        }
+    });
 }
