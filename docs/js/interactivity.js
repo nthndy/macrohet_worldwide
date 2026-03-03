@@ -5,10 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeHoverSystem();
     initializeTitleFlip();
     initializeInlineTables();
+    initializeSidebarTOC(); 
 });
 
-// Add to the DOMContentLoaded callback:
-// initializeTitleFlip();
 
 function initializeTitleFlip() {
     const flipContainer = document.querySelector('.title-card-flip-container');
@@ -22,22 +21,19 @@ function initializeTitleFlip() {
         );
 
         headings.forEach((heading, i) => {
-            // Skip if heading has no meaningful text
             const text = heading.textContent.trim();
             if (!text) return;
 
-            // Ensure heading has an id for linking
             if (!heading.id) {
-                const parentSection = heading.closest('section');
-                const parentFigure = heading.closest('figure');
-                heading.id = parentSection?.id || parentFigure?.id || `section-${i}`;
+                // Generate a unique, URL-safe slug based on the heading text
+                const slug = heading.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                heading.id = `nav-${slug}-${i}`;
             }
 
             const link = document.createElement('a');
             link.href = `#${heading.id}`;
             link.textContent = text;
 
-            // Tag level determines indent
             const tag = heading.tagName.toLowerCase();
             link.classList.add(tag === 'h2' ? 'toc-h2' : 'toc-h3');
 
@@ -45,6 +41,7 @@ function initializeTitleFlip() {
             link.addEventListener('click', (e) => {
                 e.stopPropagation();
                 flipContainer.classList.remove('flipped');
+                // Removed the sidebar hiding logic here
             });
 
             tocNav.appendChild(link);
@@ -55,6 +52,7 @@ function initializeTitleFlip() {
     flipContainer.addEventListener('click', (e) => {
         if (e.target.closest('.toc-nav a')) return;
         flipContainer.classList.toggle('flipped');
+        // Removed the sidebar toggling logic here
     });
 }
 
@@ -363,10 +361,6 @@ function initializeHoverSystem() {
     });
 }
 
-
-// Add to DOMContentLoaded at the top:
-// initializeInlineTables();
-
 function initializeInlineTables() {
     const tableLinks = document.querySelectorAll('a[href^="#ST"]');
     
@@ -426,4 +420,74 @@ function initializeInlineTables() {
             }
         });
     });
+}
+
+// ===========================================
+// 8. LIVE SIDEBAR TOC
+// ===========================================
+function initializeSidebarTOC() {
+    const sidebarNav = document.getElementById('sidebar-nav');
+    const sidebarToc = document.getElementById('sidebar-toc');
+    if (!sidebarNav || !sidebarToc) return;
+
+    const headings = Array.from(document.querySelectorAll(
+        'section > .glass-heading, section h3, .results-section h3'
+    )).filter(h => h.textContent.trim());
+
+    const tocLinks = [];
+
+    headings.forEach((heading, i) => {
+        if (!heading.id) {
+            heading.id = `heading-auto-${i}`; 
+        }
+        
+        const link = document.createElement('a');
+        link.href = `#${heading.id}`;
+        link.textContent = heading.textContent.trim();
+        link.className = heading.tagName.toLowerCase() === 'h2' ? 'toc-h2' : 'toc-h3';
+        
+        sidebarNav.appendChild(link);
+        tocLinks.push({ link, heading });
+    });
+
+    const abstractSection = document.getElementById('abstract');
+
+    const onScroll = () => {
+        // 1. Check if we have scrolled past the abstract
+        if (abstractSection) {
+            const abstractRect = abstractSection.getBoundingClientRect();
+            // Show sidebar when the bottom of the abstract is near the top of the viewport
+            if (abstractRect.bottom <= 150) {
+                sidebarToc.classList.add('show-sidebar');
+            } else {
+                sidebarToc.classList.remove('show-sidebar');
+            }
+        }
+
+        // 2. Handle Active Item Highlighting
+        let currentActive = null;
+        
+        for (let i = headings.length - 1; i >= 0; i--) {
+            const rect = headings[i].getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.3) {
+                currentActive = headings[i];
+                break;
+            }
+        }
+        
+        if (!currentActive && headings.length > 0) {
+            currentActive = headings[0];
+        }
+
+        tocLinks.forEach(item => {
+            if (item.heading === currentActive) {
+                item.link.classList.add('active');
+            } else {
+                item.link.classList.remove('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); 
 }

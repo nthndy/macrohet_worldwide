@@ -1554,3 +1554,92 @@ figcaption p:first-of-type b {
     from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* =========================================
+   LIVE SIDEBAR TOC
+   ========================================= */
+
+.sidebar-toc {
+    position: fixed;
+    top: 60px;
+    /* Dynamically places it to the left of the centered paper */
+    left: max(20px, calc(50% - 4.25in - 260px)); 
+    width: 220px;
+    max-height: calc(100vh - 120px);
+    background: transparent;
+    display: none; /* Hidden by default on narrow screens */
+    flex-direction: column;
+    z-index: 100;
+}
+
+/* Animate the sidebar on wide screens */
+@media (min-width: 1350px) {
+    .sidebar-toc {
+        display: flex; /* Ensure it's in the document flow to animate */
+        opacity: 0;
+        visibility: hidden; /* Prevents clicking when hidden */
+        transform: translateX(-40px); /* Push it slightly to the left */
+        
+        /* The "Swish" transition parameters */
+        transition: opacity 0.5s ease, 
+                    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                    visibility 0.5s;
+    }
+
+    .sidebar-toc.show-sidebar {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0); /* Settle into its final position */
+    }
+}
+
+.sidebar-toc h4 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    border-bottom: 2px solid #a6d96a; /* Green accent */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+}
+
+.sidebar-toc nav {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-toc a {
+    font-size: 0.85rem;
+    color: #777777;
+    text-decoration: none;
+    padding: 6px 0 6px 12px;
+    margin-bottom: 2px;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+    line-height: 1.3;
+    display: block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.sidebar-toc a.toc-h3 {
+    padding-left: 24px; /* Indent subheadings */
+    font-size: 0.75rem;
+    color: #999999;
+}
+
+.sidebar-toc a:hover {
+    color: #d01c8b; /* Magenta */
+    border-left-color: #f1b6da;
+    background-color: rgba(241, 182, 218, 0.1);
+}
+
+/* Active State tracked by JS */
+.sidebar-toc a.active {
+    color: #d01c8b;
+    border-left-color: #d01c8b;
+    font-weight: bold;
+    background-color: rgba(241, 182, 218, 0.1);
+}
