@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeTitleFlip();
     initializeInlineTables();
     initializeSidebarTOC(); 
+    initializeEasterEgg();
 });
 
 
@@ -490,4 +491,40 @@ function initializeSidebarTOC() {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll(); 
+}
+
+// ===========================================
+// 9. EASTER EGG (Mtb-Timer Replication)
+// ===========================================
+function initializeEasterEgg() {
+    const njd = document.getElementById('easter-egg-njd');
+    if (!njd) return;
+
+    let replicationCount = 0;
+
+    njd.addEventListener('click', function(e) {
+        replicationCount++;
+
+        // Shift 1: Newly synthesised (Green)
+        if (replicationCount === 1) {
+            this.style.color = '#a6d96a'; 
+            this.style.fontWeight = 'bold';
+        } 
+        // Shift 2: Mature (Magenta)
+        else if (replicationCount === 3) {
+            this.style.color = '#d01c8b'; 
+        }
+
+        // Exponential replication
+        if (replicationCount <= 25) {
+            this.textContent = this.textContent + " " + this.textContent;
+        } 
+        // Terminal state: Macrophage rupture
+        else {
+            this.textContent = this.textContent + " [MACROPHAGE RUPTURED]";
+            this.style.color = '#45003e';
+            this.style.pointerEvents = 'none'; // Disables further clicking
+            this.style.textDecoration = 'none';
+        }
+    });
 }

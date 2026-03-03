@@ -1643,3 +1643,64 @@ figcaption p:first-of-type b {
     font-weight: bold;
     background-color: rgba(241, 182, 218, 0.1);
 }
+
+/* --- S8 SPECIFIC CONDENSED OVERLAYS --- */
+
+/* Force the images together to align the visual zoom lines */
+.S8-container {
+    gap: 2px !important; 
+}
+
+/* The new absolute overlay */
+.sf8-caption-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 10;
+    pointer-events: none; /* Ensures the image behind can still be clicked */
+    padding: 2px; /* Adjust this to align with the baked-in white margins of your PNGs */
+    box-sizing: border-box;
+}
+
+.sf8-caption-overlay .caption {
+    font-weight: bold;
+    font-size: 28px; /* Slightly larger to match standard panel labels */
+    color: #ffffff; /* Changed to white */
+    margin-bottom: 4px;
+    line-height: 1;
+    /* Adds a subtle dark glow so it pops against bright green/magenta tissue */
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Force A and B to span across all 3 columns */
+.S8A-container,
+.S8B-container {
+    grid-column: 1 / -1 !important;
+    width: 100%;
+    height: auto;
+    position: relative; /* <-- Add this line */
+}
+
+/* --- SUPPLEMENTARY VIDEOS --- */
+.supplementary-video {
+    border-radius: 8px; 
+    overflow: hidden; /* Ensures the video itself respects the curved border */
+    display: block; /* Removes the tiny default gap underneath inline videos */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to match the Keynote aesthetic */
+}
+
+/* --- EASTER EGG --- */
+#easter-egg-njd {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    user-select: none; /* Prevents text highlighting when rapidly clicking */
+}
+
+#easter-egg-njd:hover {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
