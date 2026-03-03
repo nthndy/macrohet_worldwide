@@ -40,10 +40,7 @@ button,
 .zoomable-image,             /* Images inside popups */
 .close-popup,                /* The 'X' buttons */
 .methods-section-link,       /* The transparent overlay links */
-.fluorescent-reporter-section-link,
-.F3A-container img,          /* Specific interactive images in Fig 3 */
-.F3B-container img,
-.F3C-container img {
+.fluorescent-reporter-section-link {
     cursor: pointer !important;
 }
 
@@ -449,37 +446,51 @@ section h3 {
 
 }
 
+/* 1. Base anchor wrapper */
 .methods-section-link {
+    position: relative;
+    display: inline-block; 
+    width: 100%;
+    text-decoration: none;
+}
+
+/* Ensure images fill the new anchor wrapper naturally */
+.methods-section-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+/* 2. Apply the 'swish' overlay using a pseudo-element */
+.methods-section-link::after {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: transparent;
-    z-index: 10;
-    border-radius: 15px;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none; 
 }
 
-.methods-section-link:hover {
-    background-color: rgba(208,28,139,0.1);
-    cursor: pointer;
-    border-radius: 15px;
-}
-.fluorescent-reporter-section-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 10;
-    border-radius: 15px;
+/* 3. Hover states on the pseudo-element (Magenta tone) */
+.methods-section-link:hover::after {
+    background: linear-gradient(135deg, rgba(208, 44, 145, 0.02) 0%, rgba(208, 44, 145, 0.12) 100%);
+    border-color: rgba(208, 44, 145, 0.4);
+    box-shadow: inset 0 0 20px rgba(208, 44, 145, 0.15);
 }
 
-.fluorescent-reporter-section-link:hover {
-    background-color: rgba(77,172,38,0.1);
-    cursor: pointer;
-    border-radius: 15px;
+/* 4. Restore specific F1A/F1D layout constraints to the new anchor wrapper */
+.F1A-container .methods-section-link,
+.F1D-container .methods-section-link {
+    width: 98%;
+    margin: 2% auto;
+    display: block;
 }
 
 
@@ -490,7 +501,7 @@ section h3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto auto auto;
-    gap: 10px;
+    gap: 5px;
     width: 100%;
     max-width: var(--paper-width);
     margin: 0 auto;
@@ -550,20 +561,7 @@ section h3 {
     cursor: pointer !important;
 }
 
-/* Crop top 10% off panel images to remove baked-in labels */
-#F1A img,
-#F1B > img,
-#F1C > img,
-#F1D img,
-#F1E > img,
-#F1F > img,
-#F1G > img {
-    object-fit: cover;
-    object-position: bottom;
-    aspect-ratio: attr(width) / calc(attr(height) * 0.9); /* fallback below */
-    margin-top: -5%;
-    clip-path: inset(1% 0 0 0);
-}
+
 
 /* Force the plot container to have height */
 #plot-1H {
@@ -580,7 +578,7 @@ section h3 {
     display: flex;
     flex-direction: column;
     gap: 0px;
-    margin-bottom: 3em;
+    margin-bottom: 0em;
 }
 
 /* --- The Row Wrapper --- */
@@ -595,8 +593,8 @@ section h3 {
 /* --- DESKTOP LAYOUT --- */
 @media (min-width: 768px) {
     .F2-pair-container {
-        grid-template-columns: 1.75fr 1.25fr; 
-        column-gap: 15px;
+        grid-template-columns: 1.8fr 1.3fr; 
+        column-gap: 10px;
     }
 }
 
@@ -637,7 +635,7 @@ section h3 {
     display: flex;
     position: relative;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .F2D-container .vertical-caption-container {
@@ -704,14 +702,13 @@ section h3 {
   height: 100%;
   max-width: 100%;
   object-fit: contain; /* Prevents distortion whilst stretching */
-  cursor: pointer;
   border-radius: 2px;
 }
 
 #F4.F4-container {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 20px;
+  gap: 4px;
   width: 100% !important;
 }
 
@@ -772,7 +769,6 @@ section h3 {
     max-width: 100% !important;
     height: auto !important;
     object-fit: contain;
-    cursor: pointer;
     border-radius: 2px;
 }
 
@@ -803,7 +799,6 @@ section h3 {
     max-width: 100% !important;
     height: auto !important;
     object-fit: contain;
-    cursor: pointer;
     border-radius: 2px;
 }
 
@@ -821,7 +816,6 @@ section h3 {
     max-width: 100% !important;
     height: auto !important;
     object-fit: contain;
-    cursor: pointer;
     border-radius: 2px;
 }
 
@@ -853,7 +847,6 @@ section h3 {
     max-width: 100% !important;
     height: auto !important;
     object-fit: contain;
-    cursor: pointer;
     border-radius: 2px;
 }
 
@@ -871,7 +864,6 @@ section h3 {
     max-width: 100% !important;
     height: auto !important;
     object-fit: contain;
-    cursor: pointer;
     border-radius: 2px;
 }
 
@@ -918,7 +910,6 @@ section h3 {
     max-width: 100% !important;
     height: auto !important;
     object-fit: contain;
-    cursor: pointer;
     border-radius: 2px;
 }
 
@@ -953,30 +944,31 @@ section h3 {
     max-width: 100% !important;
     height: auto !important;
     object-fit: contain;
-    cursor: pointer;
     border-radius: 2px;
 }
 
 /********* SUPPLEMENTARY FIGURE S8 STYLES ************/
-
+/* 1. The Main Container */
 .S8-container {
     display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* 3-column layout */
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; 
+    /* row-gap: 2px, column-gap: 4px */
+    gap: 4px 2px !important; 
     width: 100% !important;
     align-items: start;
     margin-bottom: 40px;
 }
 
-/* Force A and B to span across all 3 columns */
+/* 2. Full-width Headers A and B */
 .S8A-container,
 .S8B-container {
     grid-column: 1 / -1 !important;
     width: 100%;
     height: auto;
+    position: relative;
 }
 
-/* C through H automatically flow into the 3 columns */
+/* 3. Grid Items C through H */
 .S8C-container,
 .S8D-container,
 .S8E-container,
@@ -989,35 +981,37 @@ section h3 {
     width: 100%;
     height: auto;
     min-width: 0 !important;
+    /* Pulls this second row closer to the B panel above it */
+    margin-top: 1px; 
 }
 
-/* Image constraints */
+/* 4. Image Constraints */
 .S8-container img {
     width: 100% !important;
-    max-width: 100% !important;
+    display: block;
     height: auto !important;
     object-fit: contain;
-    cursor: pointer;
     border-radius: 2px;
 }
+
 
 /********* CAPTION STYLES ************/
 .horizontal-caption-container {
     display: flex;
     flex-direction: column; /* Stack caption and line vertically */
     align-items: flex-start; /* Align items to the left */
-    margin-bottom: 15px; /* Space between the line and the plot */
+    margin-bottom: 5px; /* Space between the line and the plot */
 }
 
 .horizontal-caption-container .caption {
     font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 5px; /* Space between the caption and the line */
+    font-size: 20px;
+    margin-bottom: 3px; /* Space between the caption and the line */
 }
 
 .horizontal-line {
     width: 100%; /* Make the line extend the full width of the container */
-    height: 1px; /* Thickness of the line */
+    height: 2px; /* Thickness of the line */
     background-color: black; /* Color of the line */
 }
 
@@ -1025,34 +1019,6 @@ section h3 {
 #F1A .horizontal-caption-container {
     margin-bottom: 30px; /* Adjust this value until the line clears the image content */
 }
-
-/* 
-.vertical-caption-container {
-    position: absolute; /* Take out of normal flow */
-    /* top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-}
-
-.vertical-caption-container .caption {
-    font-weight: bold;
-    font-size: 26px;
-    margin-right: 10px;
-}
-
-.vertical-line {
-    width: 3px;
-    height: 100%; /* Match the container height */
-    /* background-color: black;
-    margin-top: 0px;
-}
- */
-
-/* css/styles.css */
 
 /* =========================================
    GENERIC POP UP STYLES (Flexbox Centering)
@@ -1180,79 +1146,6 @@ section h3 {
 }
 
 
-/* --- SCALE BAR & CONTAINER STYLES (Updated) --- */
-
-/* 1. The Container (Target of the Zoom) */
-.zoomable-image-container {
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    
-    transform-origin: center center;
-    pointer-events: auto;
-    cursor: grab;
-    
-    /* UPDATED: Reduced size to 80% so it feels less "close up" initially */
-    max-width: 40vw;
-    max-height: 40vh;
-}
-
-/* 2. The Image inside */
-.zoomable-image {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-/* 3. The Scale Bar Wrapper */
-.scale-bar {
-    position: absolute;
-    /* Positioned in bottom right corner of the IMAGE */
-    bottom: -140px; 
-    right: 20px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Align text to the right edge of the bar */
-    pointer-events: none;
-    z-index: 10;
-    
-    /* Add a slight drop shadow filter to the whole group for contrast */
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
-}
-
-
-/* Standard Scale Bar (For Fig 1B - Single Tile) */
-.scale-line {
-    width: 123.23px; /* Represents 50µm on a 323µm image */
-    height: 6px;
-    background-color: white;
-    margin-bottom: 5px;
-    border-radius: 2px;
-}
-
-/* Mosaic Scale Bar (For Fig 1C & 1F - 3x3 Grid) */
-.scale-line-mosaic {
-    width: 44px;    /* Represents 50µm on a 904µm image */
-    height: 6px;    /* Keep thickness consistent */
-    background-color: white;
-    margin-bottom: 5px;
-    border-radius: 2px;
-}
-
-/* 5. The Text Label (Bolder & Larger) */
-.scale-text {
-    color: white;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 20px;       /* Larger font */
-    font-weight: 900;      /* Extra Bold / Black */
-    line-height: 1;
-    text-transform: lowercase; /* Optional: keeps 'µm' looking clean */
-}
 /********* SUPPLEMENTARY TABLES & TOOLTIP STYLES ************/
 
 /* Shared Typography */

@@ -292,7 +292,7 @@ function setupStaticHoverPreviews() {
     tooltip.style.display = 'none';
     document.body.appendChild(tooltip);
 
-    const containers = document.querySelectorAll(`.F1-container > div, .F2A-container, .F2B-container, .F2C-container, .F3A-container, .F3B-container, .F3C-container`);
+    const containers = document.querySelectorAll(`.F1-container > div, .F2A-container, .F2B-container, .F2C-container, .F4A-container`);
     containers.forEach(container => {
         if (container.classList.contains('F2-growth-plot') || container.classList.contains('interactive-plot-container') || container.id.includes('plot')) return;
         const img = container.querySelector('img');
@@ -304,9 +304,10 @@ function setupStaticHoverPreviews() {
         container.addEventListener('mouseenter', (e) => {
             if(document.querySelector('.image-popup[style*="flex"]') || document.querySelector('.video-popup[style*="flex"]')) return;
             let label = "Click to zoom";
-            if (container.classList.contains('F2') || container.classList.contains('F3') || video) label = "Click to play video";
+            if (container.classList.contains('F2') || video) label = "Click to play video";
             if (container.classList.contains('F1A-container') || container.id === 'F1A') label = "Jump to Methods";
-            if (container.classList.contains('F1D-container') || container.id === 'F1D') label = "Jump to Fluorescent Reporter";
+            if (container.classList.contains('F1D-container') || container.id === 'F1D') label = "Jump to Methods";
+            if (container.classList.contains('F4A-container') || container.id === 'F4A') label = "Jump to Methods";
             tooltip.textContent = label;
             tooltip.style.display = 'block';
             move(e);
