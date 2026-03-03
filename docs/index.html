@@ -12,16 +12,33 @@
 
     <article class="scientific-paper">
         <header class="title-header">
-        <a href="#abstract" class="title-link">
-            <div class="title-container">
-                <img src="images/landing_img.png" class="title-image" alt="Mtb Analysis">
-                <div class="overlay">
-                    <h1 class="title-heading">
-                        Fast-growing intracellular <i>Mycobacterium tuberculosis</i> populations evade antibiotic treatment
-                    </h1>
+            <div class="title-card-flip-container">
+                <div class="title-card-flipper">
+                    <!-- FRONT FACE -->
+                    <div class="title-card-front">
+                        <div class="title-container">
+                            <img src="images/landing_img.png" class="title-image" alt="Mtb Analysis">
+                            <div class="overlay">
+                                <h1 class="title-heading">
+                                    Fast-growing intracellular <i>Mycobacterium tuberculosis</i> populations evade antibiotic treatment
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BACK FACE -->
+                    <div class="title-card-back">
+                        <div class="title-container toc-container">
+                            <img src="images/landing_img.png" class="title-image" alt="Mtb Analysis">
+                            <div class="overlay toc-overlay">
+                                <h2 class="toc-heading">Contents</h2>
+                                <nav id="toc-nav" class="toc-nav">
+                                    <!-- JS populates this -->
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </a>
         </header>
 
      <section class="author-info">
@@ -161,24 +178,33 @@
             <section class="results">
                 <h2 class="glass-heading">Results</h2>
                     <figure id="results-1" class="results-section">
-                        <h3>An image-based pipeline to study Mtb replication in single human macrophages with high spatiotemporal resolution yields heterogenous growth profiles.</h3>
+                        <h3>An image-based pipeline to study Mtb replication in single human macrophages with high spatiotemporal resolution yields heterogenous growth profiles</h3>
                         
                         <div class="results-text">
-                            <p>We developed a high-content, live-cell imaging approach that allows for the monitoring of Mtb replication in large populations of infected macrophages (<a href="#F1A">Fig. 1A</a>). This system consists of human iPSDM expressing EGFP from an AAV locus<sup><a href="#ref33">33</a></sup> infected with Mtb H37Rv expressing fluorescent E2-Crimson (<a href="#F1B">Fig. 1B</a>). Using this biological model, we established an imaging pipeline that allows for 2-channel imaging of Mtb-infected macrophages in 96-well plates, with 9 overlapping fields of view per well, across 3x 2 µm z-slices, for up to 75 h at 30/60 min frame rates, after an initial 24 h set-up of the infection (<a href="#F1C">Fig. 1C-E</a>, <a href="#MS1">Movie S1</a>). This control assay was repeated across N = 4 biological replicates.</p>
+                            <p>We developed a high-content, live-cell imaging approach that allows for the monitoring of Mtb replication in large populations of infected macrophages (<a href="#F1A">Fig. 1A</a>). This system consists of human iPSDM expressing EGFP from an AAV locus<sup><a href="#ref33">33</a></sup> infected with Mtb H37Rv expressing fluorescent E2-Crimson (<a href="#F1B">Fig. 1B</a>). Using this biological model, we established an imaging pipeline that allows for 2-channel imaging of Mtb-infected macrophages in 96-well plates, with 9 overlapping fields of view per well, across 3x 2 µm z-slices, for up to 75 h at 30/60 min frame rates, after an initial 24 h set-up of the infection (<a href="#F1C">Fig. 1C-E</a>, <a href="#SM1">Movie S1</a>). This control assay was repeated across N = 4 biological replicates.</p>
 
                             <p>In addition to this control scenario, macrophages were also treated with pre-determined EC<sub>50</sub> and EC<sub>99</sub> concentrations of first line antibiotics: PZA, INH and RIF, to quantify the single-cell dependency of antibiotic efficacy. After establishing a robust image tiling, segmentation and tracking strategy (<a href="#F1F">Fig. 1F-G</a>), we were able to reliably track Ncell = 18,152 macrophages over a minimum period of 35 h (<a href="#F1H">Fig. 1H</a>). A subsequent analysis of intracellular Mtb growth trajectories revealed a heterogeneity in Mtb replication dynamics. Some macrophage tracks showed a high intracellular Mtb load (magenta lines, <a href="#F1H">Fig. 1H</a>), whilst others harboured only low levels of Mtb intracellular populations (green lines <a href="#F1H">Fig. 1H</a>).</p>
 
-                            <p>In these single-cell growth profiles, a subset of intracellular populations showed near instantaneous increases in intracellular Mtb burden, warranting further investigation. At the infected macrophage level, we observed three clear phenotypes related to the fast-growing Mtb: (i) Intracellular growth of Mtb (<a href="#FS1A">Fig. S1A</a>, <a href="#MS3">Movie S3</a>); (ii) Extracellular uptake of Mtb, where rapid increases in intracellular burden resulted in increased single cell Mtb signals that were not associated with intracellular growth (<a href="#FS1B">Fig. S1B</a>, uptake highlighted with a white arrow, <a href="#MS3">Movie S3</a>); and (iii) Intercellular transfer of Mtb between neighbouring macrophages, where sudden increases in intracellular burden yielded rapid growth rates not associated to intracellular replication (<a href="#FS1C">Fig. S1C</a>, transfer highlighted with a white arrow, <a href="#MS3">Movie S3</a>).</p>
+                            <p>In these single-cell growth profiles, a subset of intracellular populations showed near instantaneous increases in intracellular Mtb burden, warranting further investigation. At the infected macrophage level, we observed three clear phenotypes related to the fast-growing Mtb: (i) Intracellular growth of Mtb (<a href="#SF1A">Fig. S1A</a>, <a href="#SM3">Movie S3</a>); (ii) Extracellular uptake of Mtb, where rapid increases in intracellular burden resulted in increased single cell Mtb signals that were not associated with intracellular growth (<a href="#SF1B">Fig. S1B</a>, uptake highlighted with a white arrow, <a href="#SM3">Movie S3</a>); and (iii) Intercellular transfer of Mtb between neighbouring macrophages, where sudden increases in intracellular burden yielded rapid growth rates not associated to intracellular replication (<a href="#SF1C">Fig. S1C</a>, transfer highlighted with a white arrow, <a href="#SM3">Movie S3</a>).</p>
                             
                             <p>Incidences of extrinsic Mtb growth, particularly intercellular transfer of populations of Mtb, were largely attributable to macrophage cell death<sup><a href="#ref20">20</a>,<a href="#ref35">35</a></sup>, however without a cell death marker we were unable to quantitatively investigate this effect further. To exclude the increase in intracellular signal associated with extracellular uptake and intercellular transfer in any further analysis, we defined these two processes as belonging to an “extrinsic Mtb growth” phenotype, in contrast to truly “intrinsic” intracellular Mtb growth.</p>
 
-                            <p>In order to further assess Mtb growth dynamics, we fitted a locally weighted scatterplot smoothing (LOWESS) model to the Mtb growth trajectories<sup><a href="#ref39">39</a></sup>. This approach allowed for the accurate quantification of growth dynamics by attenuating high-frequency noise from the intracellular Mtb measurements whilst retaining the underlying biological growth pattern. It also served as a quality-control metric for tracking performance, as erroneous tracking jumps or extrinsic Mtb growth events result in a poorly fitting coefficient of determination (R<sup>2</sup>) between the raw Mtb data and growth curve (<a href="#FS1B">Fig. S1B-C</a>, shown in magnified graph ROI).</p>
+                            <p>In order to further assess Mtb growth dynamics, we fitted a locally weighted scatterplot smoothing (LOWESS) model to the Mtb growth trajectories<sup><a href="#ref39">39</a></sup>. This approach allowed for the accurate quantification of growth dynamics by attenuating high-frequency noise from the intracellular Mtb measurements whilst retaining the underlying biological growth pattern. It also served as a quality-control metric for tracking performance, as erroneous tracking jumps or extrinsic Mtb growth events result in a poorly fitting coefficient of determination (R<sup>2</sup>) between the raw Mtb data and growth curve (<a href="#SF1B">Fig. S1B-C</a>, shown in magnified graph ROI).</p>
 
-                            <p>Using the R<sup>2</sup> coefficient of determination as a ranking metric, we classified and isolated the extrinsic growth phenotypes using a human-in-the-loop approach, wherein a set of napari<sup><a href="#ref40">40</a></sup> key-bindings were used to iterate over and label a corpus of single-cell video glimpses. We then used these manually curated labels to segregate the single-cell growth phenotypes according to whether they were wholly intrinsic, intracellular Mtb growth or extrinsic Mtb growth (<a href="#FS1D">Fig. S1D-H</a>).</p>
+                            <p>Using the R<sup>2</sup> coefficient of determination as a ranking metric, we classified and isolated the extrinsic growth phenotypes using a human-in-the-loop approach, wherein a set of napari<sup><a href="#ref40">40</a></sup> key-bindings were used to iterate over and label a corpus of single-cell video glimpses. We then used these manually curated labels to segregate the single-cell growth phenotypes according to whether they were wholly intrinsic, intracellular Mtb growth or extrinsic Mtb growth (<a href="#SF1D">Fig. S1D-H</a>).</p>
 
-                            <p>Of the total tracked macrophages, 57.1% (Ncell = 10,371) were infected, out of which 3574 macrophages exhibited no intracellular growth, 5065 macrophages exhibited minor growth and 1732 macrophages harboured doubling intracellular Mtb populations (<a href="#FS1D">Fig. S1D</a>). We subsequently focused our growth rate analysis to these intrinsic, intracellular doubling populations for three main reasons: firstly, the metric of doubling time is already well established within the field of microbiology and it provides us with a comparison to previous bulk level studies; secondly, calculating growth rates from minor, non-doubling intracellular growth is inherently prone to stochastic signal noise fluctuations; and thirdly, the subset populations that possessed non-doubling or no measurable growth precluded a confident assessment of whether these bacteria were arrested due to acquisition time constraints. Out of the 1732 doubling instances of intracellular Mtb growth, manual classification of intrinsic versus extrinsic growth phenotypes resulted in a final corpus of 590 doubling instances that constituted the focus of our subsequent analysis.</p>
+                            <p>Of the total tracked macrophages, 57.1% (Ncell = 10,371) were infected, out of which 3574 macrophages exhibited no intracellular growth, 5065 macrophages exhibited minor growth and 1732 macrophages harboured doubling intracellular Mtb populations (<a href="#SF1D">Fig. S1D</a>). We subsequently focused our growth rate analysis to these intrinsic, intracellular doubling populations for three main reasons: firstly, the metric of doubling time is already well established within the field of microbiology and it provides us with a comparison to previous bulk level studies; secondly, calculating growth rates from minor, non-doubling intracellular growth is inherently prone to stochastic signal noise fluctuations; and thirdly, the subset populations that possessed non-doubling or no measurable growth precluded a confident assessment of whether these bacteria were arrested due to acquisition time constraints. Out of the 1732 doubling instances of intracellular Mtb growth, manual classification of intrinsic versus extrinsic growth phenotypes resulted in a final corpus of 590 doubling instances that constituted the focus of our subsequent analysis.</p>
                         </div>
-
+                        <figcaption><p><b>Figure 1:</b> An image-based pipeline to study Mtb replication in single human macrophages with high spatiotemporal resolution yields heterogenous growth profiles.</p>
+                            <b>(A)</b> Timeline of the experimental design and imaging conditions. 
+                            <b>(B)</b> A single image acquisition, showing EGFP-expressing macrophages infected with Mtb H37Rv WT-E2Crimson. 
+                            <b>(C)</b> A full mosaic of 9 images with 10% overlap and single tiles shown with white square inset. 
+                            <b>(D)</b> Each mosaic is composed of 2 fluorescent channels and 3 z-slices with a step of 2 µm. 
+                            <b>(E)</b> The image acquisition lasts for 75 h at 30/60 min frame rates. 
+                            <b>(F)</b> The image volume is segmented using the EGFP channel. 
+                            <b>(G)</b> A 3D (x, y, t) spatiotemporal visualisation showing cell positions through time. 
+                            <b>(H)</b> A graph showing the quantification of intracellular Mtb growth per each single-cell trajectory (<i>N</i><sub>cell</sub> = 3,369) in <i>n</i> = 4 biological replicates (only untreated control profiles shown), color-coded to the final intracellular Mtb burden.
+                        </figcaption>
                         <div id="F1" class="F1-container">
                             
                             <div id="F1A" class="F1A-container">
@@ -305,27 +331,30 @@
 
                         </div>
 
-                        <figcaption>
-                            <p><b>Fig. 1. An image-based pipeline to study Mtb replication in single human macrophages with high spatiotemporal resolution yields heterogenous growth profiles.</b></p>
-                            <b>(A)</b> Timeline of the experimental design and imaging conditions. <b>(B)</b> A single image acquisition, showing EGFP-expressing macrophages infected with Mtb H37Rv WT-E2Crimson. <b>(C)</b> A full mosaic of 9 images with 10% overlap and single tiles shown with white square inset. <b>(D)</b> Each mosaic is composed of 2 fluorescent channels and 3 z-slices with a step of 2 µm. <b>(E)</b> The image acquisition lasts for 75 h at 30/60 min frame rates. <b>(F)</b> The image volume is segmented using the EGFP channel. <b>(G)</b> A 3D (x, y, t) spatiotemporal visualisation showing cell positions through time. <b>(H)</b> A graph showing the quantification of intracellular Mtb growth per each single-cell trajectory (<i>N</i><sub>cell</sub> = 3,369) in <i>n</i> = 4 biological replicates (only untreated control profiles shown), color-coded to the final intracellular Mtb burden.
-                        </figcaption>
+
                     </figure>
 
-                </div>
+                    <figure id="results-2" class="results-section">
 
                     <!-- F2 Content -->
                         <h3>Single-cell quantification of intracellular doubling times reveals fast-growing intracellular Mtb evades antibiotic treatment</h3>
+                        <div class="results-text">
 
-                        <p>Following this, we defined three distinct phenotypes based on our observed doubling times relative to literature values: normal growth (16-24 h, <a href="#F2A">Fig. 2A</a>, <a href="#Movie-S2">Movie S2</a>), slow growth (&ge;24 h, <a href="#F2B">Fig. 2B</a>, <a href="#Movie-S2">Movie S2</a>) and fast growth (&le;16 h, <a href="#F2C">Fig. 2C</a>, <a href="#Movie-S2">Movie S2</a>)<sup>20,22,23</sup>. It is important to note that these phenotypes were often facultative and transient; a single macrophage could host an intracellular bacterial population that exhibits several distinct doubling times over the course of the acquisition (<a href="#F2">Fig. 2A-C</a>, <a href="#S1">Fig. S1</a>). To account for this, we distinguish between the number of unique host cells (N<sub>cell</sub>) and the total number of measured doubling times (N<sub>dt</sub>). Consequently, a period of rapid intracellular growth represented a specific measured event rather than an indefinitely maintained state of unrestricted growth. Initial bacterial burden showed no correlation with subsequent bacterial doubling times within individual macrophages (<a href="#S2A">Fig. S2A</a>).</p>
+                            <p>Following this, we defined three distinct phenotypes based on our observed doubling times relative to literature values: normal growth (16-24 h, <a href="#F2A">Fig. 2A</a>, <a href="#SM2">Movie S2</a>), slow growth (&ge;24 h, <a href="#F2B">Fig. 2B</a>, <a href="#SM2">Movie S2</a>) and fast growth (&le;16 h, <a href="#F2C">Fig. 2C</a>, <a href="#SM2">Movie S2</a>)<sup>20,22,23</sup>. It is important to note that these phenotypes were often facultative and transient; a single macrophage could host an intracellular bacterial population that exhibits several distinct doubling times over the course of the acquisition (<a href="#F2">Fig. 2A-C</a>, <a href="#SF1">Fig. S1</a>). To account for this, we distinguish between the number of unique host cells (N<sub>cell</sub>) and the total number of measured doubling times (N<sub>dt</sub>). Consequently, a period of rapid intracellular growth represented a specific measured event rather than an indefinitely maintained state of unrestricted growth. Initial bacterial burden showed no correlation with subsequent bacterial doubling times within individual macrophages (<a href="#SF2A">Fig. S2A</a>).</p>
 
-                        <p>Our analysis revealed that intracellular doubling time are broadly distributed, ranging from &lt;10 h to &gt;70 h (<a href="#F2D">Fig. 2D</a>). In untreated macrophages, Mtb WT displayed considerable heterogeneity (CV = 0.45, <a href="#Table-S1" class="table-popup-link">Table S1</a>). While the distribution median of 25 h (N<sub>cell</sub> = 245, N<sub>dt</sub> = 402) encompasses the canonical 20-25 h doubling times reported in the literature, we observed a significant subpopulation (14%) replicating rapidly (&lt;16 h doubling time), alongside a dominant fraction of slow-growing events (57%). Gaussian Mixture Modelling (GMM) confirmed that this distribution is bimodal rather than continuous (&Delta;BIC &gt; 10)<sup>41</sup>, consisting of a distinct &ldquo;actively replicating&rdquo; population centred around ~20 h and a slower population around ~45 h (<a href="#S3">Fig. S3</a>). This diversity also applied to the attenuated Mtb &Delta;RD1 mutant. As expected, Mtb &Delta;RD1 showed a reduced capacity for intracellular proliferation, with a median doubling time of 42 h and a sharp reduction in the total number of measurable doubling events compared to WT (N<sub>cell</sub> = 83, N<sub>dt</sub> = 87, <a href="#S1">Fig. S1E-F</a>). However, the fast-growing phenotype remained in 11% of the population (<a href="#F2D">Fig. 2D</a>). Fisher&rsquo;s exact test (<a href="#Table-S2" class="table-popup-link">Table S2</a>) confirmed that this proportion was statistically indistinguishable from the Mtb WT strain (p &gt; 0.99), suggesting that the capability for this rapid intracellular growth may be independent of ESX-1 activity. There was also a concomitant reduction in the proportion of intercellular transfer in Mtb &Delta;RD1 when compared to Mtb WT (18.5% to 30.2%) as the Mtb &Delta;RD1 mutant does not trigger substantial cell death<sup>35</sup> (<a href="#S1">Fig. S1E-F</a>, <a href="#S2B">Fig. S2B</a>).</p>
+                            <p>Our analysis revealed that intracellular doubling time are broadly distributed, ranging from &lt;10 h to &gt;70 h (<a href="#F2D">Fig. 2D</a>). In untreated macrophages, Mtb WT displayed considerable heterogeneity (CV = 0.45, <a href="#ST1" class="table-popup-link">Table S1</a>). While the distribution median of 25 h (N<sub>cell</sub> = 245, N<sub>dt</sub> = 402) encompasses the canonical 20-25 h doubling times reported in the literature, we observed a significant subpopulation (14%) replicating rapidly (&lt;16 h doubling time), alongside a dominant fraction of slow-growing events (57%). Gaussian Mixture Modelling (GMM) confirmed that this distribution is bimodal rather than continuous (&Delta;BIC &gt; 10)<sup>41</sup>, consisting of a distinct &ldquo;actively replicating&rdquo; population centred around ~20 h and a slower population around ~45 h (<a href="#SF3">Fig. S3</a>). This diversity also applied to the attenuated Mtb &Delta;RD1 mutant. As expected, Mtb &Delta;RD1 showed a reduced capacity for intracellular proliferation, with a median doubling time of 42 h and a sharp reduction in the total number of measurable doubling events compared to WT (N<sub>cell</sub> = 83, N<sub>dt</sub> = 87, <a href="#SF1E">Fig. S1E-F</a>). However, the fast-growing phenotype remained in 11% of the population (<a href="#F2D">Fig. 2D</a>). Fisher&rsquo;s exact test (<a href="#ST2" class="table-popup-link">Table S2</a>) confirmed that this proportion was statistically indistinguishable from the Mtb WT strain (p &gt; 0.99), suggesting that the capability for this rapid intracellular growth may be independent of ESX-1 activity. There was also a concomitant reduction in the proportion of intercellular transfer in Mtb &Delta;RD1 when compared to Mtb WT (18.5% to 30.2%) as the Mtb &Delta;RD1 mutant does not trigger substantial cell death<sup>35</sup> (<a href="#SF1">Fig. S1E-F</a>, <a href="#SF2B">Fig. S2B</a>).</p>
 
-                        <p>We next examined how this heterogenous growth behaviour responded to antibiotic pressure. At the population level, treatment with PZA, INH and RIF resulted in a concentration dependent reduction in measurable doubling events (<a href="#F2D">Fig. 2D</a>, <a href="#S1">Fig. S1E, G</a>). Moreover, a higher proportion of initially infected macrophages ending the acquisition uninfected (<a href="#S2B">Fig. S2B</a>) and confirming the antibiotic efficacy on a bulk scale. The majority of macrophages under EC<sub>99</sub> concentrations showed no measurable population doublings (2859 non-doubling instances and 2175 non-growing instances versus 246 macrophages with intrinsic intracellular doublings, <a href="#S1G">Fig. S1G</a>). As a result, these non-growing populations were represented in the cumulative growth curves, yielding an overall flat trajectory (<a href="#S4A">Fig. S4A</a>). Mtb &Delta;RD1 infection already resulted in a large reduction in the amount of measurable growth in untreated conditions (<a href="#S1F">Fig. S1F</a>, <a href="#S4B">Fig. S4B</a>) and after antibiotic treatment, the number of macrophages with intracellular doubling populations of Mtb &Delta;RD1 was negligible (N<sub>cell</sub> = 8, across all compounds) precluding any further analysis (<a href="#S1H">Fig. S1H</a>, <a href="#S3">Fig. S3B</a>, <a href="#S4B">Fig. S4B</a>). At EC<sub>50</sub> concentration, RIF induced a marked shift toward slow growth (increasing from 57% to 86%), while PZA and INH profiles remained broadly similar to the untreated control (<a href="#F2D">Fig. 2D</a>). However, at high-dose EC<sub>99</sub> concentration, where the vast majority of intracellular bacteria were non-doubling (<a href="#S1G">Fig. S1G</a>), the rare surviving doubling populations were significantly enriched for the fast-growth phenotype. This selection was most pronounced in RIF EC<sub>99</sub>, where the proportion of fast growers changed from 14% to 64% (<a href="#F2D">Fig. 2D</a>). This resulted in an expansion of phenotypic variance (CV = 0.90). Pairwise Kolmogorov-Smirnov (KS) test (<a href="#S5">Fig. S5</a>) confirmed that the RIF EC<sub>99</sub> distribution was statistically distinct from all other conditions (D = 0.56, p = &lt;0.001 vs WT), driven by a reduction in the normal/slow growth populations and the enrichment of the fast-growing tail. In contrast, while INH EC<sub>99</sub> and PZA EC<sub>99</sub> treatment resulted in observable increases in the fast-growing fraction (38% and 27% respectively), their overall distributional shapes remained statistically indistinguishable from the untreated control (p &gt; 0.05). However, specific analysis of the fast-growing tail revealed that these shifts were non-stochastic; pairwise Fisher&rsquo;s exact tests with Benjamini-Hochberg False Discovery Rate (FDR) correction confirmed a statistically significant enrichment of the fast growing bacteria in both RIF EC<sub>99</sub> (p &lt; 0.0001) and INH EC<sub>99</sub> (p &lt; 0.01) compared to the untreated control (<a href="#Table-S2" class="table-popup-link">Table S2</a>).</p>
+                            <p>We next examined how this heterogenous growth behaviour responded to antibiotic pressure. At the population level, treatment with PZA, INH and RIF resulted in a concentration dependent reduction in measurable doubling events (<a href="#F2D">Fig. 2D</a>, <a href="#SF1E">Fig. S1E, G</a>). Moreover, a higher proportion of initially infected macrophages ending the acquisition uninfected (<a href="#SF2B">Fig. S2B</a>) and confirming the antibiotic efficacy on a bulk scale. The majority of macrophages under EC<sub>99</sub> concentrations showed no measurable population doublings (2859 non-doubling instances and 2175 non-growing instances versus 246 macrophages with intrinsic intracellular doublings, <a href="#SF1G">Fig. S1G</a>). As a result, these non-growing populations were represented in the cumulative growth curves, yielding an overall flat trajectory (<a href="#SF4A">Fig. S4A</a>). Mtb &Delta;RD1 infection already resulted in a large reduction in the amount of measurable growth in untreated conditions (<a href="#SF1F">Fig. S1F</a>, <a href="#SF4B">Fig. S4B</a>) and after antibiotic treatment, the number of macrophages with intracellular doubling populations of Mtb &Delta;RD1 was negligible (N<sub>cell</sub> = 8, across all compounds) precluding any further analysis (<a href="#SF1H">Fig. S1H</a>, <a href="#SF3">Fig. S3B</a>, <a href="#SF4B">Fig. S4B</a>). At EC<sub>50</sub> concentration, RIF induced a marked shift toward slow growth (increasing from 57% to 86%), while PZA and INH profiles remained broadly similar to the untreated control (<a href="#F2D">Fig. 2D</a>). However, at high-dose EC<sub>99</sub> concentration, where the vast majority of intracellular bacteria were non-doubling (<a href="#SF1G">Fig. S1G</a>), the rare surviving doubling populations were significantly enriched for the fast-growth phenotype. This selection was most pronounced in RIF EC<sub>99</sub>, where the proportion of fast growers changed from 14% to 64% (<a href="#F2D">Fig. 2D</a>). This resulted in an expansion of phenotypic variance (CV = 0.90). Pairwise Kolmogorov-Smirnov (KS) test (<a href="#SF5">Fig. S5</a>) confirmed that the RIF EC<sub>99</sub> distribution was statistically distinct from all other conditions (D = 0.56, p = &lt;0.001 vs WT), driven by a reduction in the normal/slow growth populations and the enrichment of the fast-growing tail. In contrast, while INH EC<sub>99</sub> and PZA EC<sub>99</sub> treatment resulted in observable increases in the fast-growing fraction (38% and 27% respectively), their overall distributional shapes remained statistically indistinguishable from the untreated control (p &gt; 0.05). However, specific analysis of the fast-growing tail revealed that these shifts were non-stochastic; pairwise Fisher&rsquo;s exact tests with Benjamini-Hochberg False Discovery Rate (FDR) correction confirmed a statistically significant enrichment of the fast growing bacteria in both RIF EC<sub>99</sub> (p &lt; 0.0001) and INH EC<sub>99</sub> (p &lt; 0.01) compared to the untreated control (<a href="#ST2" class="table-popup-link">Table S2</a>).</p>
 
-                        <p>Importantly, we verified if macrophage subpopulations could explain the difference of Mtb intracellular growth. Flow-cytometry analysis was performed to correlate Mtb burden (E2-Crimson signal) and surface expression of macrophage markers (<a href="#S6">Fig. S6</a>). Our gating strategy consisted in the separation of three populations in infected samples (uninfected bystander, low or high-burden infected cells) in comparison with uninfected cells (<a href="#S6A">Fig. S6A</a>). Most surface macrophage markers do not vary across the conditions, suggesting that at least by analysis of these markers, macrophage phenotypes are not associated with intracellular Mtb growth (<a href="#S6">Fig. S6B-C</a>). Taken collectively, our single-cell analysis uncovers a subpopulation of bacteria that not only replicates faster than previously reported <i>in vitro</i> and <i>in cellulo</i> but is also paradoxically enriched under specific antibiotic conditions.</p>
+                            <p>Importantly, we verified if macrophage subpopulations could explain the difference of Mtb intracellular growth. Flow-cytometry analysis was performed to correlate Mtb burden (E2-Crimson signal) and surface expression of macrophage markers (<a href="#SF6">Fig. S6</a>). Our gating strategy consisted in the separation of three populations in infected samples (uninfected bystander, low or high-burden infected cells) in comparison with uninfected cells (<a href="#SF6A">Fig. S6A</a>). Most surface macrophage markers do not vary across the conditions, suggesting that at least by analysis of these markers, macrophage phenotypes are not associated with intracellular Mtb growth (<a href="#SF6">Fig. S6B-C</a>). Taken collectively, our single-cell analysis uncovers a subpopulation of bacteria that not only replicates faster than previously reported <i>in vitro</i> and <i>in cellulo</i> but is also paradoxically enriched under specific antibiotic conditions.</p>
+                        </div>
 
+                        <figcaption>                                
+                            <p><b>Figure 2:</b> Single-cell quantification of intracellular doubling times reveals that fast-growing intracellular Mtb evades antibiotic treatment.</p>
+                            <b>(A)</b> Single-cell example of an intracellular Mtb population exhibiting a “normal” doubling time (24 h). Representative cropped images (left) and LOWESS growth curve in green, raw data in magenta and the doubling points in grey dotted lines (right). <b>(B)</b> Single-cell example of an intracellular Mtb population exhibiting a “slow” doubling time (38 h). Representative cropped images (left) and LOWESS growth curve in green, raw data in magenta and the doubling points in grey dotted lines (right). <b>(C)</b> Single-cell example of an intracellular Mtb population exhibiting a “fast” doubling time (12 h). Representative cropped images (left) and LOWESS growth curve in green, raw data in magenta and the doubling points in grey dotted lines (right). <b>(D)</b> Distribution of intracellular doubling times attributable solely to intrinsic, intracellular Mtb growth within host-macrophages. These doubling times are separated into control (untreated) Mtb WT, control (untreated) Mtb ΔRD1 and antibiotic-treated Mtb WT, with further subdivisions according to the concentration of antibiotics (EC<sub>50</sub> and EC<sub>99</sub>). The proportion of fast, normal and slow growth phenotypes are also exhibited as percentages for each strain of Mtb and concentration of antibiotic.
+                        </figcaption>
                         <div id="F2" class="F2-container">
-                            <div>
+                            <div id="F2A">
                                 <div class="horizontal-caption-container">
                                     <div class="caption">A</div>
                                     <div class="horizontal-line"></div>
@@ -348,8 +377,7 @@
                                 </div>
                             </div>
 
-                            <!-- Panel B: Slow Growth -->
-                            <div>
+                            <div id="F2B">
                                 <div class="horizontal-caption-container">
                                     <div class="caption">B</div>
                                     <div class="horizontal-line"></div>
@@ -372,8 +400,7 @@
                                 </div>
                             </div>
 
-                            <!-- Panel C: Fast Growth -->
-                            <div>
+                            <div id="F2C">
                                 <div class="horizontal-caption-container">
                                     <div class="caption">C</div>
                                     <div class="horizontal-line"></div>
@@ -396,34 +423,33 @@
                                 </div>
                             </div>
 
-                            <!-- Panel D: Doubling Time Distribution -->
-                            <div>
+                            <div id="F2D">
                                 <div class="horizontal-caption-container">
                                     <div class="caption">D</div>
                                     <div class="horizontal-line"></div>
                                 </div>
                                 <div id="plot-2D" class="F2D-boxplot" style="height: 500px;"></div>
                             </div>
-
                         </div>
 
-                            <figcaption>
-                                <p><b>Fig. 2. Single-cell quantification of intracellular doubling times reveals that fast-growing intracellular Mtb evades antibiotic treatment.</b></p>
-                                <b>(A)</b> Single-cell example of an intracellular Mtb population exhibiting a “normal” doubling time (24 h). Representative cropped images (left) and LOWESS growth curve in green, raw data in magenta and the doubling points in grey dotted lines (right). <b>(B)</b> Single-cell example of an intracellular Mtb population exhibiting a “slow” doubling time (38 h). Representative cropped images (left) and LOWESS growth curve in green, raw data in magenta and the doubling points in grey dotted lines (right). <b>(C)</b> Single-cell example of an intracellular Mtb population exhibiting a “fast” doubling time (12 h). Representative cropped images (left) and LOWESS growth curve in green, raw data in magenta and the doubling points in grey dotted lines (right). <b>(D)</b> Distribution of intracellular doubling times attributable solely to intrinsic, intracellular Mtb growth within host-macrophages. These doubling times are separated into control (untreated) Mtb WT, control (untreated) Mtb ΔRD1 and antibiotic-treated Mtb WT, with further subdivisions according to the concentration of antibiotics (EC<sub>50</sub> and EC<sub>99</sub>). The proportion of fast, normal and slow growth phenotypes are also exhibited as percentages for each strain of Mtb and concentration of antibiotic.
-                            </figcaption>
                   </figure>
 
                   <figure id="results-3" class="results-section">
-                    <h3>Intracellular growing Mtb populations are enriched under antibiotic pressure.</h3>
+                    <h3>Intracellular growing Mtb populations are enriched under antibiotic pressure</h3>
                         <div class="results-text">
-                            <p>To validate the enrichment of fast-growing subpopulation after antibiotic treatment, we used an independent approach based on a Mtb H37Rv strain that expresses the fluorescent reporter Timer (Mtb-Timer) (Campo-Pérez et al., in revision). This reporter measures bacterial growth dynamics through the green-to-red (GR) fluorescence ratio of the bacteria (<a href="#F3A">Fig. 3A</a>)<sup><a href="#ref42">42</a>,<a href="#ref43">43</a></sup>. First, to validate the functionality of the Mtb-Timer reporter <i>in vitro</i>, we treated Mtb with the bacteriostatic antibiotic chloramphenicol (CHL). This treatment resulted in a reduction of green intensity, demonstrating the sensitivity of the reporter to changes in Mtb replication (<a href="#FS7A">Fig. S7A-D</a>). Using flow-cytometry to analyse fluorescence intensity of Mtb <i>in vitro</i>, we observed a reduction in green intensity in INH and RIF, but not PZA treatment (<a href="#FS7E">Fig. S7E</a>), consistent with data showing that PZA requires an intracellular microenvironment to achieve full efficacy<sup><a href="#ref10">10</a></sup>.</p>
+                            <p>To validate the enrichment of fast-growing subpopulation after antibiotic treatment, we used an independent approach based on a Mtb H37Rv strain that expresses the fluorescent reporter Timer (Mtb-Timer) (Campo-Pérez et al., in revision). This reporter measures bacterial growth dynamics through the green-to-red (GR) fluorescence ratio of the bacteria (<a href="#F3A">Fig. 3A</a>)<sup><a href="#ref42">42</a>,<a href="#ref43">43</a></sup>. First, to validate the functionality of the Mtb-Timer reporter <i>in vitro</i>, we treated Mtb with the bacteriostatic antibiotic chloramphenicol (CHL). This treatment resulted in a reduction of green intensity, demonstrating the sensitivity of the reporter to changes in Mtb replication (<a href="#SF7A">Fig. S7A-D</a>). Using flow-cytometry to analyse fluorescence intensity of Mtb <i>in vitro</i>, we observed a reduction in green intensity in INH and RIF, but not PZA treatment (<a href="#SF7E">Fig. S7E</a>), consistent with data showing that PZA requires an intracellular microenvironment to achieve full efficacy<sup><a href="#ref10">10</a></sup>.</p>
 
-                            <p>Then, using an infection workflow similar to the high-content imaging approach (<a href="#F1A">Fig. 1A</a>), we measured green and red fluorescence of <i>in cellulo</i> Mtb released from infected iPSDM. Upon antibiotic treatment, we observed a shift of the GR ratio (<a href="#F3B">Fig. 3B</a>). Notably, Mtb with higher timer intensities moved out of the control 72 h gate more markedly than those with lower timer intensities, suggesting a difference in antibiotic sensitivity (<a href="#F3B">Fig. 3B</a>, <a href="#FS7C">S7C-D</a>). Using the GR ratio as a proxy for intracellular replication, we found that despite EC<sub>99</sub> antibiotic treatment, a substantial number of bacteria maintained high GR ratios, indicating that a proportion of actively growing Mtb remained, shown as a shift between the control regression line and different treatment’s regression lines (<a href="#F3C">Fig. 3C</a>). Importantly, an <i>in vitro</i> Mtb-Timer analysis showed minimal retention of high GR ratio bacteria upon antibiotic treatment suggesting a host-driven component in the fast-growing phenotype of intracellular Mtb (<a href="#FS7C">Fig. S7C-D</a>).</p>
+                            <p>Then, using an infection workflow similar to the high-content imaging approach (<a href="#F1A">Fig. 1A</a>), we measured green and red fluorescence of <i>in cellulo</i> Mtb released from infected iPSDM. Upon antibiotic treatment, we observed a shift of the GR ratio (<a href="#F3B">Fig. 3B</a>). Notably, Mtb with higher timer intensities moved out of the control 72 h gate more markedly than those with lower timer intensities, suggesting a difference in antibiotic sensitivity (<a href="#F3B">Fig. 3B</a>, <a href="#SF7C">S7C-D</a>). Using the GR ratio as a proxy for intracellular replication, we found that despite EC<sub>99</sub> antibiotic treatment, a substantial number of bacteria maintained high GR ratios, indicating that a proportion of actively growing Mtb remained, shown as a shift between the control regression line and different treatment’s regression lines (<a href="#F3C">Fig. 3C</a>). Importantly, an <i>in vitro</i> Mtb-Timer analysis showed minimal retention of high GR ratio bacteria upon antibiotic treatment suggesting a host-driven component in the fast-growing phenotype of intracellular Mtb (<a href="#SF7C">Fig. S7C-D</a>).</p>
 
                             <p>By analysing the <i>in cellulo</i> flow cytometry plots (<a href="#F3B">Fig. 3B-D</a>) we found that INH resulted in a shift toward higher fluorescence intensities in both green and red channels. This is consistent with INH-mediated cell wall inhibition, where bacterial division is arrested but protein translation initially continues, leading to an intracellular accumulation of reporter fluorophores due to a lack of intrabacterial dilution<sup><a href="#ref37">37</a></sup>. A similar phenotype was observed under PZA treatment (<a href="#F3B">Fig. 3B-D</a>). In contrast, RIF treatment resulted in green-red distributions similar to the control but with a specific shift in the red channel towards higher intensity (<a href="#F3B">Fig. 3B-D</a>). This agrees with the RIF mechanism of blocking mRNA synthesis, preventing the generation of new green fluorophore while the existing fluorescence reservoir continues to mature into red<sup><a href="#ref37">37</a></sup>.</p>
 
                             <p>Confirming the live cell imaging results, the most significant observation across all conditions was the presence of a tail of high GR ratio bacteria. Regardless of the antibiotic stress, this subpopulation confirms that a rare subset of bacteria remains metabolically active and capable of new protein synthesis. Altogether, these data show that even under EC<sub>99</sub> antibiotic pressure, populations of growing intracellular Mtb are still present.</p>
                         </div>
+
+                    <figcaption>                        
+                    <p><b>Figure 3:</b> <i>In cellulo</i> validation of a Timer probe to measure Mtb growth.</p>
+                    <b>(A)</b> Schematic of the Mtb-Timer fluorescence probe. The reporter utilises a DsRed mutant (S197T) that transitions from a green (newly synthesised) to red (mature) fluorophore over time. Rapid bacterial division dilutes the stable red fluorophore faster than the maturation rate, resulting in a high Green-to-Red (GR) fluorescence ratio (fast growth). Conversely, slow division allows red signal accumulation, resulting in a low GR ratio (slow growth). <b>(B)</b> Flow cytometry analysis of Mtb-Timer released from iPSDM at 96 h post-infection. Scatter plots compare single-cell fluorescence profiles of untreated controls (green) against PZA (blue), INH (purple), and RIF (yellow) EC<sub>99</sub> treatments. Marginal histograms display the univariate distributions for Green (Timer510) and Red (Timer580) channels. <b>(C)</b> Analysis of replication dynamics. Scatter plots display Green vs. Red intensity, with individual bacteria colour-coded by GR ratio category (Green: High/Fast; Grey: Medium; Magenta: Low/Slow). The dotted grey line represents the linear regression fit of the untreated control; coloured dashed lines represent the regression fit for the respective antibiotic conditions. The divergence of the slopes highlights the remaining high-replication subpopulations despite treatment. <b>(D)</b> Quantification of the percentage of antibiotic-treated non-responding bacteria that fall within the "replicating" gate defined by the untreated control distribution. Data represent mean ± SD (<i>n</i> = 3 independent experiments).
+                    </figcaption>    
                     <div id="F3" class="F3-container">
                                                 
                         <div id="F3A" class="F3A-container">
@@ -483,10 +509,7 @@
                         </div>
 
                     </div>
-                    <figcaption>
-                        <p><b>Fig. 3. <i>In cellulo</i> validation of a Timer probe to measure Mtb growth.</b></p>
-                        <b>(A)</b> Schematic of the Mtb-Timer fluorescence probe. The reporter utilises a DsRed mutant (S197T) that transitions from a green (newly synthesised) to red (mature) fluorophore over time. Rapid bacterial division dilutes the stable red fluorophore faster than the maturation rate, resulting in a high Green-to-Red (GR) fluorescence ratio (fast growth). Conversely, slow division allows red signal accumulation, resulting in a low GR ratio (slow growth). <b>(B)</b> Flow cytometry analysis of Mtb-Timer released from iPSDM at 96 h post-infection. Scatter plots compare single-cell fluorescence profiles of untreated controls (green) against PZA (blue), INH (purple), and RIF (yellow) EC<sub>99</sub> treatments. Marginal histograms display the univariate distributions for Green (Timer510) and Red (Timer580) channels. <b>(C)</b> Analysis of replication dynamics. Scatter plots display Green vs. Red intensity, with individual bacteria colour-coded by GR ratio category (Green: High/Fast; Grey: Medium; Magenta: Low/Slow). The dotted grey line represents the linear regression fit of the untreated control; coloured dashed lines represent the regression fit for the respective antibiotic conditions. The divergence of the slopes highlights the remaining high-replication subpopulations despite treatment. <b>(D)</b> Quantification of the percentage of antibiotic-treated non-responding bacteria that fall within the "replicating" gate defined by the untreated control distribution. Data represent mean ± SD (<i>n</i> = 3 independent experiments).
-                    </figcaption>
+
                 </figure>
 
 
@@ -496,15 +519,20 @@
                             <div class="results-text">
                                 <p>To confirm the fast growth phenotype, we next sought to validate these dynamics <i>in vivo</i> with Mtb-Timer. Based on our observations <i>in cellulo</i>, we hypothesised that the presence of fast-growing intracellular Mtb populations is responsible for poor antibiotic response <i>in vivo</i>. To investigate this, we infected C3HeB/FeJ mice, a susceptible model of TB disease<sup><a href="#ref44">44</a>,<a href="#ref45">45</a></sup>, with the reporter strain Mtb-Timer. After 56 days of infection, we treated the mice with vehicle, RIF or PZA for 3 weeks before collecting the lungs for Colony Forming Units (CFU) counting and high-resolution confocal imaging (<a href="#F4A">Fig. 4A</a>).</p>
 
-                                <p>To quantify the replication dynamics (GR ratio) at the single-cell level in the lungs, we developed a semi-automated pipeline that integrates manual bacterial ROI annotation with automated host-cell segmentation in QuPath<sup><a href="#ref46">46</a></sup> (<a href="#FS8">Fig. S8</a>). Consistent with standard efficacy, both RIF (<i>p</i> &lt; 0.01) and PZA (<i>p</i> &lt; 0.001) treatment significantly reduced the total bacterial burden compared to vehicle controls as measured by bulk CFU counts (<a href="#F4E">Fig. 4E</a>, <a href="#TS3">Table S3</a>). As previously reported, PZA efficacy was highly heterogeneous<sup><a href="#ref47">47</a></sup>, with a subset exhibiting poor control of infection as measured by CFU (<a href="#F4E">Fig. 4E-F</a>).</p>
+                                <p>To quantify the replication dynamics (GR ratio) at the single-cell level in the lungs, we developed a semi-automated pipeline that integrates manual bacterial ROI annotation with automated host-cell segmentation in QuPath<sup><a href="#ref46">46</a></sup> (<a href="#SF8">Fig. S8</a>). Consistent with standard efficacy, both RIF (<i>p</i> &lt; 0.01) and PZA (<i>p</i> &lt; 0.001) treatment significantly reduced the total bacterial burden compared to vehicle controls as measured by bulk CFU counts (<a href="#F4E">Fig. 4E</a>, <a href="#ST3">Table S3</a>). As previously reported, PZA efficacy was highly heterogeneous<sup><a href="#ref47">47</a></sup>, with a subset exhibiting poor control of infection as measured by CFU (<a href="#F4E">Fig. 4E-F</a>).</p>
 
-                                
-
-                                <p>Strikingly, our single-cell analysis revealed that the bacterial populations surviving antibiotic treatment sustained replication that were either comparable to (RIF, <i>p</i> = 0.97) or significantly higher than (PZA, <i>p</i> &lt; 0.05) those in the vehicle-treated controls (<a href="#F4F">Fig. 4F</a>, <a href="#TS4">Table S4</a>). This uncoupling of burden and replication was confirmed by a positive correlation between the GR ratio and the lung CFU across all conditions (Vehicle: <i>r</i> = 0.74, <i>p</i> = 0.023; RIF: <i>r</i> = 0.86, <i>p</i> = 0.003; PZA: <i>r</i> = 0.71, <i>p</i> = 0.034; <a href="#F4G">Fig. 4G</a>).</p>
+                                <p>Strikingly, our single-cell analysis revealed that the bacterial populations surviving antibiotic treatment sustained replication that were either comparable to (RIF, <i>p</i> = 0.97) or significantly higher than (PZA, <i>p</i> &lt; 0.05) those in the vehicle-treated controls (<a href="#F4F">Fig. 4F</a>, <a href="#ST4">Table S4</a>). This uncoupling of burden and replication was confirmed by a positive correlation between the GR ratio and the lung CFU across all conditions (Vehicle: <i>r</i> = 0.74, <i>p</i> = 0.023; RIF: <i>r</i> = 0.86, <i>p</i> = 0.003; PZA: <i>r</i> = 0.71, <i>p</i> = 0.034; <a href="#F4G">Fig. 4G</a>).</p>
 
                                 <p>Notably, in the antibiotic treated groups, the specific mice that failed to respond to therapy (particularly in PZA conditions) displayed the highest proportion of fast-replicating bacteria (<a href="#F4G">Fig. 4G</a>). Altogether, these findings show that growing intracellular Mtb populations are associated with antibiotic treatment failure <i>in vivo</i>.</p>
                             </div>
+
+                        <figcaption> 
+                            <p><b>Figure 4:</b> Replicating Mtb subpopulations are associated with antibiotic evasion and treatment failure in a susceptible mouse model of TB.</p>
+                            <b>(A)</b> Experimental design. Susceptible C3HeB/FeJ mice were infected via aerosol with Mtb-Timer. At 56 days post-infection, mice received vehicle, Rifampicin (RIF), or Pyrazinamide (PZA) for 3 weeks prior to lung harvest for CFU enumeration and high-resolution imaging. <b>(B-D)</b> Representative confocal microscopy of lung lobectomies from Vehicle <b>(B)</b>, RIF <b>(C)</b>, and PZA <b>(D)</b> treated mice. Large tissue scans display gross pathology and bacterial distribution (DAPI: blue; Mtb-Timer: Green/Red; Lesions: white dashed line). Insets reveal single-cell heterogeneity of intracellular bacteria. Note the presence of bacteria in treated lungs. <b>(E)</b> Quantification of total bacterial burden via lung CFU counts (log<sub>10</sub>). Data points represent individual mice; box plots show median and interquartile range. <b>(F)</b> Quantification of single-cell replication dynamics (Mtb-Timer Green/Red ratio) across treatment groups. While RIF and Vehicle show relatively tight distributions, PZA treatment reveals marked heterogeneity, with a subset of mice retaining bacterial populations with very high replication (high GR ratio). Numbers within data points indicate individual mouse identifiers to track biological variance. <b>(G)</b> Correlation analysis between bacterial burden (Lung CFU) and replication (Mean Mtb-Timer Ratio). Scatter plot reveals a significant positive correlation across all conditions: Vehicle (<i>r</i> = 0.74, <i>p</i> = 0.023), RIF (<i>r</i> = 0.86, <i>p</i> = 0.003), and PZA (<i>r</i> = 0.71, <i>p</i> = 0.034). The solid lines represent the linear regression for each group.
+                        </figcaption>
                         <div id="F4" class="F4-container">
+ 
+
                             <div id="F4A" class="F4A-container">
                                 <div class="horizontal-caption-container">
                                     <div class="caption">A</div>
@@ -610,10 +638,7 @@
                             </div>
 
                         </div>
-                        <figcaption>
-                            <p><b>Fig. 4. Replicating Mtb subpopulations are associated with antibiotic evasion and treatment failure in a susceptible mouse model of TB.</b></p>
-                            <b>(A)</b> Experimental design. Susceptible C3HeB/FeJ mice were infected via aerosol with Mtb-Timer. At 56 days post-infection, mice received vehicle, Rifampicin (RIF), or Pyrazinamide (PZA) for 3 weeks prior to lung harvest for CFU enumeration and high-resolution imaging. <b>(B-D)</b> Representative confocal microscopy of lung lobectomies from Vehicle <b>(B)</b>, RIF <b>(C)</b>, and PZA <b>(D)</b> treated mice. Large tissue scans display gross pathology and bacterial distribution (DAPI: blue; Mtb-Timer: Green/Red; Lesions: white dashed line). Insets reveal single-cell heterogeneity of intracellular bacteria. Note the presence of bacteria in treated lungs. <b>(E)</b> Quantification of total bacterial burden via lung CFU counts (log<sub>10</sub>). Data points represent individual mice; box plots show median and interquartile range. <b>(F)</b> Quantification of single-cell replication dynamics (Mtb-Timer Green/Red ratio) across treatment groups. While RIF and Vehicle show relatively tight distributions, PZA treatment reveals marked heterogeneity, with a subset of mice retaining bacterial populations with very high replication (high GR ratio). Numbers within data points indicate individual mouse identifiers to track biological variance. <b>(G)</b> Correlation analysis between bacterial burden (Lung CFU) and replication (Mean Mtb-Timer Ratio). Scatter plot reveals a significant positive correlation across all conditions: Vehicle (<i>r</i> = 0.74, <i>p</i> = 0.023), RIF (<i>r</i> = 0.86, <i>p</i> = 0.003), and PZA (<i>r</i> = 0.71, <i>p</i> = 0.034). The solid lines represent the linear regression for each group.
-                        </figcaption>
+
                 </figure>
             </section>
 
@@ -635,17 +660,90 @@
                 </div>
             </section>
 
+            <section id="materials-and-methods" class="methods-section">
+                <h2 class="glass-heading">Material and Methods</h2>
+                <h3>Cell culture</h3>
+                <h4><i>M. tuberculosis</i> culture</h4>
+                <div class="results-text">
+                    <p>Fluorescent <i>M. tuberculosis</i> H37Rv pTEC19 WT and ΔRD1 strains were used in this study<sup><a href="#ref10">10</a></sup>. <i>M. tuberculosis</i> H37Rv pGMEH-Pml-DsRed1E5-0X0 WT strain (Mtb-Timer) was generated in this study by electroporation as previously described<sup><a href="#ref67">67</a></sup> (Campo-Pérez et al., in revision). All strains were grown in Middlebrook 7H9 broth supplemented with 0.2% glycerol, 0.05% Tween-80, 10% ADC and 50 mg/L Hygromycin B as a selection marker for fluorescent strains. Bacterial cultures were incubated at 37 °C with rotation in 50 mL conical tubes.</p>
+                </div>
+
+                <h4>Human iPSC culture</h4>
+                <div class="results-text">
+                    <p>KOLF2-C1 AAVS1:EGFP human iPSC were a gift from the Skarnes Lab (The Jackson Laboratory, CT, USA) and were generated as previously described<sup><a href="#ref33">33</a></sup>. Briefly, the KOLF2-C1 AAVS1 cells express a EGFP reporter under the control of the strong CAGG promoter in the safe harbour locus AAVS1. The cells were maintained in Vitronectin XF (StemCell Technologies, 100-0763)-coated plates with Essential 8 medium (Gibco, A1517001). Cells were authenticated by STR profiling and checked regularly for <i>Mycoplasma</i> contamination. Cells were passaged using Versene (Gibco, 15040066).</p>
+                </div>
+
+                <h4>iPSDM differentiation</h4>
+                <div class="results-text">
+                    <p>Monocyte factories were set up following a previously reported protocol<sup><a href="#ref34">34</a></sup>. Embryoid bodies (EBs) were fed daily with two times 50% medium changes with E8 supplemented with 50 ng mL<sup>−1</sup> hBMP4 (Peprotech, 120-05), 50 ng mL<sup>−1</sup> hVEGF (Peprotech, 100-20) and 20 ng mL<sup>−1</sup> hSCF (Peprotech, 300-07) for 3 days. On day 4, the EBs were collected and seeded at 100-150 EBs per T175 or 250-300 per T225 flask in XVIVO-factory medium. These monocyte factories were fed weekly for 5 weeks until monocytes were observed in the supernatant. Up to 50% of the supernatant was collected weekly and centrifuged at 300g for 5 min. The cells were resuspended in XVIVO-differentiation medium. Monocytes were plated at 5 × 10<sup>6</sup> cells per 10 cm Petri dish to differentiate over 7 days; on day 4, a 50% medium change was performed. To detach, cells were washed once with PBS (pH 7.4), then incubated with Versene for 15 min at 37 °C and 5% CO<sub>2</sub> before diluting 1:3 with PBS and gently scraping. Macrophages were centrifuged at 300g and plated for experiments.</p>
+                </div>
+                <h3>Infection and antibiotic treatment</h3>
+
+                <h4>Infection of iPSDM with <i>M. tuberculosis</i></h4>
+                <div class="results-text">
+                    <p>For the high-content, live-cell imaging, induced pluripotent stem cell derived macrophages (iPSDM) were seeded at a density of 50,000 cells per well of an olefin-bottomed 96-well plate (Phenoplate, Revvity 605532). For flow cytometry, iPSDM were seeded at density of 500,000 cells per well on a tissue culture-treated 12-well plate (ThermoFisher, 3513). Mid-logarithmic-phase bacterial cultures (OD<sub>600</sub> 0.5-1.0) were centrifuged at 2,000g for 5 min and washed twice in PBS. Pellets were then shaken vigorously for 1 min with 2.5-3.5 mm glass beads (VWR, 332124 G) and bacteria resuspended in 10 mL macrophage culture medium before being centrifuged at 300g for 5 min to remove large clumps. The top 7 mL of bacterial suspension was taken, the OD<sub>600</sub> was measured, and the suspension was diluted appropriately for infection. After 2 h of uptake, extracellular bacteria were removed with two washes in PBS and macrophages were incubated at 37 °C and 5% CO<sub>2</sub> for 24 h. Then, media was changed with media containing or not antibiotics before proceeding to the subsequent live-cell imaging.</p>
+                </div>
+
+                <h4><i>In cellulo</i> antibiotic treatments</h4>
+                <div class="results-text">
+                    <p>Antibiotic concentrations used in this study, defined as <i>in cellulo</i> EC<sub>50</sub> and EC<sub>99</sub>, were previously determined<sup><a href="#ref10">10</a>,<a href="#ref68">68</a></sup>. The values of EC<sub>50</sub> for PZA (Sigma, PHR1576-500mg), RIF (Sigma, R3501-1g) and INH (Sigma, I3377-5G) were respectively 60 µg/mL, 0.1 µg/mL and 0.04 µg/mL. The values of EC<sub>99</sub> for PZA, RIF and INH were respectively 400 µg/mL, 2 µg/mL and 2 µg/mL. Antibiotics were added into the infected macrophages after 24 h of infection. For <i>in vitro</i> antibiotic treatment of Mtb-Timer, late exponential phase Mtb culture were diluted to OD<sub>600</sub> = 0.1 and incubated at 37 °C with rotation for 2 days. Cultures were then supplemented with PZA, INH, RIF (at EC<sub>99</sub>) and CHL<sup><a href="#ref69">69</a></sup> (10 µg/mL) and incubated for an additional 3 days at 37 °C with rotation.</p>
+                </div>
+                <h3><i>In cellulo</i> data acquisition and analysis</h3>
+
+                <h4><i>In cellulo</i> image acquisition</h4>
+                <div class="results-text">
+                    <p>Image acquisition was achieved with the OPERA Phenix high-content, confocal, incubator microscope with a 40x water-immersion 1.1NA objective. A single image of 323 µm x 323 µm was acquired across 9 contiguous positions which were compiled together into a 3x3 mosaic of 904 µm x 904 µm with a 10% overlap between tiles. This tessellated field of view was repeated across 3x 2 µm z-slices and the 2x green/red imaging channels. The channel acquisition parameters were λ<sub>ex</sub> = 488, λ<sub>em</sub> = 522 (exposure time 100 ms) for KOLF-EGFP macrophages and λ<sub>ex</sub> = 640, λ<sub>em</sub> = 706 (exposure time 200 ms) for E2-Crimson-Mtb. This was then repeated every 30/60 min for 150/75 frames to reach a total timelapse acquisition of 75 h. This process was repeated over 42 different imaging wells, resulting in a final acquisition of 34,972 images (2.58 TB) per biological repeat. A total of 4 biological repeats were conducted. The untiled images were then exported out of the Harmony software (Revvity, version 4.9) to allow for an open-source Python-based image analysis.</p>
+                </div>
+
+                <h4><i>In cellulo</i> image analysis</h4>
+                <div class="results-text">
+                    <p>The first step was to tile the images into full field-of-view mosaics using a bespoke Python script based on the DaskFusion repository<sup><a href="#ref70">70</a></sup>. This lazy-loading approach enabled the selective rendering of individual frames or cropped regions of interest via Dask<sup><a href="#ref71">71</a></sup>. Macrophage cytoplasm was segmented using a custom Cellpose 2 model<sup><a href="#ref72">72</a></sup> trained on 4,934 manually segmented cells. This self-trained model improved the Jaccard index by 25%. After segmentation, each cell was localised and tracked using the btrack algorithm<sup><a href="#ref73">73</a></sup>. Intracellular Mtb content was defined as the area of E2-crimson fluorescence above a threshold pixel value (480). Time-series information was processed into growth curves using a locally weighted scatterplot smoothing (LOWESS) model<sup><a href="#ref74">74</a></sup>. The coefficient of determination (R<sup>2</sup>) between the raw signal and LOWESS model was used to isolate potential instances of extrinsic Mtb growth, with trajectories showing R<sup>2</sup> < 0.7 being subsequently validated using a napari-based<sup><a href="#ref40">40</a></sup> human-in-the-loop inspection.</p>
+                </div>
+
+                <h4>Flow cytometry and data analysis</h4>
+                <div class="results-text">
+                    <p>For <i>in cellulo</i> Mtb-Timer experiments, infected iPSDM were lysed in 0.05% Triton-X100 in H<sub>2</sub>O at 37 °C for 5 min. Released Mtb was fixed in 4% PFA in PBS. For cell surface quantification of macrophage markers, cells were stained with fluorescently conjugated antibodies against CD11B, CD14, CD86, CD119, CD163, CD169 and CD206. Samples were analysed using a BD LSRFortessa™ Cell Analyzer and data was processed using FlowJo software (v10.10.0). At least 10,000 events per condition were recorded.</p>
+                </div>
+                <h3><i>In vivo</i> data acquisition and analysis</h3>
+                <h4>Murine aerosol <i>M. tuberculosis</i> infection and antibiotic treatment</h4>
+                <div class="results-text">
+                    <p>C3HeB/FeJ mice were bred under pathogen-free conditions at The Francis Crick Institute (London, UK) under UK Home Office project license P4D8F6075. For aerosol infection, Mtb-Timer was grown to mid-log phase (OD<sub>600</sub> = 0.6) and delivered at approximately 100 CFU/mouse lung using a modified Glas-Col aerosol infection system. Treatment commenced at day 56 post-infection via oral gavage for 3 weeks (5 days/week). Treatment groups received either 30 mg/kg of PZA or 10 mg/kg of Rifampicin. At day 77, mice were culled to determine bacterial count (CFU) and obtain lung tissue for high-resolution imaging.</p>
+                </div>
+
+                <h4>Lung sectioning and imaging</h4>
+                <div class="results-text">
+                    <p>Lungs were equilibrated in 0.1 M HEPEs buffer (pH 7.4) with 0.2 M sucrose o/n and frozen in OCT medium. Sections (8 µm) were cut using a Leica CM30505S Cryostat and collected on SuperFrost Plus slides. Tissue was quenched with 50 mM NH<sub>4</sub>Cl to reduce autofluorescence and nuclei were stained with DAPI (1:10,000). Images were acquired at 40x magnification using an Olympus CSU-W1 SoRa Spinning Disk Microscope and visualised using QuPath<sup><a href="#ref46">46</a></sup>.</p>
+                </div>
+
+                <h4>Single-cell tissue image analysis</h4>
+                <div class="results-text">
+                    <p>Images were loaded into QuPath v0.51 and cells segmented using the “cell detection” module on the DAPI channel with a perinuclear expansion of 5 µm. Bacteria were segmented semi-automatically using GFP and DsRed channels as input. The resulting segmentation masks were exported to OME-NGFF Zarr<sup><a href="#ref75">75</a></sup> for batch quantification using Python.</p>
+                </div>
+
+                <h3>Statistics and visualisation</h3>
+                <h4>Statistical analysis</h4>
+                <div class="results-text">
+                    <p>Statistical analyses were performed using Python (scipy.stats, scikit-posthocs, sklearn). To quantify heterogeneity, we calculated the Coefficient of Variation (CV = σ/µ). Pairwise Kolmogorov-Smirnov (KS) tests were used to compare doubling time distribution shapes. Gaussian Mixture Models (GMM) were applied to deconstruct subpopulations, with the optimal number of components (k) determined by minimising the Bayesian Information Criterion (BIC). To compare categorical growth phenotypes, Fisher’s Exact Test was utilised with Benjamini-Hochberg FDR correction. <i>In vivo</i> correlation between burden and replication was assessed using Pearson’s correlation coefficient (<i>r</i>).</p>
+                </div>
+
+                <h4>Visualisation</h4>
+                <div class="results-text">
+                    <p>Visualisation of timelapse imagery and tracking was conducted within napari<sup><a href="#ref40">40</a></sup> utilising OME-NGFF Zarr<sup><a href="#ref75">75</a></sup> and Dask<sup><a href="#ref76">76</a></sup>. Video glimpses of macrophages were compiled as RGB .mp4 files. Flow cytometry plots were generated using FlowJo and the Seaborn package in Python.</p>
+                </div>
+            </section>
+
             <section id="back-matter" class="back-matter-section">
                 <hr class="section-divider">
+                <h2 class="glass-heading">Acknowledgements and Contributions</h2>
 
                 <div class="back-matter-content">
-                    
                     <div class="acknowledgements">
-                        <p><b>Acknowledgements:</b> We thank the Host-Pathogen Interactions in Tuberculosis Lab for helpful discussions, the CALM STP for their support since the inception of the project and Lisa Gerontogianni from BABS STP for her assistance in the biostatistics analysis. This work was supported by the Francis Crick Institute (to MGG), which receives its core funding from Cancer Research UK (CC2081), the UK Medical Research Council (CC2081), and the Wellcome Trust (CC2081). PS postdoctoral work was supported with a non-stipendiary FEBS long-term fellowship and has received funding from the European Union’s H2020 research and innovation program under the Marie Sklodowska-Curie grant agreement SpaTime_AnTB no. 892859. For the purpose of Open Access, the author has applied a CC BY public copyright license to any Author Accepted Manuscript version arising from this submission.</p>
+                        <h3>Acknowledgements</h3>
+                        <p>We thank the Host-Pathogen Interactions in Tuberculosis Lab for helpful discussions, the CALM STP for their support since the inception of the project and Lisa Gerontogianni from BABS STP for her assistance in the biostatistics analysis. This work was supported by the Francis Crick Institute (to MGG), which receives its core funding from Cancer Research UK (CC2081), the UK Medical Research Council (CC2081), and the Wellcome Trust (CC2081). PS postdoctoral work was supported with a non-stipendiary FEBS long-term fellowship and has received funding from the European Union’s H2020 research and innovation program under the Marie Sklodowska-Curie grant agreement SpaTime_AnTB no. 892859. For the purpose of Open Access, the author has applied a CC BY public copyright license to any Author Accepted Manuscript version arising from this submission.</p>
                     </div>
 
                     <div class="author-contributions">
-                        <p><b>Author contributions:</b> 
+                        <h3>Author contributions</h3>
                         <b>Conceptualisation:</b> MGG; 
                         <b>Formal Analysis:</b> NJD, BP, CHL; 
                         <b>Funding acquisition:</b> MGG; 
@@ -659,85 +757,17 @@
                     </div>
 
                     <div class="competing-interests">
-                        <p><b>Competing interests:</b> The authors declare that they have no competing interests.</p>
+                        <h3>Competiting Interests</h3>
+                        <p>The authors declare that they have no competing interests.</p>
                     </div>
 
                     <div class="data-availability">
-                        <p><b>Data and materials availability:</b> All code necessary to complete the image tiling, macrophage segmentation, tracking and intracellular Mtb doubling time analyses will be available in the following GitHub repository: <a href="https://github.com/nthndy/macrohet" class="data-link">github.com/nthndy/macrohet</a>.</p>
+                        <h3>Data Availability</h3>
+                        <p> All code necessary to complete the image tiling, macrophage segmentation, tracking and intracellular Mtb doubling time analyses will be available in the following GitHub repository: <a href="https://github.com/nthndy/macrohet" class="data-link">github.com/nthndy/macrohet</a>.</p>
                     </div>
                     
                 </div>
             </section>
-
-            <section id="materials-and-methods" class="methods-section">
-                <h2 class="glass-heading">Material and Methods</h2>
-
-                <h3><i>M. tuberculosis</i> culture</h3>
-                <div class="results-text">
-                    <p>Fluorescent <i>M. tuberculosis</i> H37Rv pTEC19 WT and ΔRD1 strains were used in this study<sup><a href="#ref10">10</a></sup>. <i>M. tuberculosis</i> H37Rv pGMEH-Pml-DsRed1E5-0X0 WT strain (Mtb-Timer) was generated in this study by electroporation as previously described<sup><a href="#ref67">67</a></sup> (Campo-Pérez et al., in revision). All strains were grown in Middlebrook 7H9 broth supplemented with 0.2% glycerol, 0.05% Tween-80, 10% ADC and 50 mg/L Hygromycin B as a selection marker for fluorescent strains. Bacterial cultures were incubated at 37 °C with rotation in 50 mL conical tubes.</p>
-                </div>
-
-                <h3>Human iPSC culture</h3>
-                <div class="results-text">
-                    <p>KOLF2-C1 AAVS1:EGFP human iPSC were a gift from the Skarnes Lab (The Jackson Laboratory, CT, USA) and were generated as previously described<sup><a href="#ref33">33</a></sup>. Briefly, the KOLF2-C1 AAVS1 cells express a EGFP reporter under the control of the strong CAGG promoter in the safe harbour locus AAVS1. The cells were maintained in Vitronectin XF (StemCell Technologies, 100-0763)-coated plates with Essential 8 medium (Gibco, A1517001). Cells were authenticated by STR profiling and checked regularly for <i>Mycoplasma</i> contamination. Cells were passaged using Versene (Gibco, 15040066).</p>
-                </div>
-
-                <h3>iPSDM differentiation</h3>
-                <div class="results-text">
-                    <p>Monocyte factories were set up following a previously reported protocol<sup><a href="#ref34">34</a></sup>. Embryoid bodies (EBs) were fed daily with two times 50% medium changes with E8 supplemented with 50 ng mL<sup>−1</sup> hBMP4 (Peprotech, 120-05), 50 ng mL<sup>−1</sup> hVEGF (Peprotech, 100-20) and 20 ng mL<sup>−1</sup> hSCF (Peprotech, 300-07) for 3 days. On day 4, the EBs were collected and seeded at 100-150 EBs per T175 or 250-300 per T225 flask in XVIVO-factory medium. These monocyte factories were fed weekly for 5 weeks until monocytes were observed in the supernatant. Up to 50% of the supernatant was collected weekly and centrifuged at 300g for 5 min. The cells were resuspended in XVIVO-differentiation medium. Monocytes were plated at 5 × 10<sup>6</sup> cells per 10 cm Petri dish to differentiate over 7 days; on day 4, a 50% medium change was performed. To detach, cells were washed once with PBS (pH 7.4), then incubated with Versene for 15 min at 37 °C and 5% CO<sub>2</sub> before diluting 1:3 with PBS and gently scraping. Macrophages were centrifuged at 300g and plated for experiments.</p>
-                </div>
-
-                <h3>Infection of iPSDM with <i>M. tuberculosis</i></h3>
-                <div class="results-text">
-                    <p>For the high-content, live-cell imaging, induced pluripotent stem cell derived macrophages (iPSDM) were seeded at a density of 50,000 cells per well of an olefin-bottomed 96-well plate (Phenoplate, Revvity 605532). For flow cytometry, iPSDM were seeded at density of 500,000 cells per well on a tissue culture-treated 12-well plate (ThermoFisher, 3513). Mid-logarithmic-phase bacterial cultures (OD<sub>600</sub> 0.5-1.0) were centrifuged at 2,000g for 5 min and washed twice in PBS. Pellets were then shaken vigorously for 1 min with 2.5-3.5 mm glass beads (VWR, 332124 G) and bacteria resuspended in 10 mL macrophage culture medium before being centrifuged at 300g for 5 min to remove large clumps. The top 7 mL of bacterial suspension was taken, the OD<sub>600</sub> was measured, and the suspension was diluted appropriately for infection. After 2 h of uptake, extracellular bacteria were removed with two washes in PBS and macrophages were incubated at 37 °C and 5% CO<sub>2</sub> for 24 h. Then, media was changed with media containing or not antibiotics before proceeding to the subsequent live-cell imaging.</p>
-                </div>
-
-                <h3><i>In cellulo</i> antibiotic treatments</h3>
-                <div class="results-text">
-                    <p>Antibiotic concentrations used in this study, defined as <i>in cellulo</i> EC<sub>50</sub> and EC<sub>99</sub>, were previously determined<sup><a href="#ref10">10</a>,<a href="#ref68">68</a></sup>. The values of EC<sub>50</sub> for PZA (Sigma, PHR1576-500mg), RIF (Sigma, R3501-1g) and INH (Sigma, I3377-5G) were respectively 60 µg/mL, 0.1 µg/mL and 0.04 µg/mL. The values of EC<sub>99</sub> for PZA, RIF and INH were respectively 400 µg/mL, 2 µg/mL and 2 µg/mL. Antibiotics were added into the infected macrophages after 24 h of infection. For <i>in vitro</i> antibiotic treatment of Mtb-Timer, late exponential phase Mtb culture were diluted to OD<sub>600</sub> = 0.1 and incubated at 37 °C with rotation for 2 days. Cultures were then supplemented with PZA, INH, RIF (at EC<sub>99</sub>) and CHL<sup><a href="#ref69">69</a></sup> (10 µg/mL) and incubated for an additional 3 days at 37 °C with rotation.</p>
-                </div>
-
-                <h3><i>In cellulo</i> image acquisition</h3>
-                <div class="results-text">
-                    <p>Image acquisition was achieved with the OPERA Phenix high-content, confocal, incubator microscope with a 40x water-immersion 1.1NA objective. A single image of 323 µm x 323 µm was acquired across 9 contiguous positions which were compiled together into a 3x3 mosaic of 904 µm x 904 µm with a 10% overlap between tiles. This tessellated field of view was repeated across 3x 2 µm z-slices and the 2x green/red imaging channels. The channel acquisition parameters were λ<sub>ex</sub> = 488, λ<sub>em</sub> = 522 (exposure time 100 ms) for KOLF-EGFP macrophages and λ<sub>ex</sub> = 640, λ<sub>em</sub> = 706 (exposure time 200 ms) for E2-Crimson-Mtb. This was then repeated every 30/60 min for 150/75 frames to reach a total timelapse acquisition of 75 h. This process was repeated over 42 different imaging wells, resulting in a final acquisition of 34,972 images (2.58 TB) per biological repeat. A total of 4 biological repeats were conducted. The untiled images were then exported out of the Harmony software (Revvity, version 4.9) to allow for an open-source Python-based image analysis.</p>
-                </div>
-
-                <h3><i>In cellulo</i> image analysis</h3>
-                <div class="results-text">
-                    <p>The first step was to tile the images into full field-of-view mosaics using a bespoke Python script based on the DaskFusion repository<sup><a href="#ref70">70</a></sup>. This lazy-loading approach enabled the selective rendering of individual frames or cropped regions of interest via Dask<sup><a href="#ref71">71</a></sup>. Macrophage cytoplasm was segmented using a custom Cellpose 2 model<sup><a href="#ref72">72</a></sup> trained on 4,934 manually segmented cells. This self-trained model improved the Jaccard index by 25%. After segmentation, each cell was localised and tracked using the btrack algorithm<sup><a href="#ref73">73</a></sup>. Intracellular Mtb content was defined as the area of E2-crimson fluorescence above a threshold pixel value (480). Time-series information was processed into growth curves using a locally weighted scatterplot smoothing (LOWESS) model<sup><a href="#ref74">74</a></sup>. The coefficient of determination (R<sup>2</sup>) between the raw signal and LOWESS model was used to isolate potential instances of extrinsic Mtb growth, with trajectories showing R<sup>2</sup> < 0.7 being subsequently validated using a napari-based<sup><a href="#ref40">40</a></sup> human-in-the-loop inspection.</p>
-                </div>
-
-                <h3>Flow cytometry and data analysis</h3>
-                <div class="results-text">
-                    <p>For <i>in cellulo</i> Mtb-Timer experiments, infected iPSDM were lysed in 0.05% Triton-X100 in H<sub>2</sub>O at 37 °C for 5 min. Released Mtb was fixed in 4% PFA in PBS. For cell surface quantification of macrophage markers, cells were stained with fluorescently conjugated antibodies against CD11B, CD14, CD86, CD119, CD163, CD169 and CD206. Samples were analysed using a BD LSRFortessa™ Cell Analyzer and data was processed using FlowJo software (v10.10.0). At least 10,000 events per condition were recorded.</p>
-                </div>
-
-                <h3>Murine aerosol <i>M. tuberculosis</i> infection and antibiotic treatment</h3>
-                <div class="results-text">
-                    <p>C3HeB/FeJ mice were bred under pathogen-free conditions at The Francis Crick Institute (London, UK) under UK Home Office project license P4D8F6075. For aerosol infection, Mtb-Timer was grown to mid-log phase (OD<sub>600</sub> = 0.6) and delivered at approximately 100 CFU/mouse lung using a modified Glas-Col aerosol infection system. Treatment commenced at day 56 post-infection via oral gavage for 3 weeks (5 days/week). Treatment groups received either 30 mg/kg of PZA or 10 mg/kg of Rifampicin. At day 77, mice were culled to determine bacterial count (CFU) and obtain lung tissue for high-resolution imaging.</p>
-                </div>
-
-                <h3>Lung sectioning and imaging</h3>
-                <div class="results-text">
-                    <p>Lungs were equilibrated in 0.1 M HEPEs buffer (pH 7.4) with 0.2 M sucrose o/n and frozen in OCT medium. Sections (8 µm) were cut using a Leica CM30505S Cryostat and collected on SuperFrost Plus slides. Tissue was quenched with 50 mM NH<sub>4</sub>Cl to reduce autofluorescence and nuclei were stained with DAPI (1:10,000). Images were acquired at 40x magnification using an Olympus CSU-W1 SoRa Spinning Disk Microscope and visualised using QuPath<sup><a href="#ref46">46</a></sup>.</p>
-                </div>
-
-                <h3>Single-cell tissue image analysis</h3>
-                <div class="results-text">
-                    <p>Images were loaded into QuPath v0.51 and cells segmented using the “cell detection” module on the DAPI channel with a perinuclear expansion of 5 µm. Bacteria were segmented semi-automatically using GFP and DsRed channels as input. The resulting segmentation masks were exported to OME-NGFF Zarr<sup><a href="#ref75">75</a></sup> for batch quantification using Python.</p>
-                </div>
-
-                <h3>Statistical analysis</h3>
-                <div class="results-text">
-                    <p>Statistical analyses were performed using Python (scipy.stats, scikit-posthocs, sklearn). To quantify heterogeneity, we calculated the Coefficient of Variation (CV = σ/µ). Pairwise Kolmogorov-Smirnov (KS) tests were used to compare doubling time distribution shapes. Gaussian Mixture Models (GMM) were applied to deconstruct subpopulations, with the optimal number of components (k) determined by minimising the Bayesian Information Criterion (BIC). To compare categorical growth phenotypes, Fisher’s Exact Test was utilised with Benjamini-Hochberg FDR correction. <i>In vivo</i> correlation between burden and replication was assessed using Pearson’s correlation coefficient (<i>r</i>).</p>
-                </div>
-
-                <h3>Visualisation</h3>
-                <div class="results-text">
-                    <p>Visualisation of timelapse imagery and tracking was conducted within napari<sup><a href="#ref40">40</a></sup> utilising OME-NGFF Zarr<sup><a href="#ref75">75</a></sup> and Dask<sup><a href="#ref76">76</a></sup>. Video glimpses of macrophages were compiled as RGB .mp4 files. Flow cytometry plots were generated using FlowJo and the Seaborn package in Python.</p>
-                </div>
-            </section>
-
 
             <section class="references">
                 <h2 class="glass-heading">
@@ -1273,79 +1303,11 @@
 
             <section id="supplementary-figures" class="supplementary-section">
                 <h2 class="glass-heading">
-                    Supplementary Figures
+                    Supplementary Materials
                 </h2>
-                
-                <div id="S1" class="S1-container">
-                    <h3>Supplementary Figure S1:</h3>
-
-                    <div id="S1A" class="S1A-container">
-                        <div class="horizontal-caption-container">
-                            <div class="caption">A</div>
-                            <div class="horizontal-line"></div>
-                        </div>
-                        <img src="figures/static/Supplementary Figure S1-A.png" data-high-res="figures/static/Supplementary Figure S1-A_full_res.png" alt="Supplementary Figure S1A">
-                    </div>
-
-                    <div id="S1B" class="S1B-container">
-                        <div class="horizontal-caption-container">
-                            <div class="caption">B</div>
-                            <div class="horizontal-line"></div>
-                        </div>
-                        <img src="figures/static/Supplementary Figure S1-B.png" data-high-res="figures/static/Supplementary Figure S1-B_full_res.png" alt="Supplementary Figure S1B">
-                    </div>
-
-                    <div id="S1C" class="S1C-container">
-                        <div class="horizontal-caption-container">
-                            <div class="caption">C</div>
-                            <div class="horizontal-line"></div>
-                        </div>
-                        <img src="figures/static/Supplementary Figure S1-C.png" data-high-res="figures/static/Supplementary Figure S1-C_full_res.png" alt="Supplementary Figure S1C">
-                    </div>
-
-                    <div id="S1D" class="S1D-container">
-                        <div class="horizontal-caption-container">
-                            <div class="caption">D</div>
-                            <div class="horizontal-line"></div>
-                        </div>
-                        <img src="figures/static/Supplementary Figure S1-D.png" data-high-res="figures/static/Supplementary Figure S1-D_full_res.png" alt="Supplementary Figure S1D">
-                    </div>
-
-                    <div id="S1E" class="S1E-container">
-                        <div class="horizontal-caption-container">
-                            <div class="caption">E</div>
-                            <div class="horizontal-line"></div>
-                        </div>
-                        <img src="figures/static/Supplementary Figure S1-E.png" data-high-res="figures/static/Supplementary Figure S1-E_full_res.png" alt="Supplementary Figure S1E">
-                    </div>
-
-                    <div id="S1F" class="S1F-container">
-                        <div class="horizontal-caption-container">
-                            <div class="caption">F</div>
-                            <div class="horizontal-line"></div>
-                        </div>
-                        <img src="figures/static/Supplementary Figure S1-F.png" data-high-res="figures/static/Supplementary Figure S1-F_full_res.png" alt="Supplementary Figure S1F">
-                    </div>
-
-                    <div id="S1G" class="S1G-container">
-                        <div class="horizontal-caption-container">
-                            <div class="caption">G</div>
-                            <div class="horizontal-line"></div>
-                        </div>
-                        <img src="figures/static/Supplementary Figure S1-G.png" data-high-res="figures/static/Supplementary Figure S1-G_full_res.png" alt="Supplementary Figure S1G">
-                    </div>
-
-                    <div id="S1H" class="S1H-container">
-                        <div class="horizontal-caption-container">
-                            <div class="caption">H</div>
-                            <div class="horizontal-line"></div>
-                        </div>
-                        <img src="figures/static/Supplementary Figure S1-H.png" data-high-res="figures/static/Supplementary Figure S1-H_full_res.png" alt="Supplementary Figure S1H">
-                    </div>
-
-                </div>
-                <figcaption>
-                    <p><b>Supplementary Fig. S1. Classification and quantification of extracellular and intracellular Mtb growth dynamics <i>in cellulo</i>.</b></p>
+                <h3> Supplementary Figures</h3>
+                <figcaption id="SF1">
+                    <p><b>Supplementary Figure S1:</b> Classification and quantification of extracellular and intracellular Mtb growth dynamics <i>in cellulo</i>.</p>
                     <b>(A)</b> Single-cell example of wholly intrinsic, intracellular Mtb growth resulting in typical doubling time (20 h) of intracellular Mtb. Representative images (left) with LOWESS growth curve in green, raw data in magenta, the doubling points in grey dotted lines (center) and illustrative diagram (right).
                     <b>(B)</b> Single-cell example of extrinsic, extracellular Mtb uptake (white arrow) resulting in rapid increase (11 &mu;m<sup>2</sup> in 1 h) of intracellular Mtb from the perspective of the host macrophage. Representative images (left) with LOWESS growth curve in green, raw data in magenta, the doubling points in grey dotted lines (center) and illustrative diagram (right).
                     <b>(C)</b> Single-cell example of extrinsic, intercellular Mtb transfer (white arrow) resulting in rapid increase (23 &mu;m<sup>2</sup> in 1 h) of intracellular Mtb from the perspective of the host macrophage. Representative images (left) with LOWESS growth curve in green, raw data in magenta, the doubling points in grey dotted lines (center) and illustrative diagram (right).
@@ -1355,10 +1317,82 @@
                     <b>(G)</b> Our analysis tracked N<sub>cell</sub> = 10,939 antibiotic-treated macrophages. Of these, 32.2% (3,522) showed no detectable signs of infection, 19.9% (2,175) were infected with no measurable growth, 26.1% (2,859) were infected with minor growth, and 7.7% (847) exhibited intracellular population doublings. Of these doublings, 30.1% (248) were attributable to intrinsic intracellular growth, with the remainder due to intercellular transfer (30.9%) or extracellular uptake (39.0%). Therefore, out of a possible 10,939 tracked macrophages, we focus on 248 that constituted the most permissive hosts under antibiotic pressure.
                     <b>(H)</b> Our additional control analysis tracked N<sub>cell</sub> = 3,029 antibiotic-treated Mtb-&Delta;RD1-infected macrophages. Of these, 52.6% (1,592) showed no detectable signs of infection, 21.8% (660) were infected with no measurable growth, 22.4% (677) were infected with minor growth, and 3.3% (100) exhibited intracellular population doublings. Of these doublings, only 8.2% (8) were attributable to intrinsic intracellular growth, whereas the majority were due to extracellular uptake (64.3%) or intercellular transfer (27.6%). Therefore, out of a possible 3,029 tracked macrophages, only 8 constituted the most permissive hosts, precluding further meaningful analysis of doubling times in this condition.
                 </figcaption>
+                <div class="S1-container">
 
-                <div id="S2" class="S2-container">
-                    <h3>Supplementary Figure S2:</h3>
-                    <div id="S2A" class="S2A-container">
+                    <div id="SF1A" class="S1A-container">
+                        <div class="horizontal-caption-container">
+                            <div class="caption">A</div>
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <img src="figures/static/Supplementary Figure S1-A.png" data-high-res="figures/static/Supplementary Figure S1-A_full_res.png" alt="Supplementary Figure S1A">
+                    </div>
+
+                    <div id="SF1B" class="S1B-container">
+                        <div class="horizontal-caption-container">
+                            <div class="caption">B</div>
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <img src="figures/static/Supplementary Figure S1-B.png" data-high-res="figures/static/Supplementary Figure S1-B_full_res.png" alt="Supplementary Figure S1B">
+                    </div>
+
+                    <div id="SF1C" class="S1C-container">
+                        <div class="horizontal-caption-container">
+                            <div class="caption">C</div>
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <img src="figures/static/Supplementary Figure S1-C.png" data-high-res="figures/static/Supplementary Figure S1-C_full_res.png" alt="Supplementary Figure S1C">
+                    </div>
+
+                    <div id="SF1D" class="S1D-container">
+                        <div class="horizontal-caption-container">
+                            <div class="caption">D</div>
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <img src="figures/static/Supplementary Figure S1-D.png" data-high-res="figures/static/Supplementary Figure S1-D_full_res.png" alt="Supplementary Figure S1D">
+                    </div>
+
+                    <div id="SF1E" class="S1E-container">
+                        <div class="horizontal-caption-container">
+                            <div class="caption">E</div>
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <img src="figures/static/Supplementary Figure S1-E.png" data-high-res="figures/static/Supplementary Figure S1-E_full_res.png" alt="Supplementary Figure S1E">
+                    </div>
+
+                    <div id="SF1F" class="S1F-container">
+                        <div class="horizontal-caption-container">
+                            <div class="caption">F</div>
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <img src="figures/static/Supplementary Figure S1-F.png" data-high-res="figures/static/Supplementary Figure S1-F_full_res.png" alt="Supplementary Figure S1F">
+                    </div>
+
+                    <div id="SF1G" class="S1G-container">
+                        <div class="horizontal-caption-container">
+                            <div class="caption">G</div>
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <img src="figures/static/Supplementary Figure S1-G.png" data-high-res="figures/static/Supplementary Figure S1-G_full_res.png" alt="Supplementary Figure S1G">
+                    </div>
+
+                    <div id="SF1H" class="S1H-container">
+                        <div class="horizontal-caption-container">
+                            <div class="caption">H</div>
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <img src="figures/static/Supplementary Figure S1-H.png" data-high-res="figures/static/Supplementary Figure S1-H_full_res.png" alt="Supplementary Figure S1H">
+                    </div>
+
+                </div>
+                
+                <hr class="section-divider">
+                <figcaption id="SF2">
+                    <p><b>Supplementary Figure S2:</b> Independence of replication rate from initial burden and visualization of macrophage infection dynamics.</p>
+                    <b>(A)</b> Correlation analysis between intracellular Mtb replication rate (doubling time) and initial bacterial burden (measured as mean bacterial area over the first 5 h of tracking, &mu;m<sup>2</sup>). Data are shown for Mtb WT (control and antibiotic-treated) and &Delta;RD1 strains. The magenta line represents the linear regression fit with 95% confidence intervals (shaded region). The coefficient of determination (R<sup>2</sup>) and p-values are displayed for each condition. The consistently low R<sup>2</sup> values indicate that intracellular growth rates are independent of the initial bacterial load within the macrophage.
+                    <b>(B)</b> Sankey diagrams visualizing macrophage fate and infection dynamics across the duration of the time-lapse acquisition. The left nodes represent the infection status at the start of tracking (t<sub>start</sub>), and the right nodes represent the status at the end (t<sub>end</sub>). Purple indicates infected macrophages; yellow indicates uninfected macrophages. Flows represent the continuity or change in state, highlighting extrinsic infection events, specifically extracellular uptake and intercellular transfer, which were excluded from the intrinsic growth rate analysis. Diagrams are separated by bacterial strain and antibiotic treatment condition (EC<sub>50</sub> and EC<sub>99</sub>).
+                </figcaption>
+                <div class="S2-container">
+                    <div id="SF2A" class="S2A-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">A</div>
                             <div class="horizontal-line"></div>
@@ -1366,7 +1400,7 @@
                         <img src="figures/static/Supplementary Figure S2-A.png" data-high-res="figures/static/Supplementary Figure S2-A_full_res.png" alt="Supplementary Figure S2A">
                     </div>
 
-                    <div id="S2B" class="S2B-container">
+                    <div id="SF2B" class="S2B-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">B</div>
                             <div class="horizontal-line"></div>
@@ -1374,35 +1408,24 @@
                         <img src="figures/static/Supplementary Figure S2-B.png" data-high-res="figures/static/Supplementary Figure S2-B_full_res.png" alt="Supplementary Figure S2B">
                     </div>
                 </div>
-                <figcaption>
-                    <p><b>Supplementary Fig. S2. Independence of replication rate from initial burden and visualization of macrophage infection dynamics.</b></p>
-                    <b>(A)</b> Correlation analysis between intracellular Mtb replication rate (doubling time) and initial bacterial burden (measured as mean bacterial area over the first 5 h of tracking, &mu;m<sup>2</sup>). Data are shown for Mtb WT (control and antibiotic-treated) and &Delta;RD1 strains. The magenta line represents the linear regression fit with 95% confidence intervals (shaded region). The coefficient of determination (R<sup>2</sup>) and p-values are displayed for each condition. The consistently low R<sup>2</sup> values indicate that intracellular growth rates are independent of the initial bacterial load within the macrophage.
-                    <b>(B)</b> Sankey diagrams visualizing macrophage fate and infection dynamics across the duration of the time-lapse acquisition. The left nodes represent the infection status at the start of tracking (t<sub>start</sub>), and the right nodes represent the status at the end (t<sub>end</sub>). Purple indicates infected macrophages; yellow indicates uninfected macrophages. Flows represent the continuity or change in state, highlighting extrinsic infection events, specifically extracellular uptake and intercellular transfer, which were excluded from the intrinsic growth rate analysis. Diagrams are separated by bacterial strain and antibiotic treatment condition (EC<sub>50</sub> and EC<sub>99</sub>).
-                </figcaption>
 
-                <div id="S3" class="S3-container">
-                    <h3>Supplementary Figure S3:</h3>
-
-                    <img src="figures/static/Supplementary Figure S3.png" data-high-res="figures/static/Supplementary Figure S3_full_res.png" alt="Supplementary Figure S3: Doubling time distributions">
-                    
-                    <div class="image-popup">
-                        <div class="popup-content">
-                            <span class="close-popup">&times;</span>
-                            <div class="zoomable-image-container">
-                                <img src="figures/static/Supplementary Figure S3_full_res.png" alt="Zoomed Supplementary Figure S3" class="zoomable-image" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <figcaption>
-                    <p><b>Supplementary Fig. S3. Gaussian Mixture Model (GMM) decomposition of intracellular doubling time heterogeneity.</b></p>
+                <hr class="section-divider">
+                <figcaption id="SF3">
+                    <p><b>Supplementary Figure S3:</b> Gaussian Mixture Model (GMM) decomposition of intracellular doubling time heterogeneity.</p>
                     Histograms displaying the probability density of single-cell doubling times across Mtb strains and antibiotic treatment conditions. The observed data (blue step line) were analyzed using a Gaussian Mixture Model to resolve underlying phenotypic subpopulations. The yellow solid line represents the combined best-fit model. This global fit is deconstructed into two distinct Gaussian components: a fast-growing subpopulation (green dashed line, centered on lower doubling times) and a slow-growing subpopulation (pink dashed line, centered on higher doubling times). The &Delta;BIC score (difference in Bayesian Information Criterion) is displayed for each condition; high positive values indicate strong statistical evidence that the population is bimodal (composed of two distinct states) rather than unimodal. Note that while untreated Wild-Type (WT CTRL) and Rifampicin-treated (WT RIF EC<sub>99</sub>) populations exhibit strong bimodality with a preserved fast-growing peak, other conditions (such as &Delta;RD1) are better described by a single, slower distribution.
                 </figcaption>
+                <div class="S3-container">
+                    <img src="figures/static/Supplementary Figure S3.png" data-high-res="figures/static/Supplementary Figure S3_full_res.png" alt="Supplementary Figure S3: Doubling time distributions">
+                </div>
 
-                <div id="S4" class="S4-container">
-                    <h3>Supplementary Figure S4:</h3>
-
-                    <div id="S4A" class="S4A-container">
+                <hr class="section-divider">
+                <figcaption id="SF4">
+                    <p><b>Supplementary Figure S4:</b> Population-level quantification of intracellular Mtb growth kinetics and antibiotic inhibition.</p>
+                    <b>(A)</b> Longitudinal analysis of intracellular Mtb Wild-Type (WT) growth burden, measured as the fold change in total fluorescent bacterial area per well relative to t = 0. Macrophages were treated with Pyrazinamide (PZA), Isoniazid (INH), or Rifampicin (RIF) at concentrations corresponding to EC<sub>50</sub> and EC<sub>99</sub>. Thin green lines represent individual imaging wells (technical replicates), illustrating well-to-well variability. The thick magenta dashed line represents the ensemble mean across all wells. Inset values indicate the percentage of growth inhibition relative to the untreated control (Mean &plusmn; SD), confirming the bulk efficacy of the antibiotic treatments.
+                    <b>(B)</b> Equivalent growth kinetic analysis for the attenuated Mtb &Delta;RD1 strain under identical control and antibiotic-treated conditions. Note the generally slower growth trajectory of the control &Delta;RD1 strain compared to WT, and the corresponding inhibition profiles.
+                </figcaption>
+                <div class="S4-container">
+                    <div id="SF4A" class="S4A-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">A</div>
                             <div class="horizontal-line"></div>
@@ -1410,7 +1433,7 @@
                         <img src="figures/static/Supplementary Figure S4-A.png" data-high-res="figures/static/Supplementary Figure S4-A_full_res.png" alt="Supplementary Figure S4A">
                     </div>
 
-                    <div id="S4B" class="S4B-container">
+                    <div id="SF4B" class="S4B-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">B</div>
                             <div class="horizontal-line"></div>
@@ -1419,35 +1442,27 @@
                     </div>
 
                 </div>
-                <figcaption>
-                    <p><b>Supplementary Fig. S4. Population-level quantification of intracellular Mtb growth kinetics and antibiotic inhibition.</b></p>
-                    <b>(A)</b> Longitudinal analysis of intracellular Mtb Wild-Type (WT) growth burden, measured as the fold change in total fluorescent bacterial area per well relative to t = 0. Macrophages were treated with Pyrazinamide (PZA), Isoniazid (INH), or Rifampicin (RIF) at concentrations corresponding to EC<sub>50</sub> and EC<sub>99</sub>. Thin green lines represent individual imaging wells (technical replicates), illustrating well-to-well variability. The thick magenta dashed line represents the ensemble mean across all wells. Inset values indicate the percentage of growth inhibition relative to the untreated control (Mean &plusmn; SD), confirming the bulk efficacy of the antibiotic treatments.
-                    <b>(B)</b> Equivalent growth kinetic analysis for the attenuated Mtb &Delta;RD1 strain under identical control and antibiotic-treated conditions. Note the generally slower growth trajectory of the control &Delta;RD1 strain compared to WT, and the corresponding inhibition profiles.
-                </figcaption>
 
-                <div id="S5" class="S5-container">
-                    <h3>Supplementary Figure S5:</h3>
-
-                    <img src="figures/static/Supplementary Figure S5.png" data-high-res="figures/static/Supplementary Figure S5_full_res.png" alt="Supplementary Figure S5: Doubling time distributions">
-                    
-                    <div class="image-popup">
-                        <div class="popup-content">
-                            <span class="close-popup">&times;</span>
-                            <div class="zoomable-image-container">
-                                <img src="figures/static/Supplementary Figure S5_full_res.png" alt="Zoomed Supplementary Figure S5" class="zoomable-image" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <figcaption>
-                    <p><b>Supplementary Fig. S5. Pairwise statistical comparison of intracellular doubling time distributions.</b></p>
+                <hr class="section-divider">
+                <figcaption id="SF5">
+                    <p><b>Supplementary Figure S5:</b> Pairwise statistical comparison of intracellular doubling time distributions.</p>
                     Matrix visualization of the Kolmogorov-Smirnov (KS) test statistics comparing the shape and location of doubling time distributions across all experimental conditions. The color of each node represents the statistical significance (P-value) of the difference, ranging from dark purple (non-significant, p > 0.05) to bright yellow (highly significant, p &lt; 10<sup>-6</sup>). The size of each circle is proportional to the KS effect size (D statistic), which quantifies the maximum distance between the two cumulative distribution functions. Larger circles indicate a greater magnitude of phenotypic divergence. The specific D statistic and p-value are listed within each node.
                 </figcaption>
+                <div class="S5-container">
 
-                <div id="S6" class="S6-container">
-                    <h3>Supplementary Figure S6:</h3>
+                    <img src="figures/static/Supplementary Figure S5.png" data-high-res="figures/static/Supplementary Figure S5_full_res.png" alt="Supplementary Figure S5: Doubling time distributions">
+                
+                </div>
 
-                    <div id="S6A" class="S6A-container">
+                <hr class="section-divider">
+                <figcaption id="SF6">
+                    <p><b>Supplementary Figure S6:</b> Surface marker characterization of Mtb-infected iPSDM.</p>
+                    <b>(A)</b> Gating strategy of Mtb-infected iPSDM.
+                    <b>(B)</b> Expression of CD11B, CD14, CD86, CD119, CD163, CD169, CD206 in Mtb-infected iPSDM measured by flow cytometry, representative plots showing uninfected (black), Mtb-low (red) and Mtb-high (green) iPSDM samples. (n = 3 independent experiments).
+                    <b>(C)</b> Expression of CD206 in uninfected iPSDM (cyan) and Mtb-infected iPSDM measured by flow cytometry, representative plots showing uninfected (black), Mtb-low (red) and Mtb-high (green) iPSDM samples. (n = 3 independent experiments).
+                </figcaption>
+                <div class="S6-container">
+                    <div id="SF6A" class="S6A-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">A</div>
                             <div class="horizontal-line"></div>
@@ -1472,16 +1487,18 @@
                     </div>
 
                 </div>
-                <figcaption>
-                    <p><b>Supplementary Fig. S6. Surface marker characterization of Mtb-infected iPSDM.</b></p>
-                    <b>(A)</b> Gating strategy of Mtb-infected iPSDM.
-                    <b>(B)</b> Expression of CD11B, CD14, CD86, CD119, CD163, CD169, CD206 in Mtb-infected iPSDM measured by flow cytometry, representative plots showing uninfected (black), Mtb-low (red) and Mtb-high (green) iPSDM samples. (n = 3 independent experiments).
-                    <b>(C)</b> Expression of CD206 in uninfected iPSDM (cyan) and Mtb-infected iPSDM measured by flow cytometry, representative plots showing uninfected (black), Mtb-low (red) and Mtb-high (green) iPSDM samples. (n = 3 independent experiments).
-                </figcaption>
 
-                <div id="S7" class="S7-container">
-                    <h3>Supplementary Figure S7:</h3>
-                    <div id="S7A" class="S7A-container">
+                <hr class="section-divider">
+                <figcaption id="SF7">
+                    <p><b>Supplementary Figure S7:</b> Flow cytometry validation and characterization of the Mtb-Timer replication reporter <i>in vitro</i> and <i>in cellulo</i>.</p>
+                    <b>(A)</b> Gating strategy of Mtb-Timer. Bacteria were first gated from SSC-A vs FSC-A plot to remove bacterial clumps, Mtb-Timer was then gated from the Mtb population. Representative data of one out of the three independent experiments (n = 3 independent experiments).
+                    <b>(B)</b> Timer profiles of Mtb treated with chloramphenicol <i>in vitro</i> for 1, 2 and 3 days, representative plots showing untreated control (black) and chloramphenicol treated (red) samples. (n = 3 independent experiments).
+                    <b>(C)</b> Mtb-Timer profiles of inoculum and <i>in cellulo</i> Mtb at 2 h, 24 h and 96 h after infection. Representative data of one out of the three independent experiments (n = 3 independent experiments).
+                    <b>(D)</b> Timer profiles of <i>in cellulo</i> Mtb at 96h after infection under antibiotic treatment. Gate “Control 72h” is gated from the control condition to depict the Timer<sub>Mtb</sub> profile without antibiotic treatment. Representative data of one out of three independent experiments (n = 3 independent experiments).
+                    <b>(E)</b> Timer profiles of Mtb treated with antibiotic <i>in vitro</i> for 3 days. Representative data of one out of the three independent experiments (n = 3 independent experiments).
+                </figcaption>
+                <div class="S7-container">
+                    <div id="SF7A" class="S7A-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">A</div>
                             <div class="horizontal-line"></div>
@@ -1489,7 +1506,7 @@
                         <img src="figures/static/Supplementary Figure S7-A.png" data-high-res="figures/static/Supplementary Figure S7-A_full_res.png" alt="Supplementary Figure S7A">
                     </div>
 
-                    <div id="S7B" class="S7B-container">
+                    <div id="SF7B" class="S7B-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">B</div>
                             <div class="horizontal-line"></div>
@@ -1497,7 +1514,7 @@
                         <img src="figures/static/Supplementary Figure S7-B.png" data-high-res="figures/static/Supplementary Figure S7-B_full_res.png" alt="Supplementary Figure S7B">
                     </div>
 
-                    <div id="S7C" class="S7C-container">
+                    <div id="SF7C" class="S7C-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">C</div>
                             <div class="horizontal-line"></div>
@@ -1505,7 +1522,7 @@
                         <img src="figures/static/Supplementary Figure S7-C.png" data-high-res="figures/static/Supplementary Figure S7-C_full_res.png" alt="Supplementary Figure S7C">
                     </div>
 
-                    <div id="S7D" class="S7D-container">
+                    <div id="SF7D" class="S7D-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">D</div>
                             <div class="horizontal-line"></div>
@@ -1513,7 +1530,7 @@
                         <img src="figures/static/Supplementary Figure S7-D.png" data-high-res="figures/static/Supplementary Figure S7-D_full_res.png" alt="Supplementary Figure S7D">
                     </div>
 
-                    <div id="S7E" class="S7E-container">
+                    <div id="SF7E" class="S7E-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">E</div>
                             <div class="horizontal-line"></div>
@@ -1522,18 +1539,14 @@
                     </div>
 
                 </div>
-                <figcaption>
-                    <p><b>Supplementary Fig. S7. Flow cytometry validation and characterization of the Mtb-Timer replication reporter <i>in vitro</i> and <i>in cellulo</i>.</b></p>
-                    <b>(A)</b> Gating strategy of Mtb-Timer. Bacteria were first gated from SSC-A vs FSC-A plot to remove bacterial clumps, Mtb-Timer was then gated from the Mtb population. Representative data of one out of the three independent experiments (n = 3 independent experiments).
-                    <b>(B)</b> Timer profiles of Mtb treated with chloramphenicol <i>in vitro</i> for 1, 2 and 3 days, representative plots showing untreated control (black) and chloramphenicol treated (red) samples. (n = 3 independent experiments).
-                    <b>(C)</b> Mtb-Timer profiles of inoculum and <i>in cellulo</i> Mtb at 2 h, 24 h and 96 h after infection. Representative data of one out of the three independent experiments (n = 3 independent experiments).
-                    <b>(D)</b> Timer profiles of <i>in cellulo</i> Mtb at 96h after infection under antibiotic treatment. Gate “Control 72h” is gated from the control condition to depict the Timer<sub>Mtb</sub> profile without antibiotic treatment. Representative data of one out of three independent experiments (n = 3 independent experiments).
-                    <b>(E)</b> Timer profiles of Mtb treated with antibiotic <i>in vitro</i> for 3 days. Representative data of one out of the three independent experiments (n = 3 independent experiments).
+                <hr class="section-divider">
+                <figcaption id="SF8">
+                    <p><b>Supplementary Figure S8:</b> Multi-scale confocal imaging and single-cell segmentation pipeline in Mtb-Timer infected mouse lungs.</p>
+                    <b>(A-B)</b> Large-scale tiled scan of a whole lung lobectomy (A) and a magnified view of a lesion region (B), visualizing the distribution of Mtb-Timer (green and magenta) relative to host nuclei (DAPI, blue).
+                    <b>(C-H)</b> High-resolution details illustrating the segmentation strategy. A representative field of view (C, composite) is split into component channels: combined Mtb-Timer fluorescence (D), mature red Timer (F), newly synthesized green Timer (G), and host nuclei (H). These signals are used to generate segmentation masks (E), with the manually identified individual bacterial units (yellow outlines) and automatically segmented host cell boundaries (colored lines).
                 </figcaption>
-
-                <div id="S8" class="S8-container">
-                    <h3>Supplementary Figure S8:</h3>
-                    <div id="S8A" class="S8A-container">
+                <div class="S8-container">
+                    <div id="SF8A" class="S8A-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">A</div>
                             <div class="horizontal-line"></div>
@@ -1541,7 +1554,7 @@
                         <img src="figures/static/Supplementary Figure S8-A.png" data-high-res="figures/static/Supplementary Figure S8-A_full_res.png" alt="Supplementary Figure S8A whole lung section">
                     </div>
 
-                    <div id="S8B" class="S8B-container">
+                    <div id="SF8B" class="S8B-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">B</div>
                             <div class="horizontal-line"></div>
@@ -1549,7 +1562,7 @@
                         <img src="figures/static/Supplementary Figure S8-B.png" data-high-res="figures/static/Supplementary Figure S8-B_full_res.png" alt="Supplementary Figure S8B zoomed lung section">
                     </div>
 
-                    <div id="S8C" class="S8C-container">
+                    <div id="SF8C" class="S8C-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">C</div>
                             <div class="horizontal-line"></div>
@@ -1557,7 +1570,7 @@
                         <img src="figures/static/Supplementary Figure S8-C.png" data-high-res="figures/static/Supplementary Figure S8-C_full_res.png" alt="Supplementary Figure S8C Merge">
                     </div>
 
-                    <div id="S8D" class="S8D-container">
+                    <div id="SF8D" class="S8D-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">D</div>
                             <div class="horizontal-line"></div>
@@ -1565,7 +1578,7 @@
                         <img src="figures/static/Supplementary Figure S8-D.png" data-high-res="figures/static/Supplementary Figure S8-D_full_res.png" alt="Supplementary Figure S8D Mtb-Timer">
                     </div>
 
-                    <div id="S8E" class="S8E-container">
+                    <div id="SF8E" class="S8E-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">E</div>
                             <div class="horizontal-line"></div>
@@ -1573,7 +1586,7 @@
                         <img src="figures/static/Supplementary Figure S8-E.png" data-high-res="figures/static/Supplementary Figure S8-E_full_res.png" alt="Supplementary Figure S8E Segmentation">
                     </div>
 
-                    <div id="S8F" class="S8F-container">
+                    <div id="SF8F" class="S8F-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">F</div>
                             <div class="horizontal-line"></div>
@@ -1581,7 +1594,7 @@
                         <img src="figures/static/Supplementary Figure S8-F.png" data-high-res="figures/static/Supplementary Figure S8-F_full_res.png" alt="Supplementary Figure S8F Mtb-Timer Magenta">
                     </div>
 
-                    <div id="S8G" class="S8G-container">
+                    <div id="SF8G" class="S8G-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">G</div>
                             <div class="horizontal-line"></div>
@@ -1589,7 +1602,7 @@
                         <img src="figures/static/Supplementary Figure S8-G.png" data-high-res="figures/static/Supplementary Figure S8-G_full_res.png" alt="Supplementary Figure S8G Mtb-Timer Green">
                     </div>
 
-                    <div id="S8H" class="S8H-container">
+                    <div id="SF8H" class="S8H-container">
                         <div class="horizontal-caption-container">
                             <div class="caption">H</div>
                             <div class="horizontal-line"></div>
@@ -1598,16 +1611,12 @@
                     </div>
 
                 </div>
-                <figcaption>
-                    <p><b>Supplementary Fig. S8. Multi-scale confocal imaging and single-cell segmentation pipeline in Mtb-Timer infected mouse lungs.</b></p>
-                    <b>(A-B)</b> Large-scale tiled scan of a whole lung lobectomy (A) and a magnified view of a lesion region (B), visualizing the distribution of Mtb-Timer (green and magenta) relative to host nuclei (DAPI, blue).
-                    <b>(C-H)</b> High-resolution details illustrating the segmentation strategy. A representative field of view (C, composite) is split into component channels: combined Mtb-Timer fluorescence (D), mature red Timer (F), newly synthesized green Timer (G), and host nuclei (H). These signals are used to generate segmentation masks (E), with the manually identified individual bacterial units (yellow outlines) and automatically segmented host cell boundaries (colored lines).
-                </figcaption>
+
 
                 <div id="supplementary-tables" class="supplementary-tables-container">
-    
-                    <h3>Supplementary Table S1:</h3>
-                    <div id="Table-S1" class="table-placeholder">
+                    <h3> Supplementary Tables</h3>
+                    <figcaption id="ST1"><p><b>Supplementary Table S1:</b>Summary statistics for phenotypic heterogeneity across experimental conditions. </p></figcaption>
+                    <div class="table-placeholder">
                         <table class="supplementary-table">
                             <thead>
                                 <tr>
@@ -1631,10 +1640,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <figcaption><b>Supplementary Table S1:</b> Summary statistics for phenotypic heterogeneity across experimental conditions.</figcaption>
-                    
-                    <h3>Supplementary Table S2:</h3>
-                    <div id="Table-S2" class="table-placeholder">
+                    <figcaption id="ST2"><p><b>Supplementary Table S2:</b> Fisher’s Exact Test results for phenotypic shifts relative to wild-type control, with FDR-adjusted p-values.</p></figcaption>
+                    <div class="table-placeholder">
                         <table class="supplementary-table">
                             <thead>
                                 <tr>
@@ -1654,10 +1661,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <figcaption><b>Supplementary Table S2:</b> Fisher’s Exact Test results for phenotypic shifts relative to wild-type control, with FDR-adjusted p-values.</figcaption>
-                    
-                    <h3>Supplementary Table S3:</h3>
-                    <div id="Table-S3" class="table-placeholder">
+                    <figcaption id="ST3"><p><b>Supplementary Table S3:</b> One-way ANOVA followed by Tukey’s HSD post-hoc test was performed to compare the bacterial load (log<sub>10</sub> CFU) in the lungs of C3HeB/FeJ mice across treatment groups (Fig. 4E).</p> </figcaption>
+                    <div class="table-placeholder">
                         <table class="supplementary-table">
                             <thead>
                                 <tr>
@@ -1675,10 +1680,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <figcaption><b>Supplementary Table S3:</b> One-way ANOVA followed by Tukey’s HSD post-hoc test was performed to compare the bacterial load (log<sub>10</sub> CFU) in the lungs of C3HeB/FeJ mice across treatment groups (Fig. 4E).</figcaption>
-                    
-                    <h3>Supplementary Table S4:</h3>
-                    <div id="Table-S4" class="table-placeholder">
+                    <figcaption id="ST4"><p><b>Supplementary Table S4:</b> Welch’s ANOVA followed by Games-Howell post-hoc tests were performed to compare the mean single-cell Mtb-Timer ratio across treatment groups in C3HeB/FeJ mice (Fig. 4F). This method was selected to account for the unequal variances observed between the PZA and vehicle treatments.</p></figcaption>
+                    <div class="table-placeholder">
                         <table class="supplementary-table">
                             <thead>
                                 <tr>
@@ -1698,27 +1701,44 @@
                             </tbody>
                         </table>
                     </div>
-                    <figcaption><b>Supplementary Table S4:</b> Welch’s ANOVA followed by Games-Howell post-hoc tests were performed to compare the mean single-cell Mtb-Timer ratio across treatment groups in C3HeB/FeJ mice (Fig. 4F). This method was selected to account for the unequal variances observed between the PZA and vehicle treatments.</figcaption>
 
                 </div>
 
                 <div id="supplementary-movies" class="supplementary-movies-container">
-                    <h3>Supplementary Movie S1:</h3>
-                    <div id="Movie-S1" class="movie-placeholder">
-                        </div>
-                    <figcaption><b>Supplementary Movie S1: High-content imaging pipeline tracking Mtb replication in human iPSC-derived macrophages.</b><br>
-                    The left panel shows the merged 2-channel image data, with macrophages expressing EGFP in green and Mtb expressing E2-Crimson pseudo-colored magenta. The middle panel shows the same images with the segmentation overlaid in yellow. The right panel shows the tracked centroid location of each macrophage as a cyan line.</figcaption>
-                    <h3>Supplementary Movie S2:</h3>
-                    <div id="Movie-S2" class="movie-placeholder">
-                        </div>
-                    <figcaption><b>Supplementary Movie S2: Single-cell glimpse example of intracellular Mtb growth dynamics exhibiting normal (20-24 hours), slow (40 hours) and fast (14 hours) doubling times.</b><br>
-                    The accompanying doubling time plot shows the intracellular Mtb burden over time as a magenta line, the LOWESS growth model as a green line and the subsequent doubling times and amounts as grey dashed lines.</figcaption>
-                    <h3>Supplementary Movie S3:</h3>
-                    <div id="Movie-S3" class="movie-placeholder">
-                        </div>
-                    <figcaption><b>Supplementary Movie S3: Single-cell glimpse example of wholly intrinsic intracellular Mtb growth dynamics, extracellular Mtb uptake and intercellular transfer of Mtb from a neighbouring macrophage.</b><br>
-                    The accompanying doubling time plot shows the intracellular Mtb burden over time as a magenta line, the LOWESS growth model as a green line and the subsequent doubling times and amounts as grey dashed lines. The top example exhibits no sudden jumps in intracellular burden attributable to extrinsic Mtb populations. The middle example exhibits a minor jump in intracellular burden around 33 hours that is attributable to extracellular uptake of a neighboring population of Mtb. The lower example exhibits a major jump in intracellular burden around 13 hours that is attributable to intercellular transfer of a neighboring intracellular population of Mtb.</figcaption>
-
+                    <h3>Supplementary Movies</h3>
+                    <figcaption id="SM1" >
+                        <p><b>Supplementary Movie S1: High-content imaging pipeline tracking Mtb replication in human iPSC-derived macrophages</b></p>
+                        The left panel shows the merged 2-channel image data, with macrophages expressing EGFP in green and Mtb expressing E2-Crimson pseudo-colored magenta. The middle panel shows the same images with the segmentation overlaid in yellow. The right panel shows the tracked centroid location of each macrophage as a cyan line.
+                    </figcaption>                    
+                    <div class="movie-container">
+                        <video controls preload="metadata" width="100%" class="supplementary-video">
+                            <source src="figures/supplementary_videos/SM1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <figcaption id="SM2">
+                        <p><b>Supplementary Movie S2: Single-cell glimpse example of intracellular Mtb growth dynamics exhibiting normal (20-24 hours), slow (40 hours) and fast (14 hours) doubling times.</b></p>
+                        The accompanying doubling time plot shows the intracellular Mtb burden over time as a magenta line, the LOWESS growth model as a green line and the subsequent doubling times and amounts as grey dashed lines.
+                    </figcaption>
+                    
+                    <div class="movie-container">
+                        <video controls preload="metadata" width="100%" class="supplementary-video">
+                            <source src="figures/supplementary_videos/SM2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <figcaption id="SM3" >
+                        <p><b>Supplementary Movie S3: Single-cell glimpse example of wholly intrinsic intracellular Mtb growth dynamics, extracellular Mtb uptake and intercellular transfer of Mtb from a neighbouring macrophage.</b></p>
+                        The accompanying doubling time plot shows the intracellular Mtb burden over time as a magenta line, the LOWESS growth model as a green line and the subsequent doubling times and amounts as grey dashed lines. The top example exhibits no sudden jumps in intracellular burden attributable to extrinsic Mtb populations. The middle example exhibits a minor jump in intracellular burden around 33 hours that is attributable to extracellular uptake of a neighbouring population of Mtb. The lower example exhibits a major jump in intracellular burden around 13 hours that is attributable to intercellular transfer of a neighbouring intracellular population of Mtb.
+                    </figcaption>
+                    
+                    <div class="movie-container">
+                        <video controls preload="metadata" width="100%" class="supplementary-video">
+                            <source src="figures/supplementary_videos/SM3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    
                 </div>
 
             </section>

@@ -3,7 +3,60 @@ document.addEventListener('DOMContentLoaded', () => {
     initializePlots();
     setupGlobalEscapeKey();
     initializeHoverSystem();
+    initializeTitleFlip();
+    initializeInlineTables();
 });
+
+// Add to the DOMContentLoaded callback:
+// initializeTitleFlip();
+
+function initializeTitleFlip() {
+    const flipContainer = document.querySelector('.title-card-flip-container');
+    if (!flipContainer) return;
+
+    // Build TOC from heading hierarchy
+    const tocNav = document.getElementById('toc-nav');
+    if (tocNav) {
+        const headings = document.querySelectorAll(
+            'section > .glass-heading, section h3, .results-section h3'
+        );
+
+        headings.forEach((heading, i) => {
+            // Skip if heading has no meaningful text
+            const text = heading.textContent.trim();
+            if (!text) return;
+
+            // Ensure heading has an id for linking
+            if (!heading.id) {
+                const parentSection = heading.closest('section');
+                const parentFigure = heading.closest('figure');
+                heading.id = parentSection?.id || parentFigure?.id || `section-${i}`;
+            }
+
+            const link = document.createElement('a');
+            link.href = `#${heading.id}`;
+            link.textContent = text;
+
+            // Tag level determines indent
+            const tag = heading.tagName.toLowerCase();
+            link.classList.add(tag === 'h2' ? 'toc-h2' : 'toc-h3');
+
+            // Close the flip on TOC link click, then scroll
+            link.addEventListener('click', (e) => {
+                e.stopPropagation();
+                flipContainer.classList.remove('flipped');
+            });
+
+            tocNav.appendChild(link);
+        });
+    }
+
+    // Toggle flip on click (but not on TOC link clicks)
+    flipContainer.addEventListener('click', (e) => {
+        if (e.target.closest('.toc-nav a')) return;
+        flipContainer.classList.toggle('flipped');
+    });
+}
 
 // ===========================================
 // 0. GLOBAL ESCAPE KEY (New Feature)
@@ -34,9 +87,9 @@ function setupGlobalEscapeKey() {
 const PLOT_CONFIG = [
     { id: 'plot-1H', jsonPath: 'figures/dynamic/F1H_plot_data.json', type: 'image-hover' },
     { id: 'plot-2A', jsonPath: 'figures/dynamic/F2A_plot_data.json', type: 'image-hover' },
-    { id: 'plot-2B', jsonPath: 'figures/data/F2B_plot_data.json', type: 'image-hover' },
-    { id: 'plot-2C', jsonPath: 'figures/data/F2C_plot_data.json', type: 'image-hover' },
-    { id: 'plot-2D', jsonPath: 'figures/data/dt_plot_data.json', type: 'video-hover' }
+    { id: 'plot-2B', jsonPath: 'figures/dynamic/F2B_plot_data.json', type: 'image-hover' },
+    { id: 'plot-2C', jsonPath: 'figures/dynamic/F2C_plot_data.json', type: 'image-hover' },
+    { id: 'plot-2D', jsonPath: 'figures/dynamic/F2D_plot_data.json', type: 'video-hover' }
 ];
 
 // ===========================================
@@ -273,18 +326,6 @@ function setupStaticHoverPreviews() {
 // 5 & 6. UNIFIED HOVER SYSTEM (Affiliations & Tables)
 // ===========================================
 
-const SUPPLEMENTARY_DATA = {
-    "TS1": {
-        title: "Table S1: Growth Heterogeneity Metrics",
-        headers: ["Metric", "Mtb WT", "Mtb ΔRD1"],
-        rows: [["Median DT (h)", "25.2", "42.1"], ["CV", "0.45", "0.58"], ["N (cells)", "245", "83"]]
-    },
-    "TS2": {
-        title: "Table S2: Fisher's Exact Test Results",
-        headers: ["Comparison", "p-value", "Sig."],
-        rows: [["WT vs ΔRD1", "> 0.99", "ns"], ["WT vs RIF EC99", "< 0.0001", "****"]]
-    }
-};
 
 function initializeHoverSystem() {
     // Create the Tooltip Element if it doesn't exist (styled via CSS #table-tooltip rules)
@@ -299,35 +340,6 @@ function initializeHoverSystem() {
 
     allLinks.forEach(link => {
         const href = link.getAttribute('href') || "";
-
-        // --- TABLE HOVERS ---
-        if (href.startsWith('#TS')) {
-            link.addEventListener('mouseenter', (e) => {
-                const id = href.replace('#', '');
-                const data = SUPPLEMENTARY_DATA[id];
-                if (!data) return;
-
-                let html = `<span class="table-title">${data.title}</span>`;
-                html += `<table><thead><tr>`;
-                data.headers.forEach(h => html += `<th>${h}</th>`);
-                html += `</tr></thead><tbody>`;
-                data.rows.forEach(row => {
-                    html += `<tr>`;
-                    row.forEach(cell => html += `<td>${cell}</td>`);
-                    html += `</tr>`;
-                });
-                html += `</tbody></table>`;
-
-                tableTooltip.innerHTML = html;
-                tableTooltip.style.display = 'block';
-            });
-
-            link.addEventListener('mouseleave', () => tableTooltip.style.display = 'none');
-            link.addEventListener('mousemove', (e) => {
-                tableTooltip.style.left = (e.clientX + 15) + 'px';
-                tableTooltip.style.top = (e.clientY + 15) + 'px';
-            });
-        }
 
         // --- AFFILIATION HOVERS ---
         if (href.startsWith('#aff')) {
@@ -348,5 +360,70 @@ function initializeHoverSystem() {
                 }
             });
         }
+    });
+}
+
+
+// Add to DOMContentLoaded at the top:
+// initializeInlineTables();
+
+function initializeInlineTables() {
+    const tableLinks = document.querySelectorAll('a[href^="#ST"]');
+    
+    tableLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const targetId = link.getAttribute('href').substring(1);
+            const targetTable = document.getElementById(targetId);
+            const targetCaption = targetTable ? targetTable.nextElementSibling : null;
+            
+            if (!targetTable) return;
+
+            // Find the parent paragraph so we don't break the sentence/brackets
+            const parentParagraph = link.closest('p');
+            
+            // Create a unique ID for the wrapper so we can toggle it easily
+            const wrapperId = 'inline-wrapper-' + targetId;
+            let inlineWrapper = document.getElementById(wrapperId);
+
+            // If the table is already open under this paragraph, toggle it
+            if (inlineWrapper) {
+                inlineWrapper.style.display = inlineWrapper.style.display === 'none' ? 'block' : 'none';
+                return;
+            }
+
+            // Create the inline container
+            inlineWrapper = document.createElement('div');
+            inlineWrapper.id = wrapperId;
+            inlineWrapper.className = 'inline-table-wrapper';
+            
+            // Add a close button
+            const closeBtn = document.createElement('div');
+            closeBtn.className = 'inline-table-close';
+            closeBtn.innerHTML = '&times; Close Table';
+            closeBtn.onclick = () => inlineWrapper.style.display = 'none';
+            
+            // Clone the table
+            const tableClone = targetTable.cloneNode(true);
+            tableClone.style.marginBottom = '0'; 
+            
+            inlineWrapper.appendChild(closeBtn);
+            inlineWrapper.appendChild(tableClone);
+            
+            // Clone the caption if it exists
+            if (targetCaption && targetCaption.tagName.toLowerCase() === 'figcaption') {
+                const captionClone = targetCaption.cloneNode(true);
+                inlineWrapper.appendChild(captionClone);
+            }
+
+            // Insert immediately after the paragraph to keep the text flow intact
+            if (parentParagraph) {
+                parentParagraph.parentNode.insertBefore(inlineWrapper, parentParagraph.nextSibling);
+            } else {
+                // Fallback just in case the link isn't in a paragraph
+                link.parentNode.insertBefore(inlineWrapper, link.nextSibling);
+            }
+        });
     });
 }
