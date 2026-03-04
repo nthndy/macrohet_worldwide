@@ -1639,3 +1639,109 @@ figcaption p:first-of-type b {
 .zoomable-image-container.dragging .zoomable-image {
     cursor: grabbing !important;
 }
+
+/* =========================================
+   MOBILE WARNING BANNER
+   ========================================= */
+
+.mobile-warning {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.mobile-warning-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* .mobile-warning-icon { previous icon before ken
+    font-size: 3rem;
+    margin-bottom: 1rem;
+} */
+ .mobile-warning-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 auto 1rem auto;
+    display: block;
+}
+
+.mobile-warning-card h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 0.75rem 0;
+}
+
+.mobile-warning-card p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+}
+
+.mobile-warning-sub {
+    font-size: 0.8rem !important;
+    color: #999 !important;
+    margin-top: 0.5rem !important;
+}
+
+.mobile-warning-btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.7rem 2rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #a6d96a, #1a9641);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-warning-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(26, 150, 65, 0.3);
+}
+
+@media (max-width: 768px) {
+    .mobile-warning {
+        display: flex;
+    }
+}
+
+.mobile-warning.dismissed {
+    display: none !important;
+}
+
+.mobile-warning-btn-email {
+    background: transparent;
+    color: #555;
+    border: 1.5px solid #d1d1ca;
+    margin-top: 0.6rem;
+}
+
+.mobile-warning-btn-email:hover {
+    border-color: #999;
+    box-shadow: none;
+    transform: none;
+}

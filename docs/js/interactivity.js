@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    initializeMobileWarning();
     initializeStaticMedia();
     initializePlots();
     setupGlobalEscapeKey();
@@ -9,6 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeEasterEgg();
 });
 
+function initializeMobileWarning() {
+    const warning = document.getElementById('mobile-warning');
+    const dismissBtn = document.getElementById('mobile-warning-dismiss');
+    if (!warning || !dismissBtn) return;
+
+    dismissBtn.addEventListener('click', () => {
+        warning.classList.add('dismissed');
+    });
+    const emailBtn = document.getElementById('mobile-warning-email');
+    if (emailBtn) {
+        emailBtn.addEventListener('click', () => {
+            const subject = encodeURIComponent('Link: Fast-growing intracellular Mtb populations evade antibiotic treatment');
+            const body = encodeURIComponent('Read on desktop:\n' + window.location.href);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        });
+    }
+}
 
 function initializeTitleFlip() {
     const flipContainer = document.querySelector('.title-card-flip-container');
