@@ -487,7 +487,8 @@ section h3 {
 
 /* 4. Restore specific F1A/F1D layout constraints to the new anchor wrapper */
 .F1A-container .methods-section-link,
-.F1D-container .methods-section-link {
+.F1D-container .methods-section-link,
+.S1A-container .methods-section-link {
     width: 98%;
     margin: 2% auto;
     display: block;
