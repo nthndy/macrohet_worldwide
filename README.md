@@ -13,3 +13,16 @@ To view the interactive manuscript locally, clone the repository and serve the d
 
 ```bash
 python3 -m http.server 8000
+```
+
+Then navigate to http://localhost:8000/index.html in your browser.
+
+Data Availability
+The code required for image tiling, macrophage segmentation, tracking, and intracellular Mtb doubling time analyses is maintained in a separate repository available at: github.com/nthndy/macrohet.
+
+Authors
+Nathan J. Day, Host-Pathogen Interactions in Tuberculosis Laboratory, The Francis Crick Institute
+
+Maximiliano G. Gutierrez (Corresponding Author)
+
+Please refer to the manuscript for the complete list of authors and affiliations.
