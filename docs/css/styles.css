@@ -1271,7 +1271,11 @@ figcaption p:first-of-type b {
     color: #000000;
 }
 
-
+.references {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #555;
+}
 /********* BACK-MATTER STYLES ************/
 .back-matter-content {
     font-size: 0.9rem;

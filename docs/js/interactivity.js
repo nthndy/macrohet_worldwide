@@ -88,7 +88,9 @@ const PLOT_CONFIG = [
     { id: 'plot-2A', jsonPath: 'figures/dynamic/F2A_plot_data.json', type: 'image-hover' },
     { id: 'plot-2B', jsonPath: 'figures/dynamic/F2B_plot_data.json', type: 'image-hover' },
     { id: 'plot-2C', jsonPath: 'figures/dynamic/F2C_plot_data.json', type: 'image-hover' },
-    { id: 'plot-2D', jsonPath: 'figures/dynamic/F2D_plot_data.json', type: 'video-hover' }
+    { id: 'plot-2D', jsonPath: 'figures/dynamic/F2D_plot_data.json', type: 'video-hover' },
+    { id: 'plot-3C', jsonPath: 'figures/dynamic/F3C_plot_data.json' },
+    { id: 'plot-3D', jsonPath: 'figures/dynamic/F3D_plot_data.json' } 
 ];
 
 // ===========================================
@@ -104,6 +106,13 @@ function initializePlots() {
         fetch(config.jsonPath)
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
+                
+                // Strip the fixed dimensions exported from Python
+                if (data.layout) {
+                    delete data.layout.width;
+                    delete data.layout.height;
+                }
+
                 const existingLegend = data.layout.legend || {};
                 const layout = { 
                     ...data.layout, 
