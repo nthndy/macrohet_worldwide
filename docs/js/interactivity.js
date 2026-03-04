@@ -90,7 +90,10 @@ const PLOT_CONFIG = [
     { id: 'plot-2C', jsonPath: 'figures/dynamic/F2C_plot_data.json', type: 'image-hover' },
     { id: 'plot-2D', jsonPath: 'figures/dynamic/F2D_plot_data.json', type: 'video-hover' },
     { id: 'plot-3C', jsonPath: 'figures/dynamic/F3C_plot_data.json' },
-    { id: 'plot-3D', jsonPath: 'figures/dynamic/F3D_plot_data.json' } 
+    { id: 'plot-3D', jsonPath: 'figures/dynamic/F3D_plot_data.json' }, 
+    { id: 'plot-4E', jsonPath: 'figures/dynamic/F4E_plot_data.json' },
+    { id: 'plot-4F', jsonPath: 'figures/dynamic/F4F_plot_data.json' },
+    { id: 'plot-4G', jsonPath: 'figures/dynamic/F4G_plot_data.json' },
 ];
 
 // ===========================================
@@ -152,11 +155,10 @@ function initializePlots() {
 // 3. MEDIA POPUPS (UPDATED FOR FLEXBOX)
 // ===========================================
 function initializeStaticMedia() {
-    setupImagePopup(document.querySelectorAll('.F1B-container, .F1C-container, .F1F-container'));
+    setupImagePopup(document.querySelectorAll('.F1B-container, .F1C-container, .F1F-container, .F4B-container, .F4C-container, .F4D-container'));
     setupVideoPopup(document.querySelectorAll('.video-trigger')); 
     setupStaticHoverPreviews();
 }
-
 
 
 // Updated Image Popup Logic (Targeting the Container)
@@ -179,6 +181,7 @@ function setupImagePopup(containers) {
             popup.style.display = 'flex'; 
             scale = 1; transX = 0; transY = 0;
             updateTransform();
+            zoomTarget.style.cursor = 'grab';
         });
 
         const close = () => { popup.style.display = 'none'; };
@@ -197,7 +200,7 @@ function setupImagePopup(containers) {
 
         zoomTarget.addEventListener('mousedown', (e) => {
             isDragging = true; startX = e.clientX - transX; startY = e.clientY - transY;
-            zoomTarget.style.cursor = 'grabbing';
+            zoomTarget.classList.add('dragging');
             e.preventDefault();
         });
         
@@ -208,7 +211,7 @@ function setupImagePopup(containers) {
             updateTransform();
         });
 
-        window.addEventListener('mouseup', () => { isDragging = false; zoomTarget.style.cursor = 'grab'; });
+        window.addEventListener('mouseup', () => { isDragging = false; zoomTarget.classList.remove('dragging'); });
     });
 }
 
@@ -301,7 +304,7 @@ function setupStaticHoverPreviews() {
     tooltip.style.display = 'none';
     document.body.appendChild(tooltip);
 
-    const containers = document.querySelectorAll(`.F1-container > div, .F2A-container, .F2B-container, .F2C-container, .F4A-container, .S1A-container, .S1B-container, .S1C-container`);
+    const containers = document.querySelectorAll(`.F1-container > div, .F2A-container, .F2B-container, .F2C-container, .F4A-container, .F4B-container, .F4C-container, .F4D-container, .S1A-container, .S1B-container, .S1C-container`);
     containers.forEach(container => {
         if (container.classList.contains('F2-growth-plot') || container.classList.contains('interactive-plot-container') || container.id.includes('plot')) return;
         const img = container.querySelector('img');

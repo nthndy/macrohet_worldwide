@@ -37,7 +37,6 @@ body {
 a,
 button,
 .video-trigger,              /* The images that open videos */
-.zoomable-image,             /* Images inside popups */
 .close-popup,                /* The 'X' buttons */
 .methods-section-link,       /* The transparent overlay links */
 .fluorescent-reporter-section-link {
@@ -727,6 +726,18 @@ section h3 {
   object-fit: contain;
 }
 
+/* F4 B/C/D: click-to-zoom positioning and cursor */
+.F4B-container,
+.F4C-container,
+.F4D-container {
+    position: relative;
+}
+
+.F4B-container img,
+.F4C-container img,
+.F4D-container img {
+    cursor: pointer !important;
+}
 /********* SUPPLEMENTARY FIGURE S1 STYLES ************/
 
 .S1-container {
@@ -1043,30 +1054,45 @@ section h3 {
     background-color: rgba(0, 0, 0, 0.95);
 }
 
-/* 2. The Close Button (Pinned to Viewport Corner) */
+/* 2. The Close Button — Keynote-style subtle pill */
 .close-popup {
-    position: fixed; /* Stick to the browser window */
-    top: 20px;       /* Push slightly up */
-    right: 20px;     /* Push slightly right (into the corner) */
+    position: fixed;
+    top: 24px;
+    right: 24px;
     
-    color: #ffffff;
-    font-size: 60px;
-    font-weight: bold;
-    line-height: 0.8;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 34px;
+    text-align: center;
     
     cursor: pointer !important;
-    z-index: 10005; 
-    pointer-events: auto; 
+    z-index: 10005;
+    pointer-events: auto;
     
-    opacity: 0.8;
-    transition: all 0.2s ease;
+    opacity: 0;
+    transition: opacity 0.3s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.image-popup:hover .close-popup,
+.video-popup:hover .close-popup {
+    opacity: 1;
 }
 
 .close-popup:hover {
-    color: #d01c8b; 
-    opacity: 1;
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
 }
+
+
 
 /* 3. Content Wrapper */
 .popup-content,
@@ -1600,4 +1626,16 @@ figcaption p:first-of-type b {
 #easter-egg-njd:hover {
     text-decoration: underline;
     text-decoration-style: dotted;
+}
+
+.zoomable-image-container {
+    pointer-events: auto;
+}
+
+.zoomable-image {
+    cursor: grab !important;
+}
+
+.zoomable-image-container.dragging .zoomable-image {
+    cursor: grabbing !important;
 }
