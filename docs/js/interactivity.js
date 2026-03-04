@@ -401,53 +401,45 @@ function initializeInlineTables() {
             e.preventDefault();
             
             const targetId = link.getAttribute('href').substring(1);
-            const targetTable = document.getElementById(targetId);
-            const targetCaption = targetTable ? targetTable.nextElementSibling : null;
+            const targetCaption = document.getElementById(targetId);
             
-            if (!targetTable) return;
+            if (!targetCaption) return;
 
-            // Find the parent paragraph so we don't break the sentence/brackets
+            // The table is in the next sibling div.table-placeholder
+            const targetTable = targetCaption.nextElementSibling;
+            if (!targetTable || !targetTable.querySelector('table')) return;
+
             const parentParagraph = link.closest('p');
             
-            // Create a unique ID for the wrapper so we can toggle it easily
             const wrapperId = 'inline-wrapper-' + targetId;
             let inlineWrapper = document.getElementById(wrapperId);
 
-            // If the table is already open under this paragraph, toggle it
             if (inlineWrapper) {
                 inlineWrapper.style.display = inlineWrapper.style.display === 'none' ? 'block' : 'none';
                 return;
             }
 
-            // Create the inline container
             inlineWrapper = document.createElement('div');
             inlineWrapper.id = wrapperId;
             inlineWrapper.className = 'inline-table-wrapper';
             
-            // Add a close button
             const closeBtn = document.createElement('div');
             closeBtn.className = 'inline-table-close';
             closeBtn.innerHTML = '&times; Close Table';
             closeBtn.onclick = () => inlineWrapper.style.display = 'none';
             
-            // Clone the table
             const tableClone = targetTable.cloneNode(true);
             tableClone.style.marginBottom = '0'; 
             
             inlineWrapper.appendChild(closeBtn);
             inlineWrapper.appendChild(tableClone);
             
-            // Clone the caption if it exists
-            if (targetCaption && targetCaption.tagName.toLowerCase() === 'figcaption') {
-                const captionClone = targetCaption.cloneNode(true);
-                inlineWrapper.appendChild(captionClone);
-            }
+            const captionClone = targetCaption.cloneNode(true);
+            inlineWrapper.appendChild(captionClone);
 
-            // Insert immediately after the paragraph to keep the text flow intact
             if (parentParagraph) {
                 parentParagraph.parentNode.insertBefore(inlineWrapper, parentParagraph.nextSibling);
             } else {
-                // Fallback just in case the link isn't in a paragraph
                 link.parentNode.insertBefore(inlineWrapper, link.nextSibling);
             }
         });
@@ -559,3 +551,4 @@ function initializeEasterEgg() {
         }
     });
 }
+

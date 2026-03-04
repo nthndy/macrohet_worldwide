@@ -100,7 +100,7 @@ button,
 
 /* Small Subtitle/Abstract Hook with Fluid Scaling */
 .title-heading::after {
-    content: "Interactive Research Manuscript\A- Click for contents -";
+    content: "Interactive Research Manuscript";
     display: block;
     white-space: pre-wrap;
     
@@ -111,6 +111,27 @@ button,
     margin-top: 1.5rem;
     color: #a6d96a;
     -webkit-text-fill-color: initial;
+}
+
+.title-heading::before {
+    content: none;
+}
+
+.overlay::after {
+    content: "scroll to continue or click for contents";
+    display: block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(0.55rem, 1.2vw, 0.75rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+    position: absolute;
+    bottom: clamp(0.5rem, 1.5vw, 1rem);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
 
 /* Ensure the overlay handles the space correctly */
@@ -1269,6 +1290,8 @@ section h3 {
     margin-bottom: 50px; 
     padding: 0 5px;
 }
+
+
 
 /********* CAPTION STYLES ************/
 figcaption {
