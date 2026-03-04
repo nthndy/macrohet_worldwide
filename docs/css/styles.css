@@ -377,7 +377,7 @@ a {
     left: -40px; 
     right: -40px; 
     bottom: -40px;
-    background-image: url('../landing_img.png');
+    background-image: url('../images/landing_img.png');
     background-position: center; /* Ensures the central region is captured */
     background-size: cover;
     filter: blur(12px) brightness(1); /* Frosted and darkened */
