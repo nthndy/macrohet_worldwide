@@ -292,7 +292,7 @@ function setupStaticHoverPreviews() {
     tooltip.style.display = 'none';
     document.body.appendChild(tooltip);
 
-    const containers = document.querySelectorAll(`.F1-container > div, .F2A-container, .F2B-container, .F2C-container, .F4A-container`);
+    const containers = document.querySelectorAll(`.F1-container > div, .F2A-container, .F2B-container, .F2C-container, .F4A-container, .S1A-container, .S1B-container, .S1C-container`);
     containers.forEach(container => {
         if (container.classList.contains('F2-growth-plot') || container.classList.contains('interactive-plot-container') || container.id.includes('plot')) return;
         const img = container.querySelector('img');
