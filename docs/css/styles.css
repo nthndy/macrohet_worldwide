@@ -1396,6 +1396,11 @@ figcaption p:first-of-type b {
     scrollbar-color: rgba(255,255,255,0.3) transparent;
 }
 
+/* Hide the "scroll to continue" prompt on the back (TOC) face */
+.toc-overlay::after {
+    content: none;
+}
+
 .toc-heading {
     color: #ffffff;
     font-family: "Helvetica", "Nimbus Sans", sans-serif;

@@ -1,0 +1,248 @@
+/* ═══════════════════════════════════════════
+   Readership Level Widget
+   ═══════════════════════════════════════════ */
+
+#readership-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    font-family: var(--paper-font, "Helvetica Neue", Helvetica, sans-serif);
+}
+
+/* ── Hidden state (before scroll/TOC trigger) ── */
+#readership-widget.readership-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+/* ── Entrance animation ── */
+@keyframes readership-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#readership-widget.readership-entering {
+    animation: readership-slide-in 0.4s ease forwards;
+}
+
+/* ── Toggle button (pill) ── */
+#readership-toggle {
+    height: 44px;
+    border-radius: 22px;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+}
+
+#readership-toggle:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.readership-toggle-label {
+    font-family: var(--paper-font, "Helvetica Neue", Helvetica, sans-serif);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.01em;
+}
+
+.readership-toggle-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* ── Panel ── */
+.readership-panel {
+    position: absolute;
+    bottom: 56px;
+    right: 0;
+    width: 300px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+    overflow: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform-origin: bottom right;
+}
+
+.readership-panel.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.92) translateY(8px);
+}
+
+/* Header */
+.readership-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.readership-panel-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.readership-panel-close {
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.15s;
+}
+
+.readership-panel-close:hover {
+    color: #333;
+}
+
+/* Explainer section */
+.readership-panel-explainer {
+    padding: 12px 16px 8px;
+}
+
+.readership-panel-explainer h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    margin: 0 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.readership-panel-explainer p {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 0 6px;
+    text-align: left;
+}
+
+.readership-panel-explainer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Divider */
+.readership-panel-divider {
+    height: 1px;
+    background: #eee;
+    margin: 8px 16px;
+}
+
+/* Section title */
+.readership-panel-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 4px 16px 2px;
+}
+
+/* Body */
+.readership-panel-body {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Option buttons */
+.readership-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: #fafafa;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    text-align: left;
+}
+
+.readership-option:hover {
+    background: #f0f0f0;
+}
+
+.readership-option.active {
+    background: #f5f0f7;
+    border-color: #978897;
+}
+
+.readership-option-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.readership-option-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.readership-option-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+.readership-option-desc {
+    font-size: 11px;
+    color: #888;
+}
+
+/* ── Flash transition on content swap ── */
+@keyframes readership-fade {
+    0%   { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.readership-flash {
+    animation: readership-fade 0.5s ease forwards;
+}
+
+/* ── Mobile adjustments ── */
+@media (max-width: 768px) {
+    #readership-widget {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    #readership-toggle {
+        height: 40px;
+        padding: 0 14px;
+        font-size: 13px;
+    }
+
+    .readership-toggle-icon {
+        font-size: 16px;
+    }
+
+    .readership-panel {
+        width: 270px;
+        bottom: 50px;
+    }
+}
