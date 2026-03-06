@@ -1,11 +1,12 @@
 /**
  * Readership Level System
- * Provides five tiers of text complexity for the manuscript.
+ * Provides six tiers of text complexity for the manuscript.
  * Level 0: Original (manuscript as written)
  * Level 1: Undergraduate (first-year biology student)
  * Level 2: Science Enthusiast (pop-sci reader, no specialist knowledge)
  * Level 3: Pub Chat (plain-spoken explanation for a non-scientist)
  * Level 4: Child Friendly (ages 10-12, everyday analogies)
+ * Level 5: Italian Uncle (your zio explains the science at Sunday lunch)
  */
 
 const READERSHIP_LEVELS = [
@@ -14,6 +15,7 @@ const READERSHIP_LEVELS = [
     { id: 'enthusiast',  label: 'Science Enthusiast',  icon: '🧪', desc: 'Pop-science level' },
     { id: 'pub',         label: 'Pub Chat',            icon: '🍺', desc: 'Plain-spoken' },
     { id: 'child',       label: 'Child Friendly',      icon: '🌟', desc: 'Ages 10–12' },
+    { id: 'italian',     label: 'Enrica',             icon: '🍝', desc: '🤌', hidden: true },
 ];
 
 /**
@@ -37,6 +39,8 @@ const READERSHIP_CONTENT = [
             3: `<p>TB is caused by a bacterium that hides inside your immune cells, and it's very hard to get rid of — treatment takes months. The common explanation was that the bacteria survive by going dormant, essentially shutting down so the drugs can't reach them. But these researchers built a system to watch individual infected cells under a microscope for days, and they found something unexpected: some bacteria were actually growing <em>much faster</em> than anyone had seen before. And when they added antibiotics, it was those fast growers that were most likely to survive. They confirmed this in mice too. So the old idea that only slow, sleeping bacteria dodge drugs isn't the whole story. The fast-growing ones are slipping through as well, and that changes how we need to think about treating TB.</p>`,
 
             4: `<p>TB is a serious illness caused by tiny germs called bacteria. These bacteria are sneaky — they hide inside the body's security guards (cells called macrophages) that are supposed to destroy them. Doctors use special medicines called antibiotics to fight TB, but treatment takes a very long time. Scientists always thought the bacteria that survived medicine did so by "falling asleep" inside the cells, because sleeping bacteria are harder to kill. But when these researchers used powerful microscopes to watch what was really happening, they got a big surprise. Some bacteria were actually growing <em>really fast</em> — much faster than anyone expected. And those fast-growing ones were the best at surviving the medicine. They even checked this in mice, and the same thing happened. So it turns out it's not just the sleeping bacteria that are hard to beat — the speediest ones are escaping too.</p>`,
+
+            5: `<p>Allura, senti — the tubercolosi is one bacteria molto brutta that she go hide herself INSIDE the cella of the immune, the one that suppose to kill her! Ma che fa? Nothing! The bacteria she stay and she multiply like is her house. The dottori they give the antibiotico but minchia it take-a so many months and nobody know why. Everybody always say "ahh the bacteria she sleep, for this the medicine no work." Ma these scienziate they look-a with the microscopio every cella one by one for many days and madonn' — some bacteria they no sleep nothing! They grow <em>VELOCE VELOCE</em>! And when they put the medicine? Proprio these fast ones they no die! They check also in the topi — same-a story! So senti, is not only the bacteria that sleep that make the problem. The fast ones also, they escape the medicine like my cugino when is time to pay. This change everything for the TB.</p>`,
         }
     },
 
@@ -61,6 +65,10 @@ const READERSHIP_CONTENT = [
             4: `<p>TB is short for tuberculosis. It's a disease that has been making people sick for thousands of years, and it still causes a lot of harm around the world. To get better, patients have to take medicine every day for months — much longer than for most other illnesses.</p>
 <p>TB is caused by a type of germ called a bacterium. This germ has a really sneaky trick: it hides inside the body's own security guards — special cells called macrophages whose job is to catch and destroy invaders. Imagine a bad guy sneaking into a police station and living there. That's basically what TB bacteria do.</p>
 <p>Scientists always thought these bacteria grew slowly, and that being slow helped them hide from medicine. But nobody had really watched them closely enough to know for sure. So this team of researchers built a special microscope system to film everything — and what they discovered was a real surprise.</p>`,
+
+            5: `<p>The TB — la tubercolosi — she been around for thousands and thousands of years and ancora today she kill more than one million persons every year. Pensa! And for the cure you need-a take the medicine every single day for MONTHS. Is terrible.</p>
+<p>The bacteria that make the TB — she have one trick molto furba. She go hide inside the cella of the immune system — the one that is suppose to catch her and destroy her! Is like one ladra that go hide herself inside the questura, the police station, and she live there! Madonn'! And once she inside, she start to multiply.</p>
+<p>The scienziate they always think this bacteria she grow slow, and that the slow growing help her hide from the medicine. Ma nobody ever really watch-a close enough to be sure. So these ricercatrici they build one special microscopio system to film everything — and what they find, minchia, nobody expect this.</p>`,
         }
     },
 
@@ -86,6 +94,10 @@ const READERSHIP_CONTENT = [
             4: `<p>The scientists set up a very powerful microscope that works like a time-lapse camera. They pointed it at thousands of immune cells that had TB bacteria inside them, and filmed everything for three days straight. The clever part is that the immune cells glow green and the bacteria glow pink, so you can actually see the germs growing inside the cells — like watching a tiny nature documentary.</p>
 <p>They watched over 18,000 cells this way. Some cells were full of bacteria, while others had hardly any. They also had to be careful: sometimes a cell looked like it suddenly had more bacteria, but it had actually just swallowed some from outside or picked them up from a dead neighbour cell. That's not the same as bacteria growing on their own.</p>
 <p>After sorting out all the tricky cases, they found 590 clear examples where they could say "yes, this bacterium definitely doubled inside this cell." Those are the ones they studied closely.</p>`,
+
+            5: `<p>Allura, these scienziate they set up one microscopio that work like the time-lapse camera no? They point at thousands and thousands of celle with the bacteria inside, and they film everything for three days. THREE DAYS! And the bella thing is — the celle of the immune they glow green, and the bacteria she glow pink, so you can see-a the bacteria growing inside like one piccola nature documentary.</p>
+<p>They watch more than 18,000 celle like this. Some celle they full of bacteria, other ones almost nothing. Ma senti, they also have to be careful because sometimes one cella she look like she have more bacteria ma really she just swallow some from outside, or she take them from one cella next to her that die. Is not the same thing as the bacteria growing by herself inside!</p>
+<p>After they sort out all this casino, they find 590 cases where they can say "sì, this bacteria she definitely double herself inside this cella." And those are the ones they study close.</p>`,
         }
     },
 
@@ -109,6 +121,10 @@ const READERSHIP_CONTENT = [
             4: `<p>The scientists measured how quickly the bacteria were copying themselves inside each cell. The results were really varied — some bacteria doubled in less than 10 hours, while others took more than 70 hours. It's a bit like a race where some runners sprint and others walk.</p>
 <p>Next, they added medicine (antibiotics) to fight the bacteria. At normal amounts, not much changed. But when they used really strong doses — enough to stop almost all the bacteria — something surprising happened. The few bacteria that survived were mostly the <em>fast</em> ones.</p>
 <p>With the strongest dose of one important medicine called rifampicin, almost two-thirds of the survivors were fast growers. The medicine was getting rid of the slow bacteria but the speedy ones kept going. Scientists had always expected it would be the other way around — that slow, "sleeping" bacteria would be the survivors. This was a big surprise.</p>`,
+
+            5: `<p>Allura they measure how fast the bacteria she copy herself inside every cella and madonn' — is all over the place. Some bacteria she double in less than 10 hours, others take more than 70! Is like one corsa where some they sprint and some they walk-a so slow you think they stop.</p>
+<p>Then they put-a the medicine. At the normal dose, no change much. Ma when they use the dose molto forte — enough to stop almost all the bacteria — minchia, something crazy happen. The few bacteria that survive? They nearly all the <em>fast</em> ones!</p>
+<p>With the strongest dose of one medicine that they call rifampicin, almost two out of three of the survivors they were the fast growers. The medicine she kill the slow bacteria ma the speedy ones they keep going like nothing happen. The scienziate they always expect is the other way — that the slow sleeping bacteria they survive. Ma no! Is the fast ones! Che sorpresa!</p>`,
         }
     },
 
@@ -129,6 +145,9 @@ const READERSHIP_CONTENT = [
 
             4: `<p>The scientists wanted to make sure their discovery was real, so they did a second experiment using a clever trick. They gave the bacteria a built-in "mood ring" — a special glow that changes colour depending on how fast the bacteria are growing. Fast-growing bacteria glow green, and slow ones turn red.</p>
 <p>When they looked inside the immune cells, the ones packed with lots of bacteria had the greenest (fastest) germs. And even after adding medicine, the surviving bacteria were still glowing green — still growing fast. This proved that the first experiment wasn't a fluke. The fast growers really are the ones that survive.</p>`,
+
+            5: `<p>The scienziate they want to be sure sure sure, so they do one second experiment with one trick molto furba. They give the bacteria like one anello dell'umore — how you say — one mood ring. When the bacteria she grow fast, she glow green. When she slow, she become red. Like one semaforo inside the bacteria!</p>
+<p>And senti — the celle that have the most bacteria inside, they have the greenest bacteria. The fastest ones! And even after the medicine, the bacteria that survive they still glow green — still growing fast fast. So is not one mistake the first experiment. The fast ones they really are the ones that survive. Punto e basta.</p>`,
         }
     },
 
@@ -152,6 +171,10 @@ const READERSHIP_CONTENT = [
             4: `<p>Everything so far was done with cells in a dish. But the scientists needed to know: does this happen inside a real, living body? So they gave mice a TB infection using the special colour-changing bacteria. After the mice got properly sick, the scientists gave them medicine for three weeks — the same kind of medicine that human TB patients take.</p>
 <p>The medicine did help — there were fewer bacteria overall. But when the scientists looked really closely at the lungs, the bacteria that were still alive were the fast-growing ones. And the mice that didn't get better? They had the fastest-growing bacteria of all.</p>
 <p>This showed that it's not just something that happens in a lab dish. In a real body, the speedy bacteria are the hardest to get rid of.</p>`,
+
+            5: `<p>Va bene, ma senti — everything before this they do in the piatto, in the dish. Ma the scienziate they need to know: this happen also inside one body that is alive? So they give the topi — the mice — the infection of TB with the bacteria special that change the colour. After the topi they get properly sick, they give them the medicine for three weeks — same medicine like the human patients take.</p>
+<p>The medicine she help — less bacteria overall, sì. Ma when they look-a close at the individual celle in the polmoni — the lungs — the bacteria that still alive? They the fast ones. And the topi that no get better? Minchia, they have the fastest bacteria of all.</p>
+<p>So is not just something that happen in the laboratorio. In the real body, the speedy bacteria they the most difficult to kill. Stessa storia.</p>`,
         }
     },
 
@@ -175,6 +198,10 @@ const READERSHIP_CONTENT = [
             4: `<p>So what did the scientists learn from all this? For a long time, everyone thought TB bacteria survive medicine by "falling asleep." Sleeping bacteria are harder to kill because the medicine targets things that only happen when bacteria are active. That idea is partly right. But this study found that some bacteria use the <em>opposite</em> trick — they grow so fast that the medicine can't keep up. Imagine trying to pull weeds out of a garden, but some weeds grow back faster than you can pull them.</p>
 <p>They tested three different medicines, and each one had the same basic problem: the fastest-growing bacteria were the hardest to get rid of. One medicine called rifampicin showed this most clearly — almost two-thirds of the survivors were fast growers.</p>
 <p>What this means for the future is that scientists need to think about both kinds of tricky bacteria: the sleepy ones <em>and</em> the speedy ones. If new medicines can tackle both, TB could become much easier to cure.</p>`,
+
+            5: `<p>Allura, che significa tutto questo? For so many years everybody think the bacteria of TB she survive the medicine because she go to sleep — if you no grow, the medicine no can touch you. And sì, is partly true. Ma this study she show that some bacteria they do the <em>opposite</em> — they grow so fast that the medicine no can keep up! Is like you try to pull the erbacce from the garden ma some they grow back more fast than you can pull them. Impossibile!</p>
+<p>They test three different medicine and every one have the same problem — the bacteria più veloce they the most difficult to kill. One medicine they call rifampicin she show this the most clear — almost two from three of the survivors they were the fast ones. Pensa!</p>
+<p>What this mean for the future? The scienziate they need to think about BOTH type of furba bacteria: the ones that sleep <em>and</em> the ones that go fast. If the new medicine she can get both, maybe the TB she become much more easy to cure. Speriamo!</p>`,
         }
     },
 ];
@@ -210,7 +237,7 @@ function initializeReadership() {
             <div class="readership-panel-section-title">Readership Level</div>
             <div class="readership-panel-body">
                 ${READERSHIP_LEVELS.map((lvl, i) => `
-                    <button class="readership-option ${i === 0 ? 'active' : ''}" data-level="${i}">
+                    <button class="readership-option ${i === 0 ? 'active' : ''} ${lvl.hidden ? 'readership-easter-egg' : ''}" data-level="${i}" ${lvl.hidden ? 'style="display:none"' : ''}>
                         <span class="readership-option-icon">${lvl.icon}</span>
                         <span class="readership-option-text">
                             <span class="readership-option-label">${lvl.label}</span>
@@ -267,6 +294,11 @@ function initializeReadership() {
     const panel  = document.getElementById('readership-panel');
     const close  = panel.querySelector('.readership-panel-close');
 
+    // ── Easter egg: click any level button 6 times to reveal Enrica ──
+    let eggClicks = 0;
+    let eggTimer = null;
+    let eggRevealed = false;
+
     toggle.addEventListener('click', () => panel.classList.toggle('hidden'));
     close.addEventListener('click',  () => panel.classList.add('hidden'));
 
@@ -279,6 +311,22 @@ function initializeReadership() {
     panel.querySelectorAll('.readership-option').forEach(btn => {
         btn.addEventListener('click', () => {
             const level = parseInt(btn.dataset.level);
+
+            // Easter egg counter (only count visible level clicks)
+            if (!eggRevealed && !btn.classList.contains('readership-easter-egg')) {
+                eggClicks++;
+                clearTimeout(eggTimer);
+                eggTimer = setTimeout(() => { eggClicks = 0; }, 4000);
+                if (eggClicks >= 6) {
+                    eggRevealed = true;
+                    const hidden = panel.querySelector('.readership-easter-egg');
+                    if (hidden) {
+                        hidden.style.display = '';
+                        hidden.classList.add('readership-egg-reveal');
+                    }
+                }
+            }
+
             if (level === currentLevel) return;
             setLevel(level);
             panel.querySelectorAll('.readership-option').forEach(b => b.classList.remove('active'));
