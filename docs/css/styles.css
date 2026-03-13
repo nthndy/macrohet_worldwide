@@ -91,6 +91,12 @@ button,
     object-fit: cover;
     border-radius: 24px;
     z-index: 0;
+    opacity: 0;
+    transition: opacity 2.5s ease-in-out;
+}
+
+.title-video.playing {
+    opacity: 1;
 }
 
 .title-poster {

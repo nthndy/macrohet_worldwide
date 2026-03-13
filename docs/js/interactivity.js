@@ -552,3 +552,9 @@ function initializeEasterEgg() {
     });
 }
 
+document.querySelectorAll('.title-video').forEach(video => {
+    video.addEventListener('playing', () => {
+        video.classList.add('playing');
+    });
+});
+
