@@ -76,6 +76,11 @@
         if (data.layout) {
           delete data.layout.width;
           delete data.layout.height;
+          if (data.layout.annotations) {
+            data.layout.annotations = data.layout.annotations.filter(a =>
+              !(a.showarrow === false && a.opacity && a.opacity < 0.3)
+            );
+          }
         }
 
         data.data.forEach(trace => {
