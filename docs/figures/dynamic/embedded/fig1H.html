@@ -90,6 +90,7 @@
         });
       })
       .then(plotDiv => {
+        Plotly.Plots.resize(plotDiv);
         document.getElementById('loading').classList.add('hidden');
 
         // Image-hover tooltip (mirrors interactivity.js logic)
