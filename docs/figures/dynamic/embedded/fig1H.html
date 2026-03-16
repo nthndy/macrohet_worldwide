@@ -105,7 +105,8 @@
       .then(plotDiv => {
         setTimeout(() => Plotly.Plots.resize(plotDiv), 100);
         document.getElementById('loading').classList.add('hidden');
-
+        window.parent.postMessage({ type: 'plotReady' }, '*');
+        
         // Image-hover tooltip (mirrors interactivity.js logic)
         const tooltip = document.getElementById('hover-tooltip');
 
