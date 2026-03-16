@@ -46,6 +46,19 @@
       pointer-events: none;
       box-shadow: 0 4px 6px rgba(113,113,113,0.3);
     }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #plot-1H {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
   </style>
 </head>
 <body>
@@ -90,7 +103,7 @@
         });
       })
       .then(plotDiv => {
-        Plotly.Plots.resize(plotDiv);
+        setTimeout(() => Plotly.Plots.resize(plotDiv), 100);
         document.getElementById('loading').classList.add('hidden');
 
         // Image-hover tooltip (mirrors interactivity.js logic)
