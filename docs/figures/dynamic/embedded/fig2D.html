@@ -137,8 +137,10 @@
 
           if (!imgPath || imgPath === 'nan') return;
 
-          if (!imgPath.startsWith('http') && !imgPath.startsWith('/') && !imgPath.includes('assets/')) {
-            imgPath = `assets/${imgPath}`;
+          const BASE = 'https://nthndy.github.io/macrohet_worldwide/figures/dynamic/embedded/';
+
+          if (!imgPath.startsWith('http')) {
+            imgPath = BASE + (imgPath.includes('assets/') ? imgPath : `assets/${imgPath}`);
           }
 
           tooltip.innerHTML = `<img src="${imgPath}" style="max-width:300px; display:block;">`;
