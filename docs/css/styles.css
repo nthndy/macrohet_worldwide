@@ -743,6 +743,11 @@ section h3 {
   min-width: 0; /* Prevents flexbox overflow */
 }
 
+.F3E-container {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
 /* Universal Image Styling for F3 */
 .F3-container img {
   width: 100%;
@@ -1412,6 +1417,16 @@ figcaption p:first-of-type b {
 .title-card-back {
     transform: rotateY(180deg);
 }
+
+/* Only the face that is showing should receive clicks, so a click on the
+   contents lands on its links and never on the hidden title face behind it. */
+.title-card-front { pointer-events: auto; }
+.title-card-back  { pointer-events: none; }
+.title-card-flip-container.flipped .title-card-front { pointer-events: none; }
+.title-card-flip-container.flipped .title-card-back  { pointer-events: auto; }
+
+/* The open contents is not itself clickable-to-flip, so drop the pointer cursor */
+.title-card-flip-container.flipped { cursor: default; }
 
 /* Back face TOC styling */
 .toc-overlay {

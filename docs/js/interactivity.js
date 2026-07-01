@@ -67,11 +67,12 @@ function initializeTitleFlip() {
         });
     }
 
-    // Toggle flip on click (but not on TOC link clicks)
+    // Open on click. Once open, clicks belong to the TOC links (close via a
+    // link or the Escape key); a click on the card body no longer flips it back.
     flipContainer.addEventListener('click', (e) => {
+        if (flipContainer.classList.contains('flipped')) return;
         if (e.target.closest('.toc-nav a')) return;
-        flipContainer.classList.toggle('flipped');
-        // Removed the sidebar toggling logic here
+        flipContainer.classList.add('flipped');
     });
 }
 
@@ -94,6 +95,10 @@ function setupGlobalEscapeKey() {
                     if (video) video.pause();
                 }
             });
+
+            // Also flip the contents card back to the title if it is open
+            const openCard = document.querySelector('.title-card-flip-container.flipped');
+            if (openCard) openCard.classList.remove('flipped');
         }
     });
 }
@@ -109,6 +114,7 @@ const PLOT_CONFIG = [
     { id: 'plot-2D', jsonPath: 'figures/dynamic/F2D_plot_data.json', type: 'video-hover' },
     { id: 'plot-3C', jsonPath: 'figures/dynamic/F3C_plot_data.json' },
     { id: 'plot-3D', jsonPath: 'figures/dynamic/F3D_plot_data.json' }, 
+    { id: 'plot-3E', jsonPath: 'figures/dynamic/F3E_plot_data.json' },
     { id: 'plot-4E', jsonPath: 'figures/dynamic/F4E_plot_data.json' },
     { id: 'plot-4F', jsonPath: 'figures/dynamic/F4F_plot_data.json' },
     { id: 'plot-4G', jsonPath: 'figures/dynamic/F4G_plot_data.json' },
