@@ -33,8 +33,8 @@
                 <div class="title-card-flipper">
                     <div class="title-card-front">
                         <div class="title-container">
-                            <img src="images/landing_img.png" class="title-image title-poster" alt="Mtb Analysis">
-                            <video class="title-video" autoplay muted loop playsinline>
+                            <img src="images/landing_first_frame.png" class="title-image title-poster" alt="Mtb Analysis">
+                            <video class="title-video" muted loop playsinline preload="auto">
                                 <source src="images/landing_vid.mp4" type="video/mp4">
                             </video>
                             <div class="overlay">
@@ -46,8 +46,8 @@
                     </div>
                     <div class="title-card-back">
                         <div class="title-container toc-container">
-                                <img src="images/landing_img.png" class="title-image title-poster" alt="Mtb Analysis">
-                                <video class="title-video" autoplay muted loop playsinline>
+                                <img src="images/landing_first_frame.png" class="title-image title-poster" alt="Mtb Analysis">
+                                <video class="title-video" muted loop playsinline preload="auto">
                                     <source src="images/landing_vid.mp4" type="video/mp4">
                                 </video>                            
                                 <div class="overlay toc-overlay">
@@ -64,7 +64,7 @@
      <section class="author-info">
             <div class="authors">
                 <div class="author-dropdown" tabindex="0">
-                    Nathan J. Day<a href="#aff1"><sup>1</sup></a>,
+                    Nathan J. Day<a href="#aff1"><sup>1</sup></a><a href="#equal-contrib"><sup>#</sup></a>,
                     <div class="dropdown-content">
                         <a href="https://www.crick.ac.uk/research/find-a-researcher/nathan-day" target="_blank" rel="noopener noreferrer">Institute Profile</a>
                         <a href="https://orcid.org/0000-0002-9141-3833" target="_blank" rel="noopener noreferrer">ORCID iD</a>
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="author-dropdown" tabindex="0">
-                    Baptiste Pradel<a href="#aff1"><sup>1</sup></a>,
+                    Baptiste Pradel<a href="#aff1"><sup>1</sup></a><a href="#equal-contrib"><sup>#</sup></a>,
                     <div class="dropdown-content">
                         <a href="https://www.crick.ac.uk/research/find-a-researcher/baptiste-pradel" target="_blank" rel="noopener noreferrer">Institute Profile</a>
                         <a href="https://orcid.org/0009-0007-6565-3693" target="_blank" rel="noopener noreferrer">ORCID iD</a>
@@ -81,10 +81,18 @@
                 </div>
 
                 <div class="author-dropdown" tabindex="0">
-                    Chak Hon Luk<a href="#aff1"><sup>1</sup></a>,
+                    Chak Hon Luk<a href="#aff1"><sup>1</sup></a><a href="#equal-contrib"><sup>#</sup></a>,
                     <div class="dropdown-content">
                         <a href="https://www.crick.ac.uk/research/find-a-researcher/jakson-luk" target="_blank" rel="noopener noreferrer">Institute Profile</a>
                         <a href="https://orcid.org/0000-0002-5155-2257" target="_blank" rel="noopener noreferrer">ORCID iD</a>
+                    </div>
+                </div>
+
+                <div class="author-dropdown" tabindex="0">
+                    Pierre Santucci<a href="#aff1"><sup>1</sup></a><sup>,</sup><a href="#aff2"><sup>2</sup></a>,
+                    <div class="dropdown-content">
+                        <a href="https://lism.imm.cnrs.fr/member/pierre-santucci/" target="_blank" rel="noopener noreferrer">Institute Profile</a>
+                        <a href="https://orcid.org/0000-0002-6291-3425" target="_blank" rel="noopener noreferrer">ORCID iD</a>
                     </div>
                 </div>
 
@@ -101,14 +109,6 @@
                     <div class="dropdown-content">
                         <a href="https://www.google.com/search?q=Angela+Rodgers+The+Francis+Crick+Institute" target="_blank" rel="noopener noreferrer">Search Profile</a>
                         <a href="https://orcid.org/0000-0002-2981-6455" target="_blank" rel="noopener noreferrer">ORCID iD</a>
-                    </div>
-                </div>
-
-                <div class="author-dropdown" tabindex="0">
-                    Pierre Santucci<a href="#aff1"><sup>1</sup></a><sup>,</sup><a href="#aff2"><sup>2</sup></a>,
-                    <div class="dropdown-content">
-                        <a href="https://lism.imm.cnrs.fr/member/pierre-santucci/" target="_blank" rel="noopener noreferrer">Institute Profile</a>
-                        <a href="https://orcid.org/0000-0002-6291-3425" target="_blank" rel="noopener noreferrer">ORCID iD</a>
                     </div>
                 </div>
 
@@ -160,28 +160,21 @@
                     </div>
                 </div>
             </div>
-                <div class="equal-contribution">
-                    <p>Equal contribution</p>
-                </div>
-                <div class="corresponding-author">
-                    <address>
-                        *Corresponding author: <span id="email-placeholder"></span>
-                    </address>
-                </div>
-
+            <div class="affiliations" style="margin-top: 3rem;">
+                <address>1) <a id="aff1" href="https://www.crick.ac.uk/" target="_blank" rel="noopener noreferrer">Host-Pathogen Interactions in Tuberculosis Laboratory, <br>The Francis Crick Institute, London, United Kingdom</a></address>
+                <address>2) Present address: <a id="aff2" href="https://www.univ-amu.fr/" target="_blank" rel="noopener noreferrer">Aix Marseille University, <br>CNRS, LISM, IMM FR3479, IM2B Marseille, France.</a></address>
+                <address>3) Present address: <a id="aff3" href="https://hms.harvard.edu/" target="_blank" rel="noopener noreferrer">Boston Children’s Hospital, <br>Harvard Medical School; Boston, USA.</a></address>
+                <address>4) <a id="aff4" href="https://www.irsd.fr/" target="_blank" rel="noopener noreferrer">Institut de Recherche en Santé Digestive (IRSD), <br>Université de Toulouse, INSERM, INRAE, ENVT, UPS, Toulouse, France.</a></address>
+                <address>5) Present address: <a id="aff5" href="https://www.uni.lu/" target="_blank" rel="noopener noreferrer">Luxembourg Centre for Systems Biomedicine (LCSB), <br>University of Luxembourg, Esch-sur-Alzette, Luxembourg.</a></address>
+                <address id="equal-contrib" style="text-align:center; margin-top:0.9em;"><sup>#</sup> Equal contribution</address>
+                <address style="text-align:center;">*Corresponding author: <span id="email-placeholder"></span></address>
+            </div>
                 <script>
                     const user = "max.g";
                     const domain = "crick.ac.uk";
                     const element = document.getElementById('email-placeholder');
                     element.innerHTML = `<a href="mailto:${user}@${domain}">${user}@${domain}</a>`;
                 </script>
-            <div class="affiliations">
-                <address>1) <a id="aff1" href="https://www.crick.ac.uk/" target="_blank" rel="noopener noreferrer">Host-Pathogen Interactions in Tuberculosis Laboratory, <br>The Francis Crick Institute, London, United Kingdom</a></address>
-                <address>2) Present address: <a id="aff2" href="https://www.univ-amu.fr/" target="_blank" rel="noopener noreferrer">Aix Marseille University, <br>CNRS, LISM, IMM FR3479, IM2B Marseille, France.</a></address>
-                <address>3) Present address: <a id="aff3" href="https://hms.harvard.edu/" target="_blank" rel="noopener noreferrer">Boston Children’s Hospital, <br>Harvard Medical School; Boston, USA.</a></address>
-                <address>4) <a id="aff4" href="https://www.irsd.fr/" target="_blank" rel="noopener noreferrer">Institut de Recherche en Santé Digestive (IRSD), <br>Université de Toulouse, INSERM, INRAE, ENVT, UPS, Toulouse, France.</a></address>
-                <address>5) Present address: <a id="aff5" href="https://www.uni.lu/" target="_blank" rel="noopener noreferrer">Luxembourg Centre for Systems Biomedicine (LCSB), <br>University of Luxembourg, Esch-sur-Alzette, Luxembourg.</a></address>
-            </div>
         </section>
 
             <section id="abstract" class="abstract">
@@ -451,7 +444,7 @@
                         <div class="results-text">
                             <p>To validate the enrichment of fast-growing subpopulation after antibiotic treatment, we used an independent approach based on a Mtb H37Rv strain that expresses the fluorescent reporter Timer (Mtb-Timer)<sup><a href="#ref37">37</a></sup>. This reporter measures bacterial growth dynamics through the green-to-red (G/R) fluorescence ratio of the bacteria (<a href="#F3A">Fig. 3A</a>)<sup><a href="#ref38">38</a>,<a href="#ref39">39</a></sup>. While Mtb-Timer serves as an independent proxy of bacterial replication rate, a quantitative link between the phenomena reported in Figures 2 and 3 remains to be established. First, to validate the functionality of the Mtb-Timer reporter <i>in vitro</i>, we treated Mtb with the bacteriostatic antibiotic chloramphenicol (CHL). This treatment resulted in a reduction of green intensity, demonstrating the sensitivity of the reporter to changes in Mtb replication (<a href="#SF7">Fig. S7B</a>). Using flow-cytometry to analyse fluorescence intensity of Mtb <i>in vitro</i>, we observed a reduction in green intensity in INH and RIF, but not PZA treatment (<a href="#SF7">Fig. S7C</a>), consistent with data showing that PZA requires an intracellular microenvironment to achieve full efficacy<sup><a href="#ref10">10</a></sup>.</p>
 
-                            <p>Then, using an infection workflow similar to the high-content imaging approach (<a href="#F1A">Fig. 1A</a>), we measured green and red fluorescence of <i>in cellulo</i> Mtb released from infected iPSDM. Upon antibiotic treatment, we observed a shift of the Mtb-Timer profile (<a href="#F3B">Fig. 3B</a>). Notably, the proportion of bacteria remaining within the control gate decreased markedly at EC<sub>99</sub> concentrations, consistent with a bulk downshift in G/R ratio across the treated population (<a href="#SF7">Fig. S8B</a>). The Mtb-Timer profile shift is more pronounced at EC<sub>99</sub> than EC<sub>50</sub>, reflecting the concentration dependent effect of antibiotic treatment. Using the G/R ratio as a proxy for intracellular replication, we found that despite EC<sub>99</sub> antibiotic treatment, a proportion of actively growing Mtb remained, evidenced by the persistence of high G/R ratio bacteria (green points, <a href="#F3C">Fig. 3C</a>) across all treatment conditions. The shift between the control and treatment regression lines reflects the global downshift in G/R ratio of the bulk bacterial population under antibiotic pressure. Importantly, an <i>in vitro</i> Mtb-Timer analysis showed minimal retention of high G/R ratio bacteria upon antibiotic treatment suggesting a host-driven component in the fast-growing phenotype of intracellular Mtb (<a href="#SF7">Fig. S7C</a>).</p>
+                            <p>Then, using an infection workflow similar to the high-content imaging approach (<a href="#F1A">Fig. 1A</a>), we measured green and red fluorescence of <i>in cellulo</i> Mtb released from infected iPSDM. Upon antibiotic treatment, we observed a shift of the Mtb-Timer profile (<a href="#F3B">Fig. 3B</a>). Notably, the proportion of bacteria remaining within the control gate decreased markedly at EC<sub>99</sub> concentrations, consistent with a bulk downshift in G/R ratio across the treated population (<a href="#SF8">Fig. S8B</a>). The Mtb-Timer profile shift is more pronounced at EC<sub>99</sub> than EC<sub>50</sub>, reflecting the concentration dependent effect of antibiotic treatment. Using the G/R ratio as a proxy for intracellular replication, we found that despite EC<sub>99</sub> antibiotic treatment, a proportion of actively growing Mtb remained, evidenced by the persistence of high G/R ratio bacteria (green points, <a href="#F3C">Fig. 3C</a>) across all treatment conditions. The shift between the control and treatment regression lines reflects the global downshift in G/R ratio of the bulk bacterial population under antibiotic pressure. Importantly, an <i>in vitro</i> Mtb-Timer analysis showed minimal retention of high G/R ratio bacteria upon antibiotic treatment suggesting a host-driven component in the fast-growing phenotype of intracellular Mtb (<a href="#SF7">Fig. S7C</a>).</p>
 
                             <p>By analysing the <i>in cellulo</i> flow cytometry plots (<a href="#F3B">Fig. 3B-C</a>) we found that INH resulted in a shift toward higher fluorescence intensities in both green and red channels. This is consistent with INH-mediated cell wall inhibition, where bacterial division is arrested but protein translation initially continues, leading to an intracellular accumulation of reporter fluorophores due to a lack of intrabacterial dilution<sup><a href="#ref32">32</a></sup>. A similar phenotype was observed under PZA treatment (<a href="#F3B">Fig. 3B-C</a>). In contrast, RIF treatment resulted in green-red distributions similar to the control but with a specific shift in the red channel towards higher intensity (<a href="#F3B">Fig. 3B-C</a>). This agrees with the RIF mechanism of blocking mRNA synthesis, preventing the generation of new green fluorophore while the existing fluorescence reservoir continues to mature into red<sup><a href="#ref32">32</a></sup>.</p>
 
@@ -633,40 +626,35 @@
 
             <section id="materials-and-methods" class="methods-section">
                 <h2 class="glass-heading">Methods</h2>
-                <h3>Cell culture and differentiation</h3>
-                <h4><i>M. tuberculosis</i> culture</h4>
+                <h3><i>M. tuberculosis</i> culture</h3>
                 <div class="results-text">
                     <p>Fluorescent <i>M. tuberculosis</i> H37Rv pTEC19 WT and &Delta;RD1 strains were used in this study<sup><a href="#ref10">10</a></sup>. <i>M. tuberculosis</i> H37Rv pGMEH-Pml-DsRed1E5-0X0 WT strain (Mtb-Timer) was generated in this study by electroporation as previously described<sup><a href="#ref63">63</a></sup>. All strains were grown in Middlebrook 7H9 broth supplemented with 0.2% glycerol, 0.05% Tween-80, 10% ADC and 50 mg/L Hygromycin B as a selection marker for fluorescent strains. Bacterial cultures were incubated at 37 &deg;C with rotation in 50 mL conical tubes.</p>
                 </div>
 
-                <h4>Human iPSC culture</h4>
+                <h3>Human iPSC culture</h3>
                 <div class="results-text">
                     <p>KOLF2-C1 AAVS1:EGFP human iPSC were a gift from the Skarnes Lab (The Jackson Laboratory, CT, USA) and were generated as previously described<sup><a href="#ref28">28</a></sup>. Briefly, the KOLF2-C1 AAVS1 cells express a EGFP reporter under the control of the strong CAGG promoter in the safe harbour locus AAVS1. The cells were maintained in Vitronectin XF (StemCell Technologies, 100-0763)-coated plates with Essential 8 medium (Gibco, A1517001). Cells were authenticated by STR profiling and checked regularly for <i>Mycoplasma</i> contamination. Cells were passaged using Versene (Gibco, 15040066).</p>
                 </div>
 
-                <h4>iPSDM differentiation</h4>
+                <h3>iPSDM differentiation</h3>
                 <div class="results-text">
                     <p>Monocyte factories were set up following a previously reported protocol<sup><a href="#ref29">29</a></sup>. Embryoid bodies (EBs) were fed daily with two times 50% medium changes with E8 supplemented with 50 ng mL<sup>&minus;1</sup> hBMP4 (Peprotech, 120-05), 50 ng mL<sup>&minus;1</sup> hVEGF (Peprotech, 100-20) and 20 ng mL<sup>&minus;1</sup> hSCF (Peprotech, 300-07) for 3 days. On day 4, the EBs were collected and seeded at 100-150 EBs per T175 or 250-300 per T225 flask in XVIVO-factory medium. These monocyte factories were fed weekly for 5 weeks until monocytes were observed in the supernatant. Up to 50% of the supernatant was collected weekly and centrifuged at 300g for 5 min. The cells were resuspended in XVIVO-differentiation medium. Monocytes were plated at 5 &times; 10<sup>6</sup> cells per 10 cm Petri dish to differentiate over 7 days; on day 4, a 50% medium change was performed. To detach, cells were washed once with PBS (pH 7.4), then incubated with Versene for 15 min at 37 &deg;C and 5% CO<sub>2</sub> before diluting 1:3 with PBS and gently scraping. Macrophages were centrifuged at 300g and plated for experiments.</p>
                 </div>
-                <h3>Infection and antibiotic treatment</h3>
-
-                <h4>Infection of iPSDM with <i>M. tuberculosis</i></h4>
+                <h3>Infection of iPSDM with <i>M. tuberculosis</i></h3>
                 <div class="results-text">
                     <p>For the high-content, live-cell imaging, induced pluripotent stem cell derived macrophages (iPSDM) were seeded at a density of 50,000 cells per well of an olefin-bottomed 96-well plate (Phenoplate, Revvity 605532). For flow cytometry, iPSDM were seeded at density of 500,000 cells per well on a tissue culture-treated 12-well plate (ThermoFisher, 3513). Mid-logarithmic-phase bacterial cultures (OD<sub>600</sub> 0.5-1.0) were centrifuged at 2,000g for 5 min and washed twice in PBS. Pellets were then shaken vigorously for 1 min with 2.5-3.5 mm glass beads (VWR, 332124 G) and bacteria resuspended in 10 mL macrophage culture medium before being centrifuged at 300g for 5 min to remove large clumps. The top 7 mL of bacterial suspension was taken, the OD<sub>600</sub> was measured, and the suspension was diluted appropriately for infection. After 2 h of uptake, extracellular bacteria were removed with two washes in PBS and macrophages were incubated at 37 &deg;C and 5% CO<sub>2</sub> for 24 h. Then, media was changed with media containing or not antibiotics before proceeding to the subsequent live-cell imaging.</p>
                 </div>
 
-                <h4><i>In cellulo</i> antibiotic treatments</h4>
+                <h3><i>In cellulo</i> antibiotic treatments</h3>
                 <div class="results-text">
                     <p>Antibiotic concentrations used in this study, defined as <i>in cellulo</i> EC<sub>50</sub> and EC<sub>99</sub>, were previously determined<sup><a href="#ref10">10</a>,<a href="#ref64">64</a></sup>. The values of EC<sub>50</sub> for PZA (Sigma, PHR1576-500mg), RIF (Sigma, R3501-1g) and INH (Sigma, I3377-5G) were respectively 60 &micro;g/mL, 0.1 &micro;g/mL and 0.04 &micro;g/mL. The values of EC<sub>99</sub> for PZA, RIF and INH were respectively 400 &micro;g/mL, 2 &micro;g/mL and 2 &micro;g/mL. Antibiotics were added into the infected macrophages after 24 h of infection. For <i>in vitro</i> antibiotic treatment of Mtb-Timer, late exponential phase Mtb culture were diluted to OD<sub>600</sub> = 0.1 and incubated at 37 &deg;C with rotation for 2 days. Cultures were then supplemented with PZA, INH, RIF (at EC<sub>99</sub>) and CHL<sup><a href="#ref65">65</a></sup> (10 &micro;g/mL) and incubated for an additional 3 days at 37 &deg;C with rotation.</p>
                 </div>
-                <h3><i>In cellulo</i> data acquisition and analysis</h3>
-
-                <h4><i>In cellulo</i> image acquisition</h4>
+                <h3><i>In cellulo</i> image acquisition</h3>
                 <div class="results-text">
                     <p>Image acquisition was achieved with the OPERA Phenix high-content, confocal, incubator microscope with a 40x water-immersion 1.1NA objective. A single image of 323 &micro;m x 323 &micro;m was acquired across 9 contiguous positions which were compiled together into a 3x3 mosaic of 904 &micro;m x 904 &micro;m with a 10% overlap between tiles. This tessellated field of view was repeated across 3x 2 &micro;m z-slices and the 2x green/red imaging channels. The channel acquisition parameters were &lambda;<sub>ex</sub> = 488, &lambda;<sub>em</sub> = 522 (exposure time 100 ms) for KOLF-EGFP macrophages and &lambda;<sub>ex</sub> = 640, &lambda;<sub>em</sub> = 706 (exposure time 200 ms) for E2-Crimson-Mtb. This was then repeated every 30/60 min for 150/75 frames to reach a total timelapse acquisition of 75 h. This process was repeated over 42 different imaging wells, each with a different Mtb strain or antibiotic condition within, resulting in a final acquisition of 340,200 images (2.58 TB) per biological repeat. A total of 4 biological repeats were conducted. The untiled images were then exported out of the Harmony software (Revvity, version 4.9) to allow for an open-source Python-based image analysis (v3.10.19).</p>
                 </div>
 
-                <h4><i>In cellulo</i> image analysis</h4>
+                <h3><i>In cellulo</i> image analysis</h3>
                 <div class="results-text">
                     <p>The first step in the Python-based image analysis was to tile the images into full field-of-view mosaics. This facilitated the tracking of macrophages across individual tiles, greatly increasing the number of tracked macrophages in our final dataset. This tiling was achieved using a bespoke Dask (v2026.1.2) Python script, based on the DaskFusion repository<sup><a href="#ref66">66</a></sup>, that extracts the Cartesian coordinates of each image tile from the OPERA Phenix metadata and stiches them together into a Dask image volume<sup><a href="#ref67">67</a></sup>. This lazy-loading approach enabled the selective rendering of individual frames, z-slices, or cropped regions of interest, conserving computational power by avoiding the need to load the entire 62.95 GB-per-condition image volume for each visual examination or partial analysis.</p>
 
@@ -677,7 +665,7 @@
                     <p>The final step in the image analysis pipeline was to process the time-series information of intracellular Mtb content for each cell into growth curves, from which single-cell intracellular doubling amounts and times could be extracted. This firstly involves a linear interpolation of the data to account for points at which the segmentation may have been missed, or image frame skipped. A nonparametric locally weighted scatterplot smoothing (LOWESS) model (statsmodels v0.14.6)<sup><a href="#ref70">70</a></sup> was then applied to this time series to generate a smooth, continuous curve. This allowed for a reliable estimation of intracellular Mtb doubling times as it removes any fluctuations from the data that could result in an inaccurate assessment of population doubling. The coefficient of determination (R<sup>2</sup>) between the raw intracellular Mtb signal and LOWESS model was used to isolate potential instances of extrinsic Mtb growth, with trajectories showing R<sup>2</sup> &lt; 0.7 being subsequently validated as either extracellular transfer or uptake using a napari-based human-in-the-loop inspection of single-cell instances. The threshold of 0.7 was empirically determined by inspecting several hundred growth patterns and their associated R<sup>2</sup> scores.</p>
                 </div>
 
-                <h4>Flow cytometry and data analysis</h4>
+                <h3>Flow cytometry and data analysis</h3>
                 <div class="results-text">
                     <p>For <i>in cellulo</i> Mtb-Timer experiments, infected iPSDM at 2 h, 24 h and 96 h post-infection (PI) were washed once with PBS and lysed in 0.05% Triton-X100 in H<sub>2</sub>O at 37 &deg;C for 5 min. Released Mtb was fixed in 4% PFA in PBS at 4 &deg;C overnight. For <i>in vitro</i> Mtb-Timer experiments, at the experimental endpoint of antibiotic treatment, Mtb cultures were pelleted by centrifugation and fixed in 4% PFA in PBS at 4 &deg;C overnight. Fixed <i>in vitro</i> and <i>in cellulo</i> Mtb were collected by centrifugation, washed in PBS, and resuspended in PBS + 1% BSA.</p>
 
@@ -685,29 +673,27 @@
 
                     <p>Samples were acquired on a BD LSRFortessa&trade; Cell Analyzer (BD Biosciences) using BD FACSDiva software (v8.0.1) and analysed using FlowJo (FlowJo, LLC, v10.10.0). At least 10,000 events per condition were recorded.</p>
                 </div>
-                <h3><i>In vivo</i> data acquisition and analysis</h3>
-                <h4>Murine aerosol <i>M. tuberculosis</i> infection and antibiotic treatment</h4>
+                <h3>Murine aerosol <i>M. tuberculosis</i> infection and antibiotic treatment</h3>
                 <div class="results-text">
                     <p><i>M. tuberculosis</i> H37Rv wild type (WT) expressing Timer was used to infect mice. Bacteria were verified by sequencing and tested for phthiocerol dimycocerosates (PDIM) positivity using thin-layer chromatography. C3HeB/FeJ mice (<i>Mus musculus</i>) were bred under specific pathogen-free conditions at The Francis Crick Institute (London, UK). Female mice were housed in cages within isolators in the BSL-3 facility under controlled conditions of temperature (19&ndash;23 &deg;C) and humidity (55 &plusmn; 10%) on a 12 h light/12 h dark cycle, with food and water provided <i>ad libitum</i>. Animal studies and breeding were approved by the Francis Crick Institute Animal Welfare and Ethical Review Body (AWERB) and performed under UK Home Office project licence P4D8F6075, in accordance with the Animals (Scientific Procedures) Act 1986. Infections were performed across two independent batches (batch 1: 3 vehicle, 4 RIF, 4 PZA; batch 2: 6 vehicle, 5 RIF, 5 PZA; n = 9 per condition) in the category 3 animal facility of the Francis Crick Institute. For aerosol infection, Mtb-Timer was grown to mid-log phase (OD<sub>600</sub> = 0.6) in 7H9 supplemented with ADC, Tween 20 and 50 &micro;g/mL Hygromycin. An infection sample was prepared from this to enable delivery of approximately 100 CFU per mouse lung using a modified Glas-Col aerosol infection system. Treatment of mice commenced at day 56 post-infection, by administration of either antibiotic or diluent control, performed daily for 5 days a week via oral gavage over 3 weeks. The antibiotic treatment groups were given either 30 mg/kg PZA (in water) or 10 mg/kg rifampicin (in 1% DMSO); control groups received water or 1% DMSO. At day 77 post-infection, mice were culled and the lungs were obtained. The left lobe from each mouse lung was excised and perfused with 10% neutral-buffered PFA. The remaining lung lobes were used to determine bacterial counts by plating serial dilutions of homogenates on duplicate 7H11 agar plates, supplemented with OADC and containing 50 &micro;g/mL Hygromycin. Colonies were counted 2 to 3 weeks after incubation at 37 &deg;C.</p>
                 </div>
 
-                <h4>Lung sectioning and imaging</h4>
+                <h3>Lung sectioning and imaging</h3>
                 <div class="results-text">
                     <p>Preparation of cryosections: Lungs were equilibrated in 0.1 M HEPEs buffer (pH 7.4) with 0.2 M sucrose o/n before being transferred to silicon molds containing OCT medium (Agar scientific, AGR1180). Molds containing OCT and lungs were then transferred to dry ice and frozen in preparation for sectioning. Sections were cut using a Leica CM30505S Cryostat (CT-18 &deg;C, OT-20 &deg;C) to a size of 8 &micro;m. These sections were collected on SuperFrost Plus Adhesion slides (Thermo Fisher, 11950657) and stored at &minus;80 &deg;C before further processing. Tissue sections on SuperFrost Plus Adhesion slides (Thermo Fisher Scientific, 11950657) were thawed for approximately 20 min on a heat block set to 50 &deg;C. A hydrophobic border was drawn around the tissue sections to prevent solution overflow. The slides were then washed with PBS and quenched with 50 mM NH<sub>4</sub>Cl for 10 min to reduce autofluorescence. Following another wash with PBS, DAPI (1:10,000) in PBS was added for 20 min to stain the nuclei. After a final wash with PBS, the slides were allowed to air-dry slightly before mounting with Dako Fluorescence Mounting Medium (Agilent, S3023). Images were acquired at 40x magnification using an Olympus CSU-W1 SoRa Spinning Disk Microscope (Olympus). Scans were saved as .ets file and visualised using QuPath<sup><a href="#ref42">42</a></sup>.</p>
                 </div>
 
-                <h4>Single-cell tissue image analysis</h4>
+                <h3>Single-cell tissue image analysis</h3>
                 <div class="results-text">
-                    <p>Images were loaded on QuPath<sup><a href="#ref42">42</a></sup> v0.51 and cells were segmented using the &ldquo;cell detection&rdquo; module on the DAPI channel. This approach detected the nuclei and then allowed for a perinuclear expansion of 5 &micro;m to determine each cell boundary. Bacteria were segmented with the QuPath brush annotation in a semi-automated manner, using GFP and DsRed channel as the input. The cytoplasmic and Mtb segmentation masks were then exported to OME-NGFF Zarr<sup><a href="#ref71">71</a></sup> for batch quantification of single-cell Mtb levels using Python.</p>
+                    <p>Images were loaded on QuPath<sup><a href="#ref42">42</a></sup> (v0.51) and cells were segmented using the &ldquo;cell detection&rdquo; module on the DAPI channel. This approach detected the nuclei and then allowed for a perinuclear expansion of 5 &micro;m to determine each cell boundary. Bacteria were segmented with the QuPath brush annotation in a semi-automated manner, using GFP and DsRed channel as the input. The cytoplasmic and Mtb segmentation masks were then exported to OME-NGFF Zarr<sup><a href="#ref71">71</a></sup> for batch quantification of single-cell Mtb levels using Python.</p>
                 </div>
 
-                <h3>Statistics and visualisation</h3>
-                <h4>Statistical analysis</h4>
+                <h3>Statistical analysis</h3>
                 <div class="results-text">
                     <p>Statistical analyses were performed using Python scipy.stats (v1.15.2) and scikit-learn (v1.7.2). To quantify the spread and heterogeneity of replication dynamics, we calculated the Coefficient of Variation (CV = &sigma;/&mu;) for all doubling time distributions. Changes in CV were used to assess the contraction or expansion of phenotypic heterogeneity under antibiotics. To specifically compare the shapes of doubling times distributions and identify distinct phenotypic clusters, we performed pairwise Kolmogorov-Smirnov (KS) tests. The resulting KS statistics (D) were visualized as a matrix to reveal the degree of similarity between conditions (<a href="#SF5">Fig. S5</a>). To deconstruct the underlying subpopulations of growth phenotypes within the heterogeneous doubling time data, we applied Gaussian Mixture Models (GMM) using the Expectation-Maximisation (EM) algorithm (sklearn.mixture.GaussianMixture). The optimal number of components (k) was determined by minimising the Bayesian Information Criterion (BIC). To statistically compare the proportions of categorical growth phenotypes (Fast, Intermediate, Slow) between conditions, we utilised Fisher&rsquo;s Exact Test. This method was selected over Chi-Squared to provide exact p-values for specific pairwise comparisons of rare subpopulations (e.g., fast growers in RIF-treated vs. Control). P-values for multiple comparisons were adjusted using the Benjamini-Hochberg False Discovery Rate (FDR) method where appropriate. For <i>in vivo</i> single-cell analysis, the relationship between bacterial burden (Red fluorescence) and replication rate (Green/Red ratio) was assessed using Pearson&rsquo;s correlation coefficient (scipy.stats.pearsonr).</p>
                 </div>
 
-                <h4>Visualisation</h4>
+                <h3>Visualisation</h3>
                 <div class="results-text">
                     <p>Visualisation of timelapse imagery, accompanying segmentation and tracked macrophage populations were all conducted within napari<sup><a href="#ref35">35</a></sup> utilising OME-NGFF Zarr<sup><a href="#ref71">71</a></sup> and Dask<sup><a href="#ref72">72</a></sup> for efficient lazy-loading of large image arrays. Cropped video glimpses of macrophages and Mtb were compiled as RGB .mp4 video files to facilitate the iterative loading and classification of macrophage phenotypes using napari key-bindings. Flow cytometry plots were generated using FlowJo and the Seaborn (v0.13.2)<sup><a href="#ref73">73</a></sup> package in Python. <i>In vivo</i> data was visualised using napari<sup><a href="#ref35">35</a></sup> and QuPath<sup><a href="#ref42">42</a></sup>.</p>
                 </div>
@@ -1490,12 +1476,10 @@
 
                 <hr class="section-divider">
                 <figcaption id="SF7">
-                    <p><b>Supplementary Figure S7:</b> Flow cytometry validation and characterization of the Mtb-Timer replication reporter <i>in vitro</i> and <i>in cellulo</i>.</p>
-                    <b>(A)</b> Gating strategy of Mtb-Timer. Bacteria were first gated from SSC-A vs FSC-A plot to remove bacterial clumps, Mtb-Timer was then gated from the Mtb population. Representative data of one out of the three independent experiments (n = 3 independent experiments).
+                    <p><b>Supplementary Figure S7:</b> Flow cytometry validation and characterization of the Mtb-Timer replication reporter <i>in vitro</i>.</p>
+                    <b>(A)</b> Gating strategy of Mtb-Timer. Bacteria were first gated from the SSC-A vs FSC-A plot to remove bacterial clumps; Mtb-Timer bacteria were then gated from the Mtb population. Representative data from one of three independent experiments (n = 3 independent experiments).
                     <b>(B)</b> Timer profiles of Mtb treated with chloramphenicol <i>in vitro</i> for 1, 2 and 3 days, representative plots showing untreated control (black) and chloramphenicol treated (red) samples. (n = 3 independent experiments).
-                    <b>(C)</b> Mtb-Timer profiles of inoculum and <i>in cellulo</i> Mtb at 2 h, 24 h and 96 h after infection. Representative data of one out of the three independent experiments (n = 3 independent experiments).
-                    <b>(D)</b> Timer profiles of <i>in cellulo</i> Mtb at 96h after infection under antibiotic treatment. Gate “Control 72h” is gated from the control condition to depict the Timer<sub>Mtb</sub> profile without antibiotic treatment. Representative data of one out of three independent experiments (n = 3 independent experiments).
-                    <b>(E)</b> Timer profiles of Mtb treated with antibiotic <i>in vitro</i> for 3 days. Representative data of one out of the three independent experiments (n = 3 independent experiments).
+                    <b>(C)</b> Timer profiles of Mtb treated with antibiotic <i>in vitro</i> for 3 days. Representative data of one out of the three independent experiments (n = 3 independent experiments).
                 </figcaption>
                 <div class="S7-container">
                     <div id="SF7A" class="S7A-container">
@@ -1522,22 +1506,29 @@
                         <img src="figures/static/Supplementary Figure S7-C.png" data-high-res="figures/static/Supplementary Figure S7-C_full_res.png" alt="Supplementary Figure S7C">
                     </div>
 
-                    <div id="SF7D" class="S7D-container">
+                </div>
+                <hr class="section-divider">
+                <figcaption id="SF8">
+                    <p><b>Supplementary Figure S8:</b> Flow cytometry validation and characterization of the Mtb-Timer replication reporter <i>in cellulo</i>.</p>
+                    <b>(A)</b> Mtb-Timer profiles of inoculum and <i>in cellulo</i> Mtb at 2 h, 24 h and 96 h after infection. Representative data of one out of the three independent experiments (n = 3 independent experiments).
+                    <b>(B)</b> Mtb-Timer profiles of <i>in cellulo</i> Mtb at 96 h after infection under antibiotic treatment. Gate “Control 72 h” is gated from the control condition to depict the Mtb-Timer profile without antibiotic treatment. Representative data of one out of three independent experiments (n = 3 independent experiments).
+                </figcaption>
+                <div class="S7-container">
+                    <div id="SF8A" class="S7A-container">
                         <div class="horizontal-caption-container">
-                            <div class="caption">D</div>
+                            <div class="caption">A</div>
                             <div class="horizontal-line"></div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S7-D.png" data-high-res="figures/static/Supplementary Figure S7-D_full_res.png" alt="Supplementary Figure S7D">
+                        <img src="figures/static/Supplementary Figure S8-A.png" data-high-res="figures/static/Supplementary Figure S8-A_full_res.png" alt="Supplementary Figure S8A">
                     </div>
 
-                    <div id="SF7E" class="S7E-container">
+                    <div id="SF8B" class="S7B-container">
                         <div class="horizontal-caption-container">
-                            <div class="caption">E</div>
+                            <div class="caption">B</div>
                             <div class="horizontal-line"></div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S7-E.png" data-high-res="figures/static/Supplementary Figure S7-E_full_res.png" alt="Supplementary Figure S7E">
+                        <img src="figures/static/Supplementary Figure S8-B.png" data-high-res="figures/static/Supplementary Figure S8-B_full_res.png" alt="Supplementary Figure S8B">
                     </div>
-
                 </div>
                 <hr class="section-divider">
                 <figcaption id="SF9">
@@ -1545,61 +1536,61 @@
                     <b>(A-B)</b> Large-scale tiled scan of a whole lung lobectomy (A) and a magnified view of a lesion region (B), visualizing the distribution of Mtb-Timer (green and magenta) relative to host nuclei (DAPI, blue).
                     <b>(C-H)</b> High-resolution details illustrating the segmentation strategy. A representative field of view (C, composite) is split into component channels: combined Mtb-Timer fluorescence (D), mature red Timer (F), newly synthesized green Timer (G), and host nuclei (H). These signals are used to generate segmentation masks (E), with the manually identified individual bacterial units (yellow outlines) and automatically segmented host cell boundaries (colored lines).
                 </figcaption>
-                <div id="SF9" class="S8-container">
+                <div id="SF9-grid" class="S8-container">
                     <div id="SF9A" class="S8A-container">
                         <div class="sf8-caption-overlay">
                             <div class="caption">A</div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S8-A.png" data-high-res="figures/static/Supplementary Figure S8-A_full_res.png" alt="Supplementary Figure S8A whole lung section">
+                        <img src="figures/static/Supplementary Figure S9-A.png" data-high-res="figures/static/Supplementary Figure S9-A_full_res.png" alt="Supplementary Figure S9A whole lung section">
                     </div>
 
                     <div id="SF9B" class="S8B-container">
                         <div class="sf8-caption-overlay">
                             <div class="caption">B</div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S8-B.png" data-high-res="figures/static/Supplementary Figure S8-B_full_res.png" alt="Supplementary Figure S8B zoomed lung section">
+                        <img src="figures/static/Supplementary Figure S9-B.png" data-high-res="figures/static/Supplementary Figure S9-B_full_res.png" alt="Supplementary Figure S9B zoomed lung section">
                     </div>
 
                     <div id="SF9C" class="S8C-container">
                         <div class="sf8-caption-overlay">
                             <div class="caption">C</div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S8-C.png" data-high-res="figures/static/Supplementary Figure S8-C_full_res.png" alt="Supplementary Figure S8C Merge">
+                        <img src="figures/static/Supplementary Figure S9-C.png" data-high-res="figures/static/Supplementary Figure S9-C_full_res.png" alt="Supplementary Figure S9C Merge">
                     </div>
 
                     <div id="SF9D" class="S8D-container">
                         <div class="sf8-caption-overlay">
                             <div class="caption">D</div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S8-D.png" data-high-res="figures/static/Supplementary Figure S8-D_full_res.png" alt="Supplementary Figure S8D Mtb-Timer">
+                        <img src="figures/static/Supplementary Figure S9-D.png" data-high-res="figures/static/Supplementary Figure S9-D_full_res.png" alt="Supplementary Figure S9D Mtb-Timer">
                     </div>
 
                     <div id="SF9E" class="S8E-container">
                         <div class="sf8-caption-overlay">
                             <div class="caption">E</div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S8-E.png" data-high-res="figures/static/Supplementary Figure S8-E_full_res.png" alt="Supplementary Figure S8E Segmentation">
+                        <img src="figures/static/Supplementary Figure S9-E.png" data-high-res="figures/static/Supplementary Figure S9-E_full_res.png" alt="Supplementary Figure S9E Segmentation">
                     </div>
 
                     <div id="SF9F" class="S8F-container">
                         <div class="sf8-caption-overlay">
                             <div class="caption">F</div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S8-F.png" data-high-res="figures/static/Supplementary Figure S8-F_full_res.png" alt="Supplementary Figure S8F Mtb-Timer Magenta">
+                        <img src="figures/static/Supplementary Figure S9-F.png" data-high-res="figures/static/Supplementary Figure S9-F_full_res.png" alt="Supplementary Figure S9F Mtb-Timer Magenta">
                     </div>
 
                     <div id="SF9G" class="S8G-container">
                         <div class="sf8-caption-overlay">
                             <div class="caption">G</div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S8-G.png" data-high-res="figures/static/Supplementary Figure S8-G_full_res.png" alt="Supplementary Figure S8G Mtb-Timer Green">
+                        <img src="figures/static/Supplementary Figure S9-G.png" data-high-res="figures/static/Supplementary Figure S9-G_full_res.png" alt="Supplementary Figure S9G Mtb-Timer Green">
                     </div>
 
                     <div id="SF9H" class="S8H-container">
                         <div class="sf8-caption-overlay">
                             <div class="caption">H</div>
                         </div>
-                        <img src="figures/static/Supplementary Figure S8-H.png" data-high-res="figures/static/Supplementary Figure S8-H_full_res.png" alt="Supplementary Figure S8H DAPI">
+                        <img src="figures/static/Supplementary Figure S9-H.png" data-high-res="figures/static/Supplementary Figure S9-H_full_res.png" alt="Supplementary Figure S9H DAPI">
                     </div>
                 </div>
 
@@ -1791,5 +1782,30 @@
 
     <script src="js/interactivity.js"></script>
     <script src="js/readership.js"></script>
+    <script>
+      // Title card: first-frame PNG poster shows instantly; the video cross-fades in once loaded.
+      (function () {
+        var HOLD_MS = 0; // hold the still first frame this long (ms) before the video starts; 0 = as soon as loaded
+        document.querySelectorAll('.title-video').forEach(function (v) {
+          v.muted = true;        // required for programmatic play()
+          v.autoplay = false;
+          var done = false;
+          function reveal() {
+            if (done) return;
+            done = true;
+            setTimeout(function () {
+              v.classList.add('playing');   // CSS fades the video in over the identical still
+              var pr = v.play();
+              if (pr && pr.catch) pr.catch(function () {});
+            }, HOLD_MS);
+          }
+          if (v.readyState >= 2) reveal();
+          else {
+            v.addEventListener('loadeddata', reveal, { once: true });
+            v.load();
+          }
+        });
+      })();
+    </script>
 </body>
 </html>
